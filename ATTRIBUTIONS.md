@@ -1,6 +1,6 @@
 # Attributions
 
-mbauto.online has no external libraries, fonts, images or services. Everything it loads comes from its own site:
+auto.mcbflow.com has no external libraries, fonts, images or services. Everything it loads comes from its own site:
 
 - `index.html`, `sw.js`, `manifest.json`: written for this app.
 - `mb-title.js`, `mb-install.js`, `mb-share.js` and the MB Suite stylesheets inlined in `index.html`: Matthew Broyer's MB Suite design system, shared by his mb apps.
@@ -43,8 +43,8 @@ None. The app uses the device's system font. (Google Fonts "Inter" was removed i
 
 ## Links
 
-The **Check recalls** button links to the U.S. National Highway Traffic Safety Administration's recall lookup (nhtsa.gov). mbauto.online isn't affiliated with or endorsed by NHTSA.
+The **Check recalls** button links to the U.S. National Highway Traffic Safety Administration's recall lookup (nhtsa.gov). auto.mcbflow.com isn't affiliated with or endorsed by NHTSA.
 
 ## Trademarks
 
-Vehicle makes and model names (in the make suggestions, placeholders and sample data) are used only to describe vehicles. They belong to their owners. mbauto.online is not affiliated with or endorsed by any of them.
+Vehicle makes and model names (in the make suggestions, placeholders and sample data) are used only to describe vehicles. They belong to their owners. auto.mcbflow.com is not affiliated with or endorsed by any of them.

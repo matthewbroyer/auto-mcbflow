@@ -1,6 +1,17 @@
 # Release notes · Auto (auto.mcbflow.com)
 
-Newest first. One entry per release, in plain words a user would understand. The full history is also in the app under Settings → Release notes.
+Newest first. One entry per release, in plain words a user would understand. The full history is also in the app under Help → Release notes (or What’s new in any page footer).
+
+## 1.5 · 2026-10-16
+- New Settings page, laid out like every other mcbflow.com app: Appearance, Account & sync, Auto settings, Backup & data (with Recently deleted), Install and About. The FAQ, release notes, Privacy and Terms moved to a new Help page next to it (sidebar on computers, More on phones).
+- Account button in the top bar: sign in, see the sync status, and choose a profile picture and screen name (Edit profile); they show in every mcbflow.com app. "Keep me signed in on this device" can be turned off on a shared computer.
+- Home greets you ("Good morning, Matthew" when signed in). Overview is now called Home, with a house icon; Settings has a gear icon.
+- The same welcome screen as the other apps: a short tour, pick light or dark, then your vehicle (type, year, make, model) and its odometer. It also offers Sign in, Import a backup and sample data. The separate "Your records stay in this browser" notice is folded into its first step. After skipping it, Home shows how to add your first vehicle instead of a separate welcome page.
+- Clearer Data menu: every item has a one-line description, in the same order as the other apps. New Export All (ZIP): the backup, spreadsheets (one per record type) and your attached photos and PDFs in one file; Import Backup accepts that ZIP too. The CSV export is unchanged (fill-ups, services, repairs and expenses for spreadsheets). Clear all data still erases with a typed ERASE and keeps a copy in Recently deleted for 30 days.
+- Photos and PDFs open in the app in a viewer (with Download there) instead of downloading. Attachments added on another device say they aren't on this device.
+- Quieter backup reminders while signed in and syncing: the backup chip reads "Synced", the Data dot stays off and the status says "Synced to your account".
+- Charts: hover, tap or tab to a month, a fill-up or a cost category to read it; the others fade, the fuel economy chart has a crosshair you can move with the arrow keys, and the average line is dashed and labelled. Maintenance progress bars show their numbers on hover.
+- Every control in the top bar is the same height, and the name reads "Auto ∙ mcbflow.com" (just "Auto" on phones). Each page ends with a short footer: What's new, Privacy, Terms, More free apps.
 
 ## 1.4 · 2026-10-15
 - New: optional sync across devices. Data → Sync across devices signs in with a free mcbflow.com account; vehicles and every fill-up, service, repair, expense, reminder, problem, document and checklist then match on every device you sign in on.
@@ -8,7 +19,7 @@ Newest first. One entry per release, in plain words a user would understand. The
 - Not signed in: nothing changes. Erase all data warns when you're signed in.
 
 ## 1.3 · 2026-10-14
-- Moved to auto.mcbflow.com. Data saved at mbauto.online doesn't carry over: export a backup there and import it here.
+- Moved to auto.mcbflow.com. Data saved at the old address doesn't carry over: export a backup there and import it here.
 - Storage names simplified.
 
 ## 1.2 · 2026-10-14

@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Auto | Overview</title>
+<title>Auto | Home</title>
 <meta name="description" content="Free vehicle log for fuel, service, repairs and cost per mile, with reminders for what’s due next. No account. Your records stay on your device.">
 <link rel="canonical" href="https://auto.mcbflow.com/">
 <meta name="theme-color" content="#256b8f">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; connect-src https://rxvcjdwmvxhwbdwncfhj.supabase.co; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; connect-src https://rxvcjdwmvxhwbdwncfhj.supabase.co; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; frame-src blob:; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="auto.mcbflow.com">
@@ -221,15 +221,6 @@ dialog::backdrop{background:rgba(10,14,18,.5)}
 
 #toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:14px;z-index:70;opacity:0;transition:opacity .2s;pointer-events:none}
 #toast.on{opacity:1}
-.welcome{max-width:560px;margin:40px auto;text-align:center;padding:32px 24px}
-.welcome .logo{display:block;width:56px;height:56px;margin:0 auto 14px}
-.welcome .logo svg{width:32px;height:32px}
-.welcome p{color:var(--text-2)}
-.wlist{list-style:none;padding:0;margin:18px auto 0;display:inline-flex;flex-direction:column;gap:9px;text-align:left}
-.wlist li{display:flex;gap:9px;align-items:flex-start}
-.wlist .i{color:var(--ok);margin-top:2px}
-.wsafe{font-size:13.5px;margin:20px 0 0}
-.wsafe .i{width:16px;height:16px;color:var(--accent-strong);vertical-align:-3px;margin-right:6px}
 .faq .a ul{margin:6px 0 0;padding-left:18px}
 .muted{color:var(--muted)}
 .skip{position:fixed;left:12px;top:-60px;z-index:100;background:var(--surface);color:var(--text);padding:10px 14px;border-radius:9px;border:2px solid var(--accent);font-weight:600}
@@ -241,7 +232,6 @@ main:focus{outline:none}
 .legal p,.legal li{color:var(--text-2);font-size:14.5px}
 .legal ul{padding-left:20px;margin:6px 0}
 .legal .card{padding:4px 20px 20px}
-.legal-links{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
 .fine{font-size:12.5px;color:var(--muted);margin:14px 2px 0}
 .trow{display:flex;gap:12px;align-items:center;padding:10px 16px;border-top:1px solid var(--border)}
 .trow .main{flex:1;min-width:0}
@@ -305,14 +295,6 @@ mark{background:var(--warn-soft);color:inherit;border-radius:3px;padding:0 1px}
 .faq details[open] summary .i{transform:rotate(180deg)}
 .faq .a{padding:0 16px 14px;color:var(--text-2);font-size:14px;max-width:760px}
 .faq details[open] .a{animation:rise .2s ease}
-/* storage notice */
-.notice{position:fixed;left:20px;bottom:24px;z-index:40;max-width:440px;background:var(--surface);border:1px solid var(--border-2);border-radius:14px;box-shadow:0 10px 32px rgba(0,0,0,.18);padding:14px 16px;display:flex;flex-direction:column;gap:10px;animation:rise .3s ease both}
-.notice[hidden]{display:none}
-.notice .nt{display:flex;gap:12px;align-items:flex-start}
-.notice .nt .i{color:var(--accent-strong);margin-top:2px}
-.notice p{margin:0;font-size:13.5px;color:var(--text-2)}
-.notice p b{color:var(--text)}
-.notice .nb{display:flex;gap:8px;justify-content:flex-end}
 /* confirm modal */
 #cfm{width:min(440px,calc(100vw - 24px))}
 .cfm-b{display:flex;gap:14px;padding:20px 20px 16px}
@@ -393,7 +375,6 @@ mark{background:var(--warn-soft);color:inherit;border-radius:3px;padding:0 1px}
 }
 @media (max-width:640px){
   body{font-size:14.5px}
-  .notice{left:12px;right:12px;bottom:calc(72px + env(safe-area-inset-bottom));max-width:none}
   .totop{right:18px;bottom:calc(140px + env(safe-area-inset-bottom) + var(--notice-h,0px))}
   .vsel{max-width:none;flex:1}
   .fab{bottom:calc(76px + env(safe-area-inset-bottom) + var(--notice-h,0px));right:16px;padding:14px}
@@ -436,7 +417,7 @@ h2{font-size:14.5px}
 
 /* motion: no lifts, no entrance animation, quick colour transitions only */
 main.anim>*,main.anim .chart g.col,main.anim .chart path.line,main.anim .chart path.area,
-main.anim .meter span,main.anim .hbar .trk span,.faq details[open] .a,.notice,.ob-done{animation:none}
+main.anim .meter span,main.anim .hbar .trk span,.faq details[open] .a,.ob-done{animation:none}
 main.anim .chart path.line{stroke-dasharray:none;stroke-dashoffset:0}
 .btn,.iconbtn,.fab,.seg button,.addgrid button,.more,.sr,.vsel,.faq summary,.obtiles button,
 .row.click,.cl-row,input,select,textarea{transition:background-color var(--ease),border-color var(--ease),color var(--ease),box-shadow var(--ease)}
@@ -560,7 +541,6 @@ dialog::backdrop{background:rgba(10,12,16,.45)}
 .sgrp,.faq-sec{font-size:11.5px;letter-spacing:.06em}
 .cfm-ic{width:36px;height:36px;border-radius:var(--r)}
 #toast{border-radius:var(--r);box-shadow:var(--shadow-pop)}
-.notice{border-radius:var(--r);box-shadow:var(--shadow-pop);max-width:400px}
 .skip{border-radius:var(--r-sm)}
 
 /* floating actions: squared, not pills */
@@ -580,7 +560,6 @@ dialog::backdrop{background:rgba(10,12,16,.45)}
 .ob-acts .btn{min-height:44px}
 .ob-done{border-radius:var(--r);width:56px;height:56px}
 .ob-done.sm{width:36px;height:36px}
-.welcome .logo{width:52px;height:52px;border-radius:8px}
 
 /* FAQ */
 .faq summary{padding:12px 16px;font-size:14px}
@@ -599,52 +578,17 @@ dialog::backdrop{background:rgba(10,12,16,.45)}
   .vsel{min-height:44px}
   .seg button{min-height:44px}
 }
-@media print{.fab,.totop,.notice{box-shadow:none}.hero{border-left-width:1px}}
+@media print{.fab,.totop{box-shadow:none}.hero{border-left-width:1px}}
 
-/* shared ecosystem components: logo badge + light/dark switch */
-.welcome .logo{width:52px;height:52px;border-radius:var(--r)}
-.welcome .logo svg{width:100%;height:100%}
 /* shared ecosystem: Data menu + "backed up" chip */
 .dwrap{position:relative}
-.dbtn[aria-expanded="true"]{background:var(--surface-2);border-color:var(--accent)}
-.bk-chip{display:inline-flex;align-items:center;gap:6px;min-height:var(--ctl-sm);padding:0 10px;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--surface);color:var(--text-2);font-size:12.5px;font-weight:550;cursor:pointer;white-space:nowrap;transition:background-color var(--ease),border-color var(--ease),color var(--ease)}
-.bk-chip[hidden]{display:none}
-.bk-chip .i{width:14px;height:14px;stroke-width:2.2;color:var(--ok)}
-.bk-chip:hover{background:var(--surface-2);border-color:var(--border-2);color:var(--text)}
-.bk-chip.stale{background:var(--warn-soft);border-color:color-mix(in srgb,var(--warn) 45%,transparent);color:var(--warn)}
-.bk-chip.stale .i{color:var(--warn)}
-.bk-chip:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
-.dm-panel{position:absolute;right:0;top:calc(100% + 6px);z-index:40;width:320px;background:var(--surface);border:1px solid var(--border-2);border-radius:var(--r);box-shadow:var(--shadow-pop);padding:4px}
-.dm-panel[hidden]{display:none}
-.dm-item{display:flex;align-items:center;gap:11px;width:100%;min-height:48px;padding:7px 10px;border:0;border-radius:var(--r-sm);background:none;text-align:left;cursor:pointer;color:var(--text);transition:background-color var(--ease)}
-.dm-item:hover,.dm-item:focus-visible{background:var(--surface-2);outline:none}
-.dm-item:focus-visible{box-shadow:inset 0 0 0 2px var(--accent)}
-.dm-item>.i{color:var(--text-2)}
-.dm-t{flex:1;min-width:0;display:flex;flex-direction:column}
-.dm-t b{font-weight:600;font-size:13.5px}
-.dm-t small{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.dm-item.pri{background:var(--accent);color:var(--on-accent);margin-bottom:4px}
-.dm-item.pri>.i,.dm-item.pri small{color:inherit;opacity:.85}
-.dm-item.pri:hover{background:var(--accent-strong)}
-.dm-item.pri:focus-visible{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--accent)}
-.dm-item kbd{font:600 11px var(--font);padding:2px 5px;border-radius:3px;border:1px solid currentColor;opacity:.7}
-.dm-sep{height:1px;background:var(--border);margin:4px 6px}
-.dm-foot{border-top:1px solid var(--border);margin-top:4px;padding:10px 10px 6px;font-size:12.5px;color:var(--text-2);display:flex;flex-direction:column;gap:6px}
-.dm-foot b{color:var(--text);font-weight:600;word-break:break-all}
 .inlink{border:0;background:none;padding:0;color:var(--accent-strong);font:inherit;font-weight:600;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
 .inlink:hover{color:var(--text)}
 .loc{font-size:12.5px;color:var(--text-2)}
 .loc b{color:var(--text);font-weight:600;word-break:break-all}
 .cfm-alt{margin-right:auto}
-.wtheme{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:16px;font-size:13px;color:var(--text-2);font-weight:600}
 .rn-list{margin:6px 0 0;padding-left:18px}
 .rn-list li{margin:3px 0}
-@media (max-width:640px){
-  .dm-panel{position:fixed;left:8px;right:8px;width:auto}
-}
-@media (max-width:520px){
-  .bk-chip{display:none!important}
-}
 
 /* ===== v1.2: attachments, timeline, glovebox, problems, quotes, tools ===== */
 .fchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
@@ -661,9 +605,6 @@ dialog::backdrop{background:rgba(10,12,16,.45)}
 button.fchip:hover,.fchip>button:hover{background:var(--surface-3)}
 .clip{display:inline-flex;align-items:center;gap:2px;color:var(--muted);font-size:12px;vertical-align:-2px}
 .clip .i{width:13px;height:13px}
-#fv{width:min(900px,calc(100vw - 24px))}
-.fv-b{padding:12px;display:grid;place-items:center;background:var(--surface-2)}
-.fv-b img{max-width:100%;max-height:calc(100vh - 160px);display:block}
 .yr{font-size:12px;font-weight:650;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;padding:14px 16px 6px;border-top:1px solid var(--border);background:var(--surface-2)}
 .yr:first-child{border-top:0}
 .tl-row{align-items:flex-start}
@@ -824,14 +765,12 @@ body{background:none}
 @media print{html{background:#fff}.cu-banner,.cu-art{display:none}}
 /* ===== adapters/auto-cutouts.css (v2 mapping for Auto's own selectors) ===== */
 .vcard .top{box-shadow:none!important}.vcard .top::before{content:none}               /* .top is a vehicle-card row here, not a header */
-:is(.btn.pri,.btn.primary,.fab,.dm-item.pri){background:var(--g-pri)!important;border-color:transparent!important;color:var(--accent-ink)!important}
-:is(.btn.pri,.btn.primary,.fab,.dm-item.pri):hover:not(:disabled){background:var(--accent-hover)!important}
+:is(.btn.pri,.btn.primary,.fab){background:var(--g-pri)!important;border-color:transparent!important;color:var(--accent-ink)!important}
+:is(.btn.pri,.btn.primary,.fab):hover:not(:disabled){background:var(--accent-hover)!important}
 .btn.pri:disabled,.btn.pri:disabled:hover{background:color-mix(in srgb,var(--accent) 35%,var(--surface-2))!important;color:color-mix(in srgb,var(--on-accent) 80%,transparent)!important}
 .meter span,.ob-bar span,#progress{background:var(--g-bar)}
 .meter.soon span{background:var(--warn)}.meter.over span{background:var(--bad)}.meter.ok span{background:var(--ok)}
 .card.hero{background:var(--g-tile)}
-.welcome{position:relative;overflow:hidden;padding-bottom:84px}
-.welcome .cu-art.at-bottom{opacity:.9}
 /* ===== mb-suite-sidebar.css (MB Suite v3, shared, unedited) ===== */
 /* =====================================================================
    MB SUITE v3 · LEFT SIDEBAR NAVIGATION  (replaces mb-suite-appbar.css)
@@ -842,7 +781,7 @@ body{background:none}
    Markup (see v3-updates/demo/index.html for a working page):
    <body class="mb-shell">
      <aside class="mb-side" aria-label="App">
-       <a class="brand" href="./" aria-label="mbname.online: go to Home"> .logo + .bt(b + span) </a>
+       <a class="brand" href="./" aria-label="Money (money.mcbflow.com): go to Home"> .logo + .bt(b + span) </a>
        <nav class="side-nav" aria-label="Sections"> <button aria-current="page"><svg class="uic"/><span>Home</span></button> … </nav>
        <nav class="side-nav side-end" aria-label="More"> Settings / Help items (optional) </nav>
      </aside>
@@ -1002,10 +941,6 @@ dialog.mb-share::backdrop{background:var(--scrim)}
 .vsel-row[hidden]{display:none}
 .vsel-row .vsel{display:block;width:100%;max-width:none;height:42px;min-height:42px;margin:0}
 .mb-main>.vsel-row:not([hidden])+.wrap{padding-top:12px}
-/* v1.2 standard top bar: Data's dot shows only when a backup is due */
-.page-bar .actions .dbtn:not(.stale) .tb-dot{display:none}
-.page-bar .actions .bk-chip{box-sizing:border-box;height:var(--tb-h,36px);min-height:var(--tb-h,36px)}
-.tld{font-style:normal;color:var(--accent)}
 .side-nav .ts,.bnav .tl{display:none}
 .mb-side .logo,.page-bar .logo{background:none}
 .bnav button{cursor:pointer}
@@ -1017,34 +952,91 @@ dialog.mb-share::backdrop{background:var(--scrim)}
   .fab{display:flex!important;bottom:calc(72px + env(safe-area-inset-bottom) + var(--notice-h,0px));right:16px}
   .fab[style*="none"]{display:none!important}
   .addtop{display:none!important}
-  .notice{bottom:calc(68px + env(safe-area-inset-bottom))}
   .totop{bottom:calc(140px + env(safe-area-inset-bottom) + var(--notice-h,0px))}
   .mb-main>.wrap{padding-bottom:calc(150px + var(--notice-h,0px))}
 }
 @media print{.mb-main>.wrap{padding:0}.vsel-row{display:none}}
+/* ===== v1.5 (MB Suite v3.3): Data menu position, nav icons, welcome extras, Home start card, charts ===== */
+.dwrap>.mb-dm{position:absolute;right:0;top:calc(100% + 6px)}
+.mb-dm[hidden]{display:none}
+.mb-dm-note .loc{display:block;margin-top:4px}
+/* 768–1439px: vehicle picker in its own row; Add entry is icon-only on small laptops so the bar stays one line */
+@media (min-width:768px){.vsel-row .vsel{max-width:320px;height:36px;min-height:36px}}
+@media (min-width:1024px) and (max-width:1279px){.page-bar .actions .addtop{width:var(--tb-h);padding:0}.page-bar .actions .addtop .tb-lbl{display:none}}
+.page-bar .page-title{min-width:0;flex:0 1 auto}
+.inst-fb{display:none;margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);font-size:13px;line-height:1.45;color:var(--ink-2)}
+[data-mb-install][hidden]~.inst-fb{display:block}
+.mb-set-sec>.fine{margin:2px 2px 0}
+.mb-set-sec>#trash{margin-top:4px}
+.auto-tgw{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;cursor:pointer}
+input.auto-tg{width:20px;height:20px;margin:0;accent-color:var(--accent);cursor:pointer}
+.side-nav .i,.bnav .i,.addgrid .i{stroke-width:1.8}
+/* welcome: vehicle type tiles, year/make/model, odometer */
+.mbw-choices.auto-types{grid-template-columns:repeat(3,minmax(0,1fr))}
+.auto-types .mbw-choice{flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:76px;padding:10px 6px;text-align:center;font-weight:600}
+.auto-types .mbw-choice .i{width:26px;height:26px;color:var(--accent)}
+.auto-ymm{display:grid;grid-template-columns:110px minmax(0,1fr) minmax(0,1fr);gap:0 10px}
+.mbw-field>span.auto-odo{display:flex;align-items:center;gap:10px;margin:0;font-size:inherit}
+.auto-odo input{flex:1;font-size:22px!important;font-weight:650}
+.auto-odo i{font-style:normal;font-size:16px;font-weight:600;color:var(--muted)}
+.mbw .ob-err{margin:10px 0 0}
+.mbw .fld-err{border-color:var(--bad)!important;box-shadow:0 0 0 1px var(--bad)!important}
+.mbw-choice input[type=checkbox]{width:18px;height:18px;margin:2px 0 0;accent-color:var(--accent);flex:none}
+.mbw-sub .mbw-link{min-height:32px;padding:0 4px}
+@media (max-width:600px){.auto-ymm{grid-template-columns:1fr}.mbw-choices.auto-types{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Home before the first vehicle */
+.auto-start{display:flex;gap:16px;align-items:flex-start;padding:20px}
+.auto-start h2{font-size:17px;margin:2px 0 4px}
+.auto-start p{margin:0;color:var(--text-2);font-size:14px;max-width:60ch}
+.auto-start .toolbar{margin-top:14px}
+@media (max-width:600px){.auto-start{flex-direction:column;padding:16px}.auto-start .toolbar .btn{flex:1 1 100%}}
+/* charts: hover / tap / focus labels, the read mark highlighted and the others faded, crosshair on the line chart */
+.charthint{font-size:11.5px;font-weight:500;color:var(--muted);white-space:nowrap}
+@media (hover:none){.charthint{font-size:0}.charthint::after{content:attr(data-touch);font-size:11.5px}}
+.chart .mk{cursor:pointer;outline:none}
+.chart .mk .hit{fill:transparent}
+.chart .mk .segs{transition:opacity .12s ease}
+.chart.reading .mk:not(.tipon) .segs{opacity:.45}
+.chart .mk.tipon .hit{fill:var(--hover-band)}
+.chart .mk:focus-visible .hit{fill:var(--hover-band);stroke:var(--accent);stroke-width:1.5}
+.chart svg:focus{outline:none}
+.chart svg:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.chart .xh{stroke:var(--text-2);stroke-width:1;stroke-dasharray:3 3;pointer-events:none}
+.chart .xdot{fill:var(--surface);stroke:var(--s1);stroke-width:3;pointer-events:none}
+.chart .tgt{stroke:var(--muted);stroke-width:1.2;stroke-dasharray:5 4}
+.hbars .hbar{border-radius:var(--r-sm);cursor:default;transition:opacity .12s ease}
+.hbars.reading .hbar:not(.tipon){opacity:.45}
+.hbars .hbar.tipon{background:var(--hover-band)}
+.hbars .hbar:focus{outline:none}
+.hbars .hbar:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+#tip{border-radius:8px;padding:7px 11px;max-width:270px;font-size:12px;line-height:1.4}
+#tip .tv{font-size:14.5px;font-weight:700;color:var(--text);line-height:1.25}
+#tip .tw{color:var(--muted)}
+#tip .tr{gap:14px}
 </style>
 <link rel="stylesheet" href="mb-suite-topbar.css">
 </head>
 <body class="mb-shell">
 <a class="skip" href="#main">Skip to content</a>
 <aside class="mb-side" aria-label="App">
-  <a class="brand" href="./" data-act="home" aria-label="auto.mcbflow.com: go to Overview"><span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="abg1" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#44809f"/><stop offset=".55" stop-color="#256B8F"/><stop offset="1" stop-color="#1e5672"/></linearGradient><clipPath id="abc1"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#abc1)"><rect width="64" height="64" fill="url(#abg1)"/><ellipse cx="14" cy="6" rx="40" ry="26" fill="#fff" opacity=".14"/><path d="m 16.5,43.990999 a 17,17 0 1 1 31,0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="m 32,37.990999 10,-11" fill="none" stroke="#F2B640" stroke-width="5.5" stroke-linecap="round"/><circle cx="32" cy="37.990997" r="5" fill="#fff"/></g><rect x=".5" y=".5" width="63" height="63" rx="17.5" fill="none" stroke="#fff" stroke-opacity=".24"/></svg></span><span class="bt"><b>auto<i class="tld">.mcbflow.com</i></b><span>Official Web App · v1.4</span></span></a>
+  <a class="brand" href="./" data-act="home" aria-label="Auto (auto.mcbflow.com): go to Home"><span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="abg1" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#44809f"/><stop offset=".55" stop-color="#256B8F"/><stop offset="1" stop-color="#1e5672"/></linearGradient><clipPath id="abc1"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#abc1)"><rect width="64" height="64" fill="url(#abg1)"/><ellipse cx="14" cy="6" rx="40" ry="26" fill="#fff" opacity=".14"/><path d="m 16.5,43.990999 a 17,17 0 1 1 31,0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="m 32,37.990999 10,-11" fill="none" stroke="#F2B640" stroke-width="5.5" stroke-linecap="round"/><circle cx="32" cy="37.990997" r="5" fill="#fff"/></g><rect x=".5" y=".5" width="63" height="63" rx="17.5" fill="none" stroke="#fff" stroke-opacity=".24"/></svg></span><span class="bt"><b>Auto<i class="tld"><span class="sep" aria-hidden="true">∙</span>mcbflow.com</i></b><span>Official Web App · v1.5</span></span></a>
   <nav class="side-nav" id="sideNav" aria-label="Sections"></nav>
   <nav class="side-nav side-end" id="sideEnd" aria-label="More"></nav>
 </aside>
 <div class="mb-main">
   <header class="page-bar">
-    <a class="brand phone-brand" href="./" data-act="home" aria-label="auto.mcbflow.com: go to Overview"><span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="abg2" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#44809f"/><stop offset=".55" stop-color="#256B8F"/><stop offset="1" stop-color="#1e5672"/></linearGradient><clipPath id="abc2"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#abc2)"><rect width="64" height="64" fill="url(#abg2)"/><ellipse cx="14" cy="6" rx="40" ry="26" fill="#fff" opacity=".14"/><path d="m 16.5,43.990999 a 17,17 0 1 1 31,0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="m 32,37.990999 10,-11" fill="none" stroke="#F2B640" stroke-width="5.5" stroke-linecap="round"/><circle cx="32" cy="37.990997" r="5" fill="#fff"/></g><rect x=".5" y=".5" width="63" height="63" rx="17.5" fill="none" stroke="#fff" stroke-opacity=".24"/></svg></span><span class="bt"><b>auto<i class="tld">.mcbflow.com</i></b><span>Official Web App · v1.4</span></span></a>
-    <div class="page-title" id="pageTitle" aria-hidden="true">Overview</div>
+    <a class="brand phone-brand" href="./" data-act="home" aria-label="Auto (auto.mcbflow.com): go to Home"><span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="abg2" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#44809f"/><stop offset=".55" stop-color="#256B8F"/><stop offset="1" stop-color="#1e5672"/></linearGradient><clipPath id="abc2"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#abc2)"><rect width="64" height="64" fill="url(#abg2)"/><ellipse cx="14" cy="6" rx="40" ry="26" fill="#fff" opacity=".14"/><path d="m 16.5,43.990999 a 17,17 0 1 1 31,0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="m 32,37.990999 10,-11" fill="none" stroke="#F2B640" stroke-width="5.5" stroke-linecap="round"/><circle cx="32" cy="37.990997" r="5" fill="#fff"/></g><rect x=".5" y=".5" width="63" height="63" rx="17.5" fill="none" stroke="#fff" stroke-opacity=".24"/></svg></span><span class="bt"><b>Auto<i class="tld"><span class="sep" aria-hidden="true">∙</span>mcbflow.com</i></b><span>Official Web App · v1.5</span></span></a>
+    <div class="page-title" id="pageTitle" aria-hidden="true">Home</div>
     <select class="vsel" id="vsel" aria-label="Vehicle"></select>
     <div class="actions">
     <button type="button" class="tb tb-search" id="searchBtn" data-act="search" title="Search (/)" aria-label="Search all records" aria-keyshortcuts="/"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="tb-lbl">Search…</span><kbd>/</kbd></button>
-    <button type="button" class="bk-chip tb-chip" id="bkChip" data-act="saveNow" hidden></button>
+    <button type="button" class="tb-chip" id="bkChip" data-act="saveNow" hidden></button>
     <div class="dwrap" id="dataWrap">
-      <button type="button" class="tb dbtn" id="dataBtn" data-act="datamenu" aria-haspopup="menu" aria-expanded="false" aria-controls="dataMenu" aria-label="Data" title="Backup, import & export"><svg class="i" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span class="dlbl tb-lbl">Data</span><svg class="i tb-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg><i class="ddot tb-dot" aria-hidden="true"></i></button>
-      <div class="dm-panel" id="dataMenu" role="menu" aria-label="Data" hidden></div>
+      <button type="button" class="tb dbtn" id="dataBtn" data-act="datamenu" aria-haspopup="menu" aria-expanded="false" aria-controls="dataMenu" aria-label="Data: back up, sync, export or import" title="Backup, sync, import &amp; export"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13"/><path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg><span class="tb-lbl">Data</span><svg class="tb-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg><i class="tb-dot" aria-hidden="true" hidden></i></button>
+      <div class="mb-dm" id="dataMenu" role="menu" aria-label="Data" hidden></div>
     </div>
-    <button type="button" class="themesw" id="themeBtn" role="switch" aria-checked="false" aria-label="Dark mode" title="Dark mode"><span class="tk"><svg class="i-sun" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10" cy="10" r="3.2"/><path d="M10 2.5v1.8M10 15.7v1.8M2.5 10h1.8M15.7 10h1.8M4.7 4.7l1.3 1.3M14 14l1.3 1.3M4.7 15.3 6 14M14 6l1.3-1.3"/></svg><svg class="i-moon" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M16.5 12.2A6.6 6.6 0 0 1 7.8 3.5a6.6 6.6 0 1 0 8.7 8.7Z"/></svg><i class="th"></i></span></button>
+    <button type="button" class="themesw" id="themeBtn" role="switch" aria-checked="false" aria-label="Dark mode" title="Dark mode"><span class="tk"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg><i class="th"></i></span></button>
+    <button type="button" class="tb tb-acct" id="acctBtn"></button>
     <button type="button" class="tb tb-primary addtop" id="addTop" data-act="addmenu" aria-label="Add entry"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span class="tb-lbl">Add entry</span></button>
     </div>
     <div id="progress" aria-hidden="true"></div>
@@ -1055,32 +1047,78 @@ dialog.mb-share::backdrop{background:var(--scrim)}
 <nav class="bnav" id="bnav" aria-label="Sections"></nav>
 <button class="fab" id="fab" data-act="addmenu" aria-label="Add entry"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Add entry</span></button>
 <button class="totop" id="totop" aria-label="Back to top" title="Back to top"><svg class="i" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
-<div class="notice" id="notice" role="region" aria-label="Storage notice" hidden>
-  <div class="nt"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><p><b>Your records stay in this browser.</b> No account, cookies or analytics. Save a backup from the <b>Data</b> menu so you don’t lose them.</p></div>
-  <div class="nb"><button class="btn sm ghost" id="noticeMore">How storage works</button><button class="btn sm pri" id="noticeOk">Got it</button></div>
+<!-- WELCOME / FIRST RUN (MB Suite v3.3 .mbw): 1 welcome · 2 look · 3 your vehicle · 4 odometer + "Moving from another device?" -->
+<div class="mbw" id="mbw" role="dialog" aria-modal="true" aria-labelledby="mbwTitle" hidden>
+  <div class="mbw-card">
+    <header class="mbw-head">
+      <span class="mbw-step" id="mbwStep">Step 1 of 4</span>
+      <span class="mbw-head-a"><span id="mbwAcct"></span><button class="mbw-link" type="button" id="mbwSkip">Skip</button></span>
+      <div class="mbw-prog" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+    </header>
+    <div class="mbw-body" data-step="0">
+      <div class="mbw-hero"><span class="mbw-logo" id="mbwLogo"></span><div><h2 id="mbwTitle">Welcome to Auto</h2><p class="mbw-lead">Know what your vehicle costs and what it needs next.</p></div></div>
+      <ul class="mbw-feats">
+        <li><span class="mbw-ic"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></span><div><b>Home</b><span>Cost per mile, spending this year and what’s due next.</span></div></li>
+        <li><span class="mbw-ic"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.7 6.3a4 4 0 0 0-5.2 5.2L3.6 17.4a1.9 1.9 0 0 0 2.7 2.7l5.9-5.9a4 4 0 0 0 5.2-5.2l-2.6 2.6-2.3-.4-.4-2.3z"/></svg></span><div><b>Service</b><span>Reminders by miles or months, and a log of every service.</span></div></li>
+        <li><span class="mbw-ic"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v15M3 20h12M4 10h10"/><path d="M14 8h2a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V9l-3-3"/></svg></span><div><b>Fuel</b><span>MPG (or mi/kWh) for every full tank, with a trend chart.</span></div></li>
+        <li><span class="mbw-ic"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2v20M17 6.5c-.8-1.5-2.6-2.5-5-2.5-3 0-5 1.5-5 3.7 0 5.3 10 2.8 10 8.3 0 2.3-2.2 3.9-5.2 3.9-2.6 0-4.5-1.1-5.3-2.8"/></svg></span><div><b>Costs</b><span>Fuel, repairs, insurance and loans: your real cost of ownership.</span></div></li>
+      </ul>
+      <p class="mbw-privacy"><svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span>No account needed, and no cookies or analytics. Everything stays in this browser on this device unless you sign in to sync. Save a backup from the Data menu so you don’t lose it. <button type="button" data-mbw="privacy">Privacy</button></span></p>
+    </div>
+    <div class="mbw-body" data-step="1" hidden>
+      <h2>Pick a look</h2><p class="mbw-lead">You can switch anytime from the top bar or Settings.</p>
+      <div class="mbw-looks" role="group" aria-label="Theme">
+        <button type="button" class="mbw-look" data-act="theme" data-v="light" data-theme-set="light" aria-pressed="true"><span class="pv l" aria-hidden="true"><b class="a"></b><b></b><b></b></span><svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg> Light</button>
+        <button type="button" class="mbw-look" data-act="theme" data-v="dark" data-theme-set="dark" aria-pressed="false"><span class="pv d" aria-hidden="true"><b class="a"></b><b></b><b></b></span><svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg> Dark</button>
+      </div>
+    </div>
+    <div class="mbw-body" data-step="2" hidden>
+      <h2>What do you drive?</h2><p class="mbw-lead">Pick a type, then the year, make and model. You can add more vehicles later.</p>
+      <div class="mbw-choices auto-types" id="mbwTypes" role="group" aria-label="Vehicle type"></div>
+      <div class="auto-ymm">
+        <label class="mbw-field"><span>Year</span><input id="mbw_year" type="number" inputmode="numeric" min="1900" placeholder="e.g. 2021"></label>
+        <label class="mbw-field"><span>Make</span><input id="mbw_make" type="text" list="mbw_makes" autocomplete="off" placeholder="e.g. Honda"><datalist id="mbw_makes"></datalist></label>
+        <label class="mbw-field"><span>Model</span><input id="mbw_model" type="text" autocomplete="off" placeholder="e.g. Civic"></label>
+      </div>
+      <p class="ob-err" id="mbwErr2" role="alert"></p>
+      <p class="mbw-sub">Just looking around? <button type="button" class="mbw-link acc" data-mbw="sample">Explore with sample data</button></p>
+    </div>
+    <div class="mbw-body" data-step="3" hidden>
+      <h2>What does the odometer say?</h2><p class="mbw-lead">Check the dash. A close guess works.</p>
+      <label class="mbw-field"><span>Odometer</span><span class="auto-odo"><input id="mbw_odo" type="number" inputmode="numeric" min="0" placeholder="e.g. 48200"><i>mi</i></span></label>
+      <div class="mbw-choices"><label class="mbw-choice"><input type="checkbox" id="mbw_sched" checked><span><b>Add a standard maintenance schedule</b><small id="mbwSchedTxt">Oil changes, tire rotations, inspection and more. Edit it anytime.</small></span></label></div>
+      <p class="ob-err" id="mbwErr3" role="alert"></p>
+      <div class="mbw-alt"><span>Moving from another device?</span>
+        <button class="mbw-btn sm" type="button" data-mbw="sync"><svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 11a8 8 0 0 0-14.7-4.4L4 8"/><path d="M4 3v5h5"/><path d="M4 13a8 8 0 0 0 14.7 4.4L20 16"/><path d="M20 21v-5h-5"/></svg>Sign in to sync</button>
+        <button class="mbw-btn sm" type="button" data-mbw="import"><svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M5 20h14"/></svg>Import a backup</button></div>
+    </div>
+    <footer class="mbw-foot"><button class="mbw-btn" type="button" id="mbwBack" hidden><svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Back</button><button class="mbw-btn pri" type="button" id="mbwNext">Next<svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></footer>
+  </div>
 </div>
 <dialog id="dlg"></dialog>
 <dialog id="cfm"></dialog>
-<dialog id="fv"></dialog>
 <div id="report" aria-hidden="true"></div>
 <input type="file" id="csvFile" accept=".csv,text/csv" hidden>
 <div id="tip"></div>
 <div id="toast" role="status" aria-live="polite"></div>
-<input type="file" id="importFile" accept="application/json,.json" hidden>
+<input type="file" id="importFile" accept="application/json,.json,application/zip,.zip" hidden>
 <template id="artBanner"><svg class="cu-art" viewBox="0 0 640 136" preserveAspectRatio="xMaxYMax slice" aria-hidden="true" focusable="false"><circle class="b" cx="560" cy="46" r="26"/><path class="s" d="M210 150 C315 80 525 80 630 150Z"/><path class="m" d="M410 150 C485 66 635 66 710 150Z"/><path class="d" d="M530 150 C585 90 695 90 750 150Z"/><path class="n" transform="translate(470 98) rotate(-64) scale(0.5)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="d" transform="translate(480 98) rotate(-116) scale(0.4)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="r" cx="360" cy="44" r="6"/></svg></template>
 <template id="artStrip"><svg class="cu-art at-bottom cu-p-soft" viewBox="0 0 1200 80" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><path class="s" transform="translate(60 60) rotate(-8)" d="M-36.8 2.6 C-36.8 -18.3 20.2 -19.1 36.8 -1.7 C37.5 16.5 -20.2 19.1 -36.8 2.6Z"/><path class="m" transform="translate(150 63) rotate(-7)" d="M-24.2 2 C-24.2 -13.7 13.3 -14.4 24.2 -1.3 C24.6 12.4 -13.3 14.4 -24.2 2Z"/><path class="d" transform="translate(230 66) rotate(-6)" d="M-29.4 2.4 C-29.4 -16.7 16.2 -17.5 29.4 -1.6 C30 15.2 -16.2 17.5 -29.4 2.4Z"/><path class="s" transform="translate(330 60) rotate(-5)" d="M-42 2.8 C-42 -19.8 23.1 -20.7 42 -1.9 C42.8 17.9 -23.1 20.7 -42 2.8Z"/><path class="n" transform="translate(430 63) rotate(-4)" d="M-21 1.7 C-21 -12.2 11.6 -12.8 21 -1.2 C21.4 11 -11.6 12.8 -21 1.7Z"/><path class="m" transform="translate(510 66) rotate(-3)" d="M-33.6 2.4 C-33.6 -16.7 18.5 -17.5 33.6 -1.6 C34.3 15.2 -18.5 17.5 -33.6 2.4Z"/><path class="s" transform="translate(610 60) rotate(-2)" d="M-26.2 2.2 C-26.2 -15.2 14.4 -16 26.2 -1.5 C26.8 13.8 -14.4 16 -26.2 2.2Z"/><path class="d" transform="translate(700 63) rotate(-1)" d="M-37.8 2.6 C-37.8 -18.3 20.8 -19.1 37.8 -1.7 C38.6 16.5 -20.8 19.1 -37.8 2.6Z"/><path class="s" transform="translate(800 66)" d="M-23.1 1.7 C-23.1 -12.2 12.7 -12.8 23.1 -1.2 C23.6 11 -12.7 12.8 -23.1 1.7Z"/><path class="m" transform="translate(880 60) rotate(1)" d="M-31.5 2.4 C-31.5 -16.7 17.3 -17.5 31.5 -1.6 C32.1 15.2 -17.3 17.5 -31.5 2.4Z"/><path class="s" transform="translate(980 63) rotate(2)" d="M-39.9 2.8 C-39.9 -19.8 21.9 -20.7 39.9 -1.9 C40.7 17.9 -21.9 20.7 -39.9 2.8Z"/><path class="d" transform="translate(1080 66) rotate(3)" d="M-26.2 2.2 C-26.2 -15.2 14.4 -16 26.2 -1.5 C26.8 13.8 -14.4 16 -26.2 2.2Z"/><path class="m" transform="translate(1160 60) rotate(4)" d="M-21 1.7 C-21 -12.2 11.6 -12.8 21 -1.2 C21.4 11 -11.6 12.8 -21 1.7Z"/><path class="sd" d="M372 44 C369.6 33 373.8 23.3 372 16.4"/><path class="d" transform="translate(372 16.4) rotate(-38) scale(0.3)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="m" transform="translate(372 22.5) rotate(-150) scale(0.2)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="sd" d="M940 46 C938 36.8 941.5 28.8 940 23"/><path class="m" transform="translate(940 23) rotate(-38) scale(0.2)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="d" transform="translate(940 28.1) rotate(-150) scale(0.2)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="b" cx="1110" cy="16" r="8"/></svg></template>
 <script src="mb-title.js"></script>
 <script src="mb-install.js"></script>
 <script src="mb-share.js"></script>
 <script src="mb-sync.js"></script>
+<script src="mb-files.js"></script>
 
 <script>
 'use strict';
 /* ================= icons ================= */
 const P={
   sync:'<path d="M7 18.5h10a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 7.1 9.1 4.75 4.75 0 0 0 7 18.5z"/><path d="M9.5 14.2a2.6 2.6 0 0 1 4.6-1.4M14.5 11v1.9h-1.9M14.5 14.4a2.6 2.6 0 0 1-4.6 1.4M9.5 17.6v-1.9h1.9"/>',
-  gear:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>',
-  more:'<circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/>',
+  gear:'<path d="M19.00 10.32 L21.51 10.72 L21.51 13.28 L19.00 13.68 L18.14 15.76 L19.63 17.82 L17.82 19.63 L15.76 18.14 L13.68 19.00 L13.28 21.51 L10.72 21.51 L10.32 19.00 L8.24 18.14 L6.18 19.63 L4.37 17.82 L5.86 15.76 L5.00 13.68 L2.49 13.28 L2.49 10.72 L5.00 10.32 L5.86 8.24 L4.37 6.18 L6.18 4.37 L8.24 5.86 L10.32 5.00 L10.72 2.49 L13.28 2.49 L13.68 5.00 L15.76 5.86 L17.82 4.37 L19.63 6.18 L18.14 8.24Z"/><circle cx="12" cy="12" r="3"/>',
+  home:'<path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/>',
+  help:'<circle cx="12" cy="12" r="9"/><path d="M9.3 9.3a2.8 2.8 0 1 1 3.9 2.6c-.7.3-1.2 1-1.2 1.8v.6"/><path d="M12 17.3h.01"/>',
+  more:'<circle cx="5.5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18.5" cy="12" r="1.7"/>',
   share:'<path d="M12 15V3M7.5 7.5L12 3l4.5 4.5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/>',
   dash:'<path d="M3 13a9 9 0 0 1 18 0"/><path d="M12 13l4-4"/><circle cx="12" cy="13" r="1.3"/><path d="M5 19h14"/>',
   wrench:'<path d="M14.7 6.3a4 4 0 0 0-5.2 5.2L3.6 17.4a1.9 1.9 0 0 0 2.7 2.7l5.9-5.9a4 4 0 0 0 5.2-5.2l-2.6 2.6-2.3-.4-.4-2.3z"/>',
@@ -1129,6 +1167,9 @@ const P={
 let LOGON=10;const LOGO_T='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="abg@@" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#44809f"/><stop offset=".55" stop-color="#256B8F"/><stop offset="1" stop-color="#1e5672"/></linearGradient><clipPath id="abc@@"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#abc@@)"><rect width="64" height="64" fill="url(#abg@@)"/><ellipse cx="14" cy="6" rx="40" ry="26" fill="#fff" opacity=".14"/><path d="m 16.5,43.990999 a 17,17 0 1 1 31,0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="m 32,37.990999 10,-11" fill="none" stroke="#F2B640" stroke-width="5.5" stroke-linecap="round"/><circle cx="32" cy="37.990997" r="5" fill="#fff"/></g><rect x=".5" y=".5" width="63" height="63" rx="17.5" fill="none" stroke="#fff" stroke-opacity=".24"/></svg>';
 const logoSVG=()=>LOGO_T.replace(/@@/g,++LOGON);
 const ic=(n,c='i')=>`<svg class="${c}" viewBox="0 0 24 24">${P[n]||''}</svg>`;
+/* navigation icons: the MB Suite standard markup (24 viewBox, stroke 1.8, round caps; More is three filled dots) */
+const nic=n=>n==='more'?`<svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" stroke="none" aria-hidden="true" focusable="false">${P.more}</svg>`
+  :`<svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${P[n]||''}</svg>`;
 
 /* ================= storage ================= */
 const KEY='auto';
@@ -1167,7 +1208,7 @@ function normalize(d){
       return o}).filter(o=>k==='vehicles'||k==='reminders'||k==='docs'||o.date);
   }
   const st=isObj(d.settings)?d.settings:{};const pick=(v,l,def)=>l.includes(v)?v:def;
-  b.settings={active:st.active==='all'?'all':fix(st.active||'all'),theme:pick(st.theme,['light','dark'],'light'),view:pick(st.view,['dash','maint','fuel','repairs','costs','history','garage','settings','privacy','terms'],'dash'),range:pick(st.range,['year','12m','all'],'year'),hist:pick(st.hist,['all','service','repair','fuel','expense','issue','check','odo'],'all'),checklistHidden:!!st.checklistHidden,lastCat:typeof st.lastCat==='string'?st.lastCat.slice(0,40):''};
+  b.settings={active:st.active==='all'?'all':fix(st.active||'all'),theme:pick(st.theme,['light','dark'],'light'),view:pick(st.view,['dash','maint','fuel','repairs','costs','history','garage','settings','help','privacy','terms'],'dash'),range:pick(st.range,['year','12m','all'],'year'),hist:pick(st.hist,['all','service','repair','fuel','expense','issue','check','odo'],'all'),checklistHidden:!!st.checklistHidden,lastCat:typeof st.lastCat==='string'?st.lastCat.slice(0,40):''};
   return b;
 }
 let LOADERR=false;
@@ -1177,9 +1218,6 @@ let S=load();
 /* last successful JSON export, for the "Backed up …" pill */
 const BKEY='auto.lastBackup',BSTALE=7;
 function lastBackup(){try{const t=+localStorage.getItem(BKEY);return t>0?t:0}catch(e){return 0}}
-function backupPill(){const t=lastBackup();if(!t)return`<span class="pill soon">${ic('alert')}Never backed up</span>`;
-  const d=Math.floor((Date.now()-t)/864e5),when=d<1?'today':d===1?'yesterday':d+' days ago';
-  return`<span class="pill ${d>BSTALE?'soon':'ok'}" title="${esc(new Date(t).toLocaleString())}">${ic(d>BSTALE?'alert':'check')}Backed up ${when}</span>`}
 /* Ask the browser to keep this site's storage (so it isn't cleared when space runs low). */
 let PERSIST=null;
 const STANDALONE=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
@@ -1243,7 +1281,9 @@ function trashRestore(id){
 const FS_OK=typeof window.showSaveFilePicker==='function'&&typeof window.showOpenFilePicker==='function';
 const FH={json:null,csv:null};
 const FKIND={json:{name:'auto-backup.json',mime:'application/json',types:[{description:'auto.mcbflow.com backup',accept:{'application/json':['.json']}}]},
-  csv:{name:'auto-records.csv',mime:'text/csv',types:[{description:'CSV spreadsheet',accept:{'text/csv':['.csv']}}]}};
+  csv:{name:'auto-records.csv',mime:'text/csv',types:[{description:'CSV spreadsheet',accept:{'text/csv':['.csv']}}]},
+  zip:{name:'auto-backup.zip',mime:'application/zip',types:[{description:'ZIP archive',accept:{'application/zip':['.zip']}}]},
+  open:{types:[{description:'auto.mcbflow.com backup (JSON or ZIP)',accept:{'application/json':['.json'],'application/zip':['.zip']}}]}};
 /* One IndexedDB database: store 'h' = chosen backup file handles, store 'f' = attached receipts, photos and PDFs. */
 function idb(mode,fn,store='h'){return new Promise((res,rej)=>{let r;try{r=indexedDB.open('auto',2)}catch(e){return rej(e)}
   r.onupgradeneeded=()=>{const db=r.result;for(const n of['h','f'])if(!db.objectStoreNames.contains(n))db.createObjectStore(n)};r.onerror=()=>rej(r.error);r.onblocked=()=>rej(new Error('blocked'));
@@ -1279,18 +1319,16 @@ async function addFile(file){
   FMETA[id]={name:rec.name,type:rec.type,size:rec.size,at:rec.at};noteFiles([[id,FMETA[id]]]);askPersist();return id;
 }
 function dlBlob(name,blob){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000)}
-async function openFile(id){
-  const r=await fGet(id);if(!r||!r.blob){toast(FINFO[id]?`${FINFO[id].name} was attached on another device. To bring it here, export a backup there and import it here (Merge).`:'That attachment isn’t on this device. It may not have been in the backup you restored.',7000);return}
-  if(/^image\/(jpeg|png|webp|gif)$/.test(r.type)){const fv=$('#fv');const url=URL.createObjectURL(r.blob);
-    fv.setAttribute('aria-label',r.name);
-    fv.innerHTML=`<div class="dlg-h"><h2 style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(r.name)}</h2><div style="display:flex;gap:6px"><button class="btn sm" data-dl>${ic('download')}Save</button><button class="iconbtn" data-close aria-label="Close">${ic('x')}</button></div></div><div class="fv-b"><img alt="${esc(r.name)}" src="${url}"></div>`;
-    fv.querySelector('[data-close]').onclick=()=>fv.close();fv.querySelector('[data-dl]').onclick=()=>dlBlob(r.name,r.blob);
-    fv.onclose=()=>URL.revokeObjectURL(url);fv.onclick=e=>{if(e.target===fv)fv.close()};fv.showModal();return}
-  dlBlob(r.name,r.blob);toast(`Saved ${r.name} to your downloads`);
-}
+/* Attachments open in the shared viewer (mb-files.js), never as a download. Files that aren't on this device
+   (attached on another device, or missing from a restored backup) are passed by name only and the viewer explains. */
+async function fileObj(id){const r=await fGet(id);if(r&&r.blob)return{blob:r.blob,name:r.name,type:r.type,size:r.size};
+  const o=FINFO[id]||FMETA[id];return{name:o&&o.name?o.name:'Missing file',type:o&&o.type?o.type:''}}
+async function openFile(id,group){const ids=(group&&group.length?group:[id]).filter(Boolean);if(!ids.includes(id))ids.unshift(id);
+  const list=await Promise.all(ids.map(fileObj));if(!window.MBFiles){toast('The file viewer didn’t load. Reload the page.');return}
+  const i=Math.max(0,ids.indexOf(id));MBFiles.view(list[i],{list,index:i})}
 const fileIcon=id=>(FMETA[id]&&FMETA[id].type==='application/pdf')?'receipt':'image';
 function fileChips(ids,act=true){ids=(ids||[]).filter(Boolean);if(!ids.length)return'';
-  return`<div class="fchips">${ids.map(id=>{const m=FMETA[id],o=!m&&FINFO[id];return`<button type="button" class="fchip${m?'':' missing'}" ${act?'data-act="openFile"':'data-open'} data-id="${esc(id)}" title="${m?esc(m.name)+' · '+fsize(m.size):o?esc(o.name)+' · not on this device':'Not on this device'}">${ic(fileIcon(id))}<span>${m?esc(m.name):o?esc(o.name)+' (not on this device)':'Missing file'}</span></button>`}).join('')}</div>`}
+  return`<div class="fchips">${ids.map(id=>{const m=FMETA[id],o=!m&&FINFO[id];return`<button type="button" class="fchip${m?'':' missing'}" ${act?'data-act="openFile"':'data-open'} data-id="${esc(id)}" data-group="${esc(ids.join(' '))}" aria-label="View ${m?esc(m.name):o?esc(o.name)+' (not on this device)':'missing file'}" title="${m?esc(m.name)+' · '+fsize(m.size):o?esc(o.name)+' · not on this device':'Not on this device'}">${ic(fileIcon(id))}<span>${m?esc(m.name):o?esc(o.name)+' (not on this device)':'Missing file'}</span></button>`}).join('')}</div>`}
 const clip=ids=>ids&&ids.length?` <span class="clip" title="${plural(ids.length,'attachment')}">${ic('clip')}${ids.length>1?ids.length:''}</span>`:'';
 /* Referenced file ids across live data and Recently deleted. */
 function fileRefs(){const s=new Set();const walk=d=>{for(const k of VCOLLS)for(const r of(d&&d[k])||[])for(const f of r.files||[])s.add(f)};walk(S);for(const t of TRASH)walk(t.data);return s}
@@ -1340,66 +1378,132 @@ async function exportAs(k){const r=await writeOut(k,true);if(!r)return;
   toast(r.dl?(k==='json'?'Backup downloaded to your Downloads folder':'CSV downloaded to your Downloads folder'):`Saved ${r.name}`)}
 async function importBackup(){
   if(!FS_OK){$('#importFile').click();return}
-  let fh;const o={types:FKIND.json.types,multiple:false};if(FH.json)o.startIn=FH.json;
+  let fh;const o={types:FKIND.open.types,multiple:false};if(FH.json)o.startIn=FH.json;
   try{[fh]=await showOpenFilePicker(o)}catch(e){if(e&&e.name==='AbortError')return;
-    try{[fh]=await showOpenFilePicker({types:FKIND.json.types})}catch(e2){if(!e2||e2.name!=='AbortError')$('#importFile').click();return}}
+    try{[fh]=await showOpenFilePicker({types:FKIND.open.types})}catch(e2){if(!e2||e2.name!=='AbortError')$('#importFile').click();return}}
   try{readBackup(await fh.getFile())}catch(e){toast('Couldn’t open that file')}
 }
 function readBackup(f){
   if(f.size>400e6){toast('That file is too large to be an auto.mcbflow.com backup');return}
-  const rd=new FileReader();
-  rd.onload=async()=>{let d,raw;try{raw=JSON.parse(rd.result);if(!isObj(raw)||!Array.isArray(raw.vehicles))throw 0;d=normalize(raw)}catch(err){toast('That file isn’t a valid auto.mcbflow.com backup');return}
+  if(/\.zip$/i.test(f.name||'')||/zip/i.test(f.type||'')){readZip(f);return}
+  const rd=new FileReader();rd.onload=()=>applyBackup(rd.result);rd.readAsText(f);
+}
+/* ZIP backups (Export All (ZIP)): the JSON inside goes through the normal import; attachments missing from it come from files/ */
+async function readZip(f){
+  if(!window.MBFiles){toast('ZIP support didn’t load. Reload the page and try again.');return}
+  let ents;try{ents=await MBFiles.unzip(f)}catch(e){toast('That ZIP file couldn’t be opened');return}
+  const js=ents.filter(e=>/\.json$/i.test(e.name)&&!/^files\//i.test(e.name));
+  const j=js.find(e=>/(^|\/)[^/]*-backup\.json$/i.test(e.name))||(js.length===1?js[0]:null);
+  if(!j){toast('That ZIP file has no auto.mcbflow.com backup in it');return}
+  let text;try{text=await j.text()}catch(e){toast('That ZIP file couldn’t be read');return}
+  applyBackup(text,ents.filter(e=>/^files\/./i.test(e.name)));
+}
+const EXT_MIME={jpg:'image/jpeg',jpeg:'image/jpeg',png:'image/png',webp:'image/webp',gif:'image/gif',heic:'image/heic',heif:'image/heif',pdf:'application/pdf'};
+async function importZipFiles(zf,d){let n=0;const ids=new Set();
+  for(const src of[d,S])for(const k of VCOLLS)for(const r of src[k]||[])for(const f of r.files||[])ids.add(f);
+  for(const e of zf){const rest=e.name.replace(/^files\//i,'');const id=[...ids].find(i=>rest.startsWith(i+'-'));if(!id||FMETA[id])continue;
+    const name=rest.slice(id.length+1).replace(/[\\/:*?"<>|\u0000-\u001f]/g,'_').slice(0,120)||'attachment';
+    const type=(FINFO[id]&&FTYPES_OK.test(FINFO[id].type)?FINFO[id].type:'')||EXT_MIME[(name.split('.').pop()||'').toLowerCase()]||'';if(!FTYPES_OK.test(type))continue;
+    try{const b=await e.blob();if(b.size>FILE_MAX)continue;const blob=new Blob([b],{type});await fPut({id,name,type,size:blob.size,blob,at:Date.now()});FMETA[id]={name,type,size:blob.size,at:Date.now()};n++}catch(err){}}
+  if(n)noteFiles(Object.entries(FMETA));return n}
+async function applyBackup(text,zfiles){let d,raw;try{raw=JSON.parse(text);if(!isObj(raw)||!Array.isArray(raw.vehicles))throw 0;d=normalize(raw)}catch(err){toast('That file isn’t a valid auto.mcbflow.com backup');return}
     const nrec=COLLS.reduce((a,k)=>a+(k==='vehicles'?0:d[k].length),0);
     let how='replace';
     if(hasData()){how=await confirmModal({title:'Restore this backup?',msg:`The backup has ${plural(d.vehicles.length,'vehicle')} and ${plural(nrec,'record')}.<br><b>Merge</b> adds anything that isn’t already here. Nothing gets doubled.<br><b>Replace</b> swaps everything in this browser for the backup.`,ok:'Merge',danger:false,alt:'Replace'});
       if(!how)return;how=how==='alt'?'replace':'merge'}
-    const nf=await importAttachments(raw);
+    let nf=await importAttachments(raw);if(zfiles&&zfiles.length)nf+=await importZipFiles(zfiles,d);
     const tid=trashFull(how==='merge'?'Your data, before merging a backup':'Your data, before restoring a backup');OB=null;
     if(how==='merge'){let n=0;for(const k of COLLS){const have=new Set(S[k].map(x=>x.id));for(const r of d[k])if(!have.has(r.id)){S[k].push(r);n++}}
       save();render();toast(n||nf?`Merged ${plural(n,'new item')}${nf?` and ${plural(nf,'attachment')}`:''}`:'Nothing new. Everything in the backup is already here',n&&tid?()=>trashRestore(tid):null);return}
-    const th=S.settings.theme;S=d;S.settings.theme=th;save();render();toast('Backup restored',tid?()=>trashRestore(tid):null)};
-  rd.readAsText(f);
+    const th=S.settings.theme;S=d;S.settings.theme=th;save();render();toast('Backup restored',tid?()=>trashRestore(tid):null)}
+/* Export All (ZIP): the JSON backup (exactly the Export All (JSON) file), the CSV export, one CSV per other record type,
+   every attachment under files/, and a README. Saved like the other exports (chosen location, or Downloads). */
+const csvOf=(rows,cols)=>window.MBFiles?MBFiles.csv(rows,cols):'';
+const vnm=r=>vname(veh(r.vid));
+function zipCSVs(){return[
+  ['auto-vehicles.csv',csvOf(S.vehicles,[{label:'name',get:vname},'year','make','model','trim','type','fuelType','plate','vin','purchaseDate','purchasePrice','startOdo','currentValue',{label:'odometer_now',get:v=>currentOdo(v.id)??''},'notes'])],
+  ['auto-reminders.csv',csvOf(S.reminders,[{label:'vehicle',get:vnm},'task','miles','months','estCost','lastDate','lastOdo',{label:'status',get:r=>{const st=remStatus(r);return st.state==='unk'?'No history':st.label}},'notes'])],
+  ['auto-odometer.csv',csvOf(S.odo,[{label:'vehicle',get:vnm},'date','odo'])],
+  ['auto-problems.csv',csvOf(S.issues,[{label:'vehicle',get:vnm},'date','odo','itype','code','title',{label:'identified_by',get:x=>ISSUE_SRC[x.source]||''},'status','resolvedDate','notes'])],
+  ['auto-documents.csv',csvOf(S.docs,[{label:'vehicle',get:vnm},'dkind','title','number','expires','notes',{label:'attachments',get:x=>(x.files||[]).length}])],
+  ['auto-checklists.csv',csvOf(S.checks,[{label:'vehicle',get:vnm},'date','odo','template',{label:'ok',get:x=>x.passed.join('; ')},{label:'needs_attention',get:x=>x.failed.join('; ')},'notes'])],
+  ['auto-quotes.csv',csvOf(S.quotes,[{label:'vehicle',get:vnm},'date','job','shop','parts','labor','hours','diag','fees',{label:'total',get:q=>qTotal(q)},'warranty',{label:'accepted',get:q=>q.accepted?'yes':''},'notes'])]]}
+async function zipExport(){
+  if(!window.MBFiles){toast('ZIP export didn’t load. Reload the page and try again.');return}
+  const entries=[{name:'auto-backup.json',data:await backupText()},{name:'auto-records.csv',data:csvText()}];
+  for(const[n,t]of zipCSVs())entries.push({name:n,data:t});
+  const ids=[...new Set(VCOLLS.flatMap(k=>S[k].flatMap(r=>r.files||[])))];let nf=0;
+  for(const id of ids){const r=await fGet(id);if(r&&r.blob){entries.push({name:`files/${id}-${r.name}`,data:r.blob});nf++}}
+  entries.push({name:'README.txt',data:['Auto (auto.mcbflow.com) export, '+today(),'',
+    'auto-backup.json   Complete backup, the same file as Export All (JSON). Restore it with Data > Import Backup (this ZIP works too).',
+    'auto-records.csv   Fill-ups, services, repairs and expenses (the same file as Export All (CSV)).',
+    'auto-*.csv         Vehicles, reminders, odometer readings, problems, documents, checklists and repair quotes, one file each.',
+    'files/             Your attached photos and PDFs ('+nf+'), named <id>-<file name>.','',
+    'Spreadsheet files are for reading and totals. To restore your data, import the ZIP or auto-backup.json.'].join('\r\n')});
+  const blob=await MBFiles.zip(entries);const name=`auto-backup-${today()}.zip`;
+  if(FS_OK){let h;try{h=await showSaveFilePicker({suggestedName:name,types:FKIND.zip.types,startIn:FH.json||'documents'})}catch(e){if(e&&e.name==='AbortError')return;h=null}
+    if(h){try{const w=await h.createWritable();await w.write(blob);await w.close();toast(`Saved ${h.name}`);return}catch(e){toast(`Couldn’t write ${h.name}.`);return}}}
+  dlBlob(name,blob);toast('ZIP downloaded to your Downloads folder');
 }
-/* header chip + data menu */
+/* header chip + data menu (MB Suite v3.3 .mb-dm: same items, wording and order in every app) */
+const quiet=()=>!!(SYNC&&SYNC.status().quietBackups);   // signed in and syncing fine: no backup nags
 function bkState(){const t=lastBackup();const d=t?Math.floor((Date.now()-t)/864e5):null;
   return{t,d,stale:t?d>BSTALE:hasData(),text:!t?'Never backed up':'Backed up '+(d<1?'today':d===1?'yesterday':d+' days ago')}}
+const bkDay=t=>new Date(t).toLocaleDateString(undefined,{month:'short',day:'numeric'});
+function bkStatus(){const b=bkState();
+  if(quiet())return{cls:'ok',text:'Synced to your account · last file backup '+(b.t?bkDay(b.t):'none yet')};
+  if(!b.t)return{cls:b.stale?'warn':'',text:'Never backed up'};
+  return{cls:b.stale?'warn':'ok',text:'Last backup '+bkDay(b.t)+' · '+(b.d<1?'today':b.d===1?'yesterday':b.d+' days ago')}}
 function paintBackup(){
-  const c=$('#bkChip'),b=bkState();c.hidden=!hasData()&&!b.t;
-  c.className='bk-chip tb-chip'+(b.stale?' stale':'');c.innerHTML=ic(b.stale?'alert':'check')+esc(b.text);
-  c.title=(b.t?'Last backup '+new Date(b.t).toLocaleString()+'. ':'')+'Click to save a backup now';
-  $('#dataBtn').classList.toggle('stale',b.stale);
-  $('#dataBtn').setAttribute('aria-label','Data'+(b.stale?' ('+b.text.toLowerCase()+')':''));
-  if(!$('#dataMenu').hidden)$('#dataMenu').innerHTML=dataMenuHTML();
-  if(S.settings.view==='settings'&&!OB&&document.querySelector('#bkcard'))$('#bkcard').outerHTML=backupCard();
+  const c=$('#bkChip'),b=bkState(),q=quiet(),warn=b.stale&&!q;c.hidden=!hasData()&&!b.t;
+  c.className='tb-chip'+(warn?' warn':q||b.t?' ok':'');c.textContent=q?'Synced':b.text;
+  c.title=(q?'Synced to your account. ':'')+(b.t?'Last file backup '+new Date(b.t).toLocaleString()+'. ':'')+'Click to save a backup now';
+  const dot=$('#dataBtn .tb-dot');if(dot)dot.hidden=!warn;
+  $('#dataBtn').setAttribute('aria-label','Data: back up, sync, export or import'+(warn?' ('+b.text.toLowerCase()+')':''));
+  if(!$('#dataMenu').hidden)$('#dataMenu').innerHTML=dataItems(true);
+  const sd=document.getElementById('setData');if(sd&&S.settings.view==='settings')sd.innerHTML=dataItems(false);
 }
 const KBD=/Mac|iP(hone|ad|od)/.test(navigator.platform||navigator.userAgent)?'⌘S':'Ctrl+S';
-const dmItem=(act,icon,t,sub,cls='',kbd='')=>`<button class="dm-item ${cls}" role="menuitem" tabindex="-1" data-act="${act}">${ic(icon)}<span class="dm-t"><b>${t}</b><small>${sub}</small></span>${kbd?`<kbd>${kbd}</kbd>`:''}</button>`;
+const DMI={save:'<path d="M5 3h11l3 3v15H5z"/><path d="M8 3v5h7V3M8 21v-7h8v7"/>',sync:'<path d="M20 11a8 8 0 0 0-14.7-4.4L4 8"/><path d="M4 3v5h5"/><path d="M4 13a8 8 0 0 0 14.7 4.4L20 16"/><path d="M20 21v-5h-5"/>',
+  json:'<path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M10 12c-1 0-1 .5-1 1.5S8.5 15 8 15c.5 0 1 .5 1 1.5s0 1.5 1 1.5M14 12c1 0 1 .5 1 1.5s.5 1.5 1 1.5c-.5 0-1 .5-1 1.5s0 1.5-1 1.5"/>',
+  csv:'<rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M3 10h18M3 15h18M9 4v16"/>',zip:'<path d="M4 7h16v13H4z"/><path d="M3 4h18v3H3zM10 11h4"/>',
+  imp:'<path d="M12 16V4M7 9l5-5 5 5"/><path d="M5 20h14"/>',clear:'<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>'};
+const dmIc=k=>`<svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${DMI[k]}</svg>`;
 function locHTML(){
   if(!FS_OK)return'This browser saves each backup to your <b>Downloads</b> folder with the date in the name.';
   if(!FH.json)return'The first save asks where to keep the file. After that, Save backup now updates it in one click.';
   return`Saves to <b>${esc(FH.json.name)}</b> in the folder you chose.${FH.csv?` CSV: <b>${esc(FH.csv.name)}</b>.`:''} <button class="inlink" data-act="changeLoc">Change location…</button>`;
 }
-function dataMenuHTML(){
-  const saveSub=!FS_OK?'Downloads a dated copy':FH.json?'Overwrites '+esc(FH.json.name)+(FH.csv?' + CSV':''):'Choose where to keep it';
-  return dmItem('saveNow','save','Save backup now',saveSub,'pri',KBD)
-    +(SYNC?dmItem('sync','sync',SYNC.status().signedIn?'Sync: '+esc(SYNC.status().label):'Sync across devices…',SYNC.status().signedIn?esc(SYNC.status().email):'Optional free account. Photos stay on each device'):'')
-    +dmItem('export','download','Export All (JSON)…',FS_OK?'Full backup · pick folder and name':'Full backup file')
-    +dmItem('import','upload','Import Backup (JSON)…','Merge into or replace what’s here')
-    +'<div class="dm-sep"></div>'
-    +dmItem('csv','table','Export All (CSV)…','Every record, for spreadsheets')
-    +dmItem('importCsv','upload','Import CSV…','Fill-ups, services or expenses from a spreadsheet')
-    +`<div class="dm-foot"><div>${backupPill()}</div><div>${locHTML()}</div></div>`;
+/* menu=true: the top-bar Data menu (role=menuitem); false: the same list on the Settings page */
+function dataItems(menu){
+  const r=menu?' role="menuitem" tabindex="-1"':'';const s=SYNC?SYNC.status():null,inn=!!(s&&s.signedIn);
+  const it=(act,icon,t,sub,cls='',kbd='')=>`<button type="button" class="mb-dm-it${cls?' '+cls:''}"${r} data-act="${act}">${dmIc(icon)}<span class="t"><b>${t}</b><small>${sub}</small></span>${kbd?`<kbd>${kbd}</kbd>`:''}</button>`;
+  const sec=t=>`<div class="mb-dm-sec"${menu?' role="presentation"':''}>${t}</div>`;
+  const st=bkStatus();
+  return it('saveNow','save','Save backup now',!FS_OK?'Downloads a dated backup file. Best for regular backups.':FH.json?'Updates your backup file in one click. Best for regular backups.':'Choose where to keep your backup file. After that it’s one click.','is-key',KBD)
+    +(window.MBSync?it('sync','sync',inn?'Sync: '+esc(s.label):'Sync across devices…',inn?'Signed in as '+esc(s.email):'Free, optional account. Keeps your phone and computer the same.'):'')
+    +sec('Export')
+    +it('export','json','Export All (JSON)…','Complete backup of everything. Best for restoring or moving to another browser.')
+    +it('csv','csv','Export All (CSV)…','Spreadsheet copy for Excel, Numbers or Google Sheets. Best for totals and reports.')
+    +it('zip','zip','Export All (ZIP)…','Backup, spreadsheets and your attachments in one file. Best for archiving everything.')
+    +sec('Import')
+    +it('import','imp','Import Backup…','Restore from a JSON or ZIP file. You choose Merge or Replace first.')
+    +it('importCsv','imp','Import CSV…','Fill-ups, services or expenses from a spreadsheet or another app. Rows already here are skipped.')
+    +`<div class="mb-dm-status${st.cls?' '+st.cls:''}"${menu?' role="presentation"':''}><span class="sq"></span><span>${esc(st.text)}</span></div>`
+    +`<p class="mb-dm-note">${inn?'Synced to your mcbflow.com account. Photos and PDFs stay on each device, so a file backup now and then is still a good idea.':'Your data is stored in this browser on this device. Clearing your browser data deletes it, so keep a backup.'}<span class="loc">${locHTML()}</span></p>`
+    +`<hr class="mb-dm-sep">`
+    +it('wipe','clear','Clear all data…',inn?'Erases everything here and your synced copy. It stays in Recently deleted on this device for 30 days.':'Erases everything in this browser. It stays in Recently deleted for 30 days, and you can save a backup first.','danger');
 }
-function openDataMenu(){const m=$('#dataMenu');m.innerHTML=dataMenuHTML();m.style.top=matchMedia('(max-width:640px)').matches?Math.round($('#dataBtn').getBoundingClientRect().bottom+6)+'px':'';m.hidden=false;$('#dataBtn').setAttribute('aria-expanded','true');const f=m.querySelector('.dm-item');if(f)f.focus()}
+function openDataMenu(){const m=$('#dataMenu');m.innerHTML=dataItems(true);m.hidden=false;$('#dataBtn').setAttribute('aria-expanded','true');const f=m.querySelector('.mb-dm-it');if(f)f.focus()}
 function closeDataMenu(focus){const m=$('#dataMenu');if(m.hidden)return;m.hidden=true;$('#dataBtn').setAttribute('aria-expanded','false');if(focus)$('#dataBtn').focus()}
 document.addEventListener('click',e=>{if(!$('#dataMenu').hidden&&!e.target.closest('#dataWrap'))closeDataMenu()});
-$('#dataMenu').addEventListener('keydown',e=>{const it=[...$('#dataMenu').querySelectorAll('.dm-item')];const i=it.indexOf(document.activeElement);
+$('#dataMenu').addEventListener('keydown',e=>{const it=[...$('#dataMenu').querySelectorAll('.mb-dm-it')];const i=it.indexOf(document.activeElement);
   if(e.key==='Escape'){e.preventDefault();closeDataMenu(true)}
   else if(e.key==='ArrowDown'){e.preventDefault();it[(i+1)%it.length].focus()}
   else if(e.key==='ArrowUp'){e.preventDefault();it[(i-1+it.length)%it.length].focus()}
   else if(e.key==='Home'){e.preventDefault();it[0].focus()}else if(e.key==='End'){e.preventDefault();it[it.length-1].focus()}
   else if(e.key==='Tab')closeDataMenu()});
-document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&!e.altKey&&!e.shiftKey&&(e.key||'').toLowerCase()==='s'){e.preventDefault();if(document.querySelector('dialog[open]'))return;closeDataMenu();saveNow()}});
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&!e.altKey&&!e.shiftKey&&(e.key||'').toLowerCase()==='s'){e.preventDefault();if(document.querySelector('dialog[open]')||!$('#mbw').hidden)return;closeDataMenu();saveNow()}});
 
 /* ================= model ================= */
 const veh=id=>S.vehicles.find(v=>v.id===id);
@@ -1533,49 +1637,55 @@ function rangeBounds(k){
 let OB=null; // onboarding wizard state
 let PREV=null;
 const BNAV=['dash','maint','fuel','costs'];
-const TITLES={dash:'Overview',maint:'Maintenance',fuel:'Fuel',repairs:'Repairs',costs:'Costs',history:'History',garage:'Garage',settings:'Settings',privacy:'Privacy',terms:'Terms'};
-const VIEWS=[['dash','Overview','dash','Home'],['maint','Maintenance','wrench','Service'],['fuel','Fuel','fuel','Fuel'],['repairs','Repairs','repair','Repairs'],['costs','Costs','cost','Costs'],['history','History','history','History'],['garage','Garage','car','Garage']];
+const TITLES={dash:'Home',maint:'Maintenance',fuel:'Fuel',repairs:'Repairs',costs:'Costs',history:'History',garage:'Garage',settings:'Settings',help:'Help',privacy:'Privacy',terms:'Terms'};
+const VIEWS=[['dash','Home','home','Home'],['maint','Maintenance','wrench','Service'],['fuel','Fuel','fuel','Fuel'],['repairs','Repairs','repair','Repairs'],['costs','Costs','cost','Costs'],['history','History','history','History'],['garage','Garage','car','Garage']];
+const FREEV=['settings','help','privacy','terms'];   // views that work before the first vehicle is added
+const curView=()=>!S.vehicles.length&&!FREEV.includes(S.settings.view)?'dash':S.settings.view;
 function renderChrome(){
   const vs=$('#vsel');
   if(S.vehicles.length>1&&S.settings.active!=='all'&&!veh(S.settings.active))S.settings.active='all';
   vs.innerHTML=(S.vehicles.length>1?'<option value="all">All vehicles</option>':'')+S.vehicles.map(v=>`<option value="${esc(v.id)}">${esc(vname(v))}</option>`).join('')||'<option>No vehicles yet</option>';
   vs.value=S.vehicles.length===1?S.vehicles[0].id:S.settings.active;
-  const on=S.vehicles.length&&!OB;
+  const has=S.vehicles.length>0,on=has&&!OB;
   vs.style.display=on?'':'none';
   placeVsel();
-  const cur=['privacy','terms'].includes(S.settings.view)?'settings':S.settings.view;
-  const nb=(k,l,i,sh)=>`<button type="button"${cur===k?' aria-current="page"':''} data-act="view" data-v="${k}" aria-label="${l}">${ic(i)}<span class="tl">${l}</span><span class="ts" aria-hidden="true">${sh}</span></button>`;
-  $('#sideNav').innerHTML=on?VIEWS.map(v=>nb(...v)).join(''):'';
-  $('#sideEnd').innerHTML=nb('settings','Settings','gear','Settings');
-  const inMore=!BNAV.includes(cur);
-  $('#bnav').innerHTML=on?VIEWS.filter(v=>BNAV.includes(v[0])).map(([k,l,i,sh])=>nb(k,sh,i,sh)).join('')+`<button type="button"${inMore?' aria-current="page"':''} data-act="navMore" aria-haspopup="dialog" aria-label="More: Repairs, History, Garage, Settings">${ic('more')}<span>More</span></button>`:'';
-  $('#bnav').style.display=on?'':'none';
+  const v0=curView(),cur=OB?'':['privacy','terms'].includes(v0)?'help':v0;
+  const nb=(k,l,i,sh)=>`<button type="button"${cur===k?' aria-current="page"':''} data-act="view" data-v="${k}"${l===sh?'':` aria-label="${l}"`}>${nic(i)}${l===sh?`<span>${l}</span>`:`<span class="tl">${l}</span><span class="ts" aria-hidden="true">${sh}</span>`}</button>`;
+  $('#sideNav').innerHTML=(has?VIEWS:VIEWS.slice(0,1)).map(v=>nb(...v)).join('');
+  $('#sideEnd').innerHTML=nb('settings','Settings','gear','Settings')+nb('help','Help','help','Help');
+  const inMore=!!cur&&!BNAV.includes(cur);
+  const bn=(k,l,i)=>`<button type="button"${cur===k?' aria-current="page"':''} data-act="view" data-v="${k}">${nic(i)}<span>${l}</span></button>`;
+  $('#bnav').innerHTML=has?VIEWS.filter(v=>BNAV.includes(v[0])).map(([k,l,i,sh])=>bn(k,sh,i)).join('')+`<button type="button"${inMore?' aria-current="page"':''} data-act="navMore" aria-haspopup="dialog" aria-label="More: Settings, Repairs, History, Garage, Help">${nic('more')}<span>More</span></button>`
+    :bn('dash','Home','home')+bn('help','Help','help')+bn('settings','Settings','gear');
   $('#fab').style.display=on?'':'none';$('#addTop').style.display=on?'':'none';
   $('#searchBtn').style.display=on?'':'none';
   const th=S.settings.theme==='dark'?'dark':'light';document.documentElement.dataset.theme=th;
   $('#themeBtn').setAttribute('aria-checked',String(th==='dark'));
+  document.querySelectorAll('[data-theme-set]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.themeSet===th)));
   paintBackup();
 }
-/* vehicle picker: in the page bar after the title on tablets/desktop; on phones it moves to its own row under the bar so the bar stays one 56px row */
-const VSEL_MQ=matchMedia('(max-width:767px)');
+/* vehicle picker: in the page bar after the title on wide screens; below 1440px it moves to its own row under the bar so the bar stays one 56px row */
+const VSEL_MQ=matchMedia('(max-width:1439px)');   /* below 1440px the bar has no room for it next to the title */
 function placeVsel(){const vs=$('#vsel'),row=$('#vselRow');if(!vs||!row)return;
   if(VSEL_MQ.matches){if(vs.parentNode!==row)row.appendChild(vs)}else if(vs.parentNode!==$('.page-bar'))$('#pageTitle').after(vs);
   row.hidden=!VSEL_MQ.matches||vs.style.display==='none'}
 if(VSEL_MQ.addEventListener)VSEL_MQ.addEventListener('change',placeVsel);
 function render(){
+  if(typeof tipHide==='function')tipHide();
   renderChrome();
-  const m=$('#main');
-  const ttl=OB?'Get started':!S.vehicles.length&&!['settings','privacy','terms'].includes(S.settings.view)?'Welcome':TITLES[S.settings.view]||'Overview';
+  const m=$('#main'),view=curView();
+  const ttl=OB?'Get started':TITLES[view]||'Home';
   MBTitle.set(ttl);$('#pageTitle').textContent=ttl;
   if(OB){m.innerHTML=vOnboard();animateIfNew('ob'+OB.step);onScroll();obFocus();return}
-  if(!S.vehicles.length&&!['settings','privacy','terms'].includes(S.settings.view)){m.innerHTML=welcome();animateIfNew('welcome');onScroll();return}
-  const f={dash:vDash,maint:vMaint,fuel:vFuel,repairs:vRepairs,costs:vCosts,history:vHistory,garage:vGarage,settings:vSettings,privacy:vPrivacy,terms:vTerms}[S.settings.view]||vDash;
-  m.innerHTML=f();
+  const f={dash:vDash,maint:vMaint,fuel:vFuel,repairs:vRepairs,costs:vCosts,history:vHistory,garage:vGarage,settings:vSettings,help:vHelp,privacy:vPrivacy,terms:vTerms}[view]||vDash;
+  m.innerHTML=f()+(view==='settings'?'':footHTML());
   m.querySelectorAll('[data-act]:not(button):not(a)').forEach(el=>{el.tabIndex=0;if(el.tagName!=='TR')el.setAttribute('role','button')});
   drawCharts();
-  if(S.settings.view==='settings')MBInstall.render();
-  animateIfNew(S.settings.view+'|'+S.settings.active);
+  const g=document.getElementById('greet');if(g){if(SYNC)SYNC.greet(g,{name:''});else g.hidden=true}
+  if(view==='settings'){const c=document.getElementById('syncCard');if(c&&SYNC)SYNC.card(c);MBInstall.render()}
+  animateIfNew(view+'|'+S.settings.active);
   onScroll();
+  const w=document.getElementById('mbw');if(w&&!w.hidden&&hasData())wClose();   // data arrived (sync, import, sample): the welcome is done
 }
 let lastViewKey=null;
 function animateIfNew(key){
@@ -1583,28 +1693,24 @@ function animateIfNew(key){
   m.classList.remove('anim');void m.offsetWidth;m.classList.add('anim');
   clearTimeout(animateIfNew.t);animateIfNew.t=setTimeout(()=>m.classList.remove('anim'),600);
 }
-function welcome(){return`<div class="card welcome">
-  <div class="logo">${logoSVG()}</div><h1>Know what your car costs and what it needs next</h1>
-  <p>Log fill-ups, services and repairs. auto.mcbflow.com does the math.</p>
-  <ul class="wlist">
-    <li>${ic('check')}<span>See your real cost per mile, from fuel to insurance</span></li>
-    <li>${ic('check')}<span>Know which oil change, inspection or renewal is due next</span></li>
-    <li>${ic('check')}<span>Spot MPG drops after every full tank</span></li>
-  </ul>
-  ${artTpl('artStrip')}<p class="wsafe">${ic('lock')}No sign-up. Your records stay on this device.</p>
-  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px">
-    <button class="btn pri lg" data-act="newVehicle">${ic('plus')}Start tracking your vehicle</button>
-    <button class="btn lg" data-act="sample">Explore with sample data</button>
-  </div>
-  <div class="wtheme"><span id="wthl">Appearance</span><div class="seg" role="group" aria-labelledby="wthl">${[['light','Light'],['dark','Dark']].map(([k,l])=>`<button class="${S.settings.theme===k?'on':''}" aria-pressed="${S.settings.theme===k}" data-act="theme" data-v="${k}">${l}</button>`).join('')}</div></div>
-  <button class="linkbtn" data-act="import">Have a backup? Restore it</button>
-  <div class="legal-links"><button class="linkbtn" data-act="view" data-v="privacy">Privacy</button><button class="linkbtn" data-act="view" data-v="terms">Terms</button></div></div>`}
+/* one footer for every view except Settings (MB Suite v3.3 .mb-foot) */
+function footHTML(){return`<footer class="mb-foot">
+  <p class="mb-foot-main"><b>Auto</b> v${VERSION} · Free · No account needed</p>
+  <nav class="mb-foot-links" aria-label="About Auto"><button type="button" data-act="notes">What’s new</button><button type="button" data-act="view" data-v="privacy">Privacy</button><button type="button" data-act="view" data-v="terms">Terms</button><a href="https://mcbflow.com/">More free apps</a></nav>
+  <p class="mb-foot-copy">© 2026 Matthew Broyer</p></footer>`}
+/* Home before the first vehicle: what's empty, why it matters, what to do next */
+function startCard(){return`<div class="card auto-start"><div class="vbadge">${ic('car')}</div><div>
+  <h2>Add your first vehicle</h2>
+  <p>Log fill-ups, services and repairs, and Auto works out your cost per mile, your fuel economy and what’s due next.</p>
+  <div class="toolbar"><button class="btn pri" data-act="newVehicle">${ic('plus')}Add your vehicle</button><button class="btn" data-act="sample">Explore with sample data</button><button class="btn" data-act="import">${ic('upload')}Import a backup</button></div></div></div>`}
 
 const scopeLabel=()=>{const s=single();return s?vname(s):'All vehicles'};
 const vtag=vid=>S.vehicles.length>1&&!single()?` · ${esc(vname(veh(vid)))}`:'';
 
-/* ---- Overview ---- */
+/* ---- Home ---- */
+const dashBanner=sub=>`<section class="cu-banner">${artTpl('artBanner')}<div class="cu-txt"><p class="mb-greet" id="greet"></p><h1 class="cu-t">Home</h1><p class="cu-s">${esc(sub)}</p></div></section>`;
 function vDash(){
+  if(!S.vehicles.length)return dashBanner(fd(today())+' · no vehicles yet')+startCard();
   const vs=scope(),ids=vs.map(v=>v.id),t=today();
   const yr=rangeBounds('year'),all=rangeBounds('all');
   const ytd=costEntries(ids,yr.from,yr.to).reduce((a,b)=>a+b.amt,0);
@@ -1643,12 +1749,12 @@ function vDash(){
   const rec=`<div class="card"><div class="card-h"><h2>Recent activity</h2></div>
     ${recent.length?`<div class="rows">${recent.map(actRow).join('')}</div>`:`<div class="empty"><b>Nothing logged yet</b>Tap “Add entry” to log your first fill-up or service.</div>`}</div>`;
   const bsub=[fd(t),scopeLabel(),allMiles?mi(allMiles)+' mi tracked':''].filter(Boolean).join(' · ');
-  return`<section class="cu-banner">${artTpl('artBanner')}<div class="cu-txt"><h1 class="cu-t">Overview</h1><p class="cu-s">${esc(bsub)}</p></div></section>${checklist()}${alertBar(rems)}${hero}${tiles}<div class="grid g2">${upcoming}${rec}</div>`;
+  return`${dashBanner(bsub)}${checklist()}${alertBar(rems)}${hero}${tiles}<div class="grid g2">${upcoming}${rec}</div>`;
 }
 function remRow(r,s,compact){
   return`<div class="row"><div class="main"><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span class="t">${esc(r.task)}</span>${pill(s.state)}</div>
     <div class="m">${s.state==='unk'?'Log it once to start tracking':esc(s.label)}${vtag(r.vid)}</div>
-    ${!compact||s.state!=='unk'?`<div class="meter ${s.state}"><span style="width:${Math.round(s.pct*100)}%"></span></div>`:''}
+    ${!compact||s.state!=='unk'?`<div class="meter ${s.state}" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(s.pct*100)}" aria-label="${esc(r.task)}: ${Math.round(s.pct*100)}% of the interval used" data-tip="${esc([Math.round(s.pct*100)+'% of the interval used',r.task,s.state==='unk'?'Log it once to start tracking':s.label].join(';;'))}"><span style="width:${Math.round(s.pct*100)}%"></span></div>`:''}
     ${!compact?`<div class="m" style="margin-top:5px">Every ${[r.miles?mi(+r.miles)+' mi':'',r.months?plural(+r.months,'month'):''].filter(Boolean).join(' or ')} · Last done ${s.lastDate?fd(s.lastDate):'—'}${s.lastOdo!=null?' at '+mi(s.lastOdo)+' mi':''}${s.estDate&&r.miles?' · est. mileage due '+fd(s.estDate):''}</div>`:''}
     </div>
     <div style="display:flex;gap:6px;flex:none">${compact?'':`<button class="btn sm ghost" data-act="editRem" data-id="${esc(r.id)}" title="Edit">${ic('edit')}</button>`}<button class="btn sm" data-act="logRem" data-id="${esc(r.id)}">${ic('check')}Log</button></div></div>`;
@@ -1709,7 +1815,7 @@ function vFuel(){
     <div class="card tile"><div class="lbl">Last ${eu}</div><div class="val num">${last&&!mixed?last.mpg.toFixed(1):'—'}</div><div class="note">${last?fd(last.date):'—'}</div></div>
     <div class="card tile"><div class="lbl">Fuel this year</div><div class="val num">${money(ytd,0)}</div><div class="note">${money(allSpend,0)} all time</div></div>
     <div class="card tile"><div class="lbl">Avg price</div><div class="val num">${gal?money(allSpend/gal,2):'—'}</div><div class="note">per ${single()?volU(single()):'unit'}${miles?' · '+money(allSpend/miles,2)+'/mi':''}</div></div></div>
-  ${charts.map(({v,s})=>`<div class="card" style="margin-bottom:14px"><div class="card-h"><div><h2>${esc(effU(v).toUpperCase()==='MPG'?'Fuel economy':'Efficiency')}${vs.length>1?' · '+esc(vname(v)):''}</h2><div class="sub">${effU(v)} per full-tank fill-up</div></div><button class="btn sm mb-share-btn" data-act="shareFuel" data-id="${esc(v.id)}" aria-label="Share a fuel economy image">${ic('share')}Share</button></div><div class="chart" data-chart="mpg" data-vid="${esc(v.id)}"></div></div>`).join('')}
+  ${charts.map(({v,s})=>`<div class="card" style="margin-bottom:14px"><div class="card-h"><div><h2>${esc(effU(v).toUpperCase()==='MPG'?'Fuel economy':'Efficiency')}${vs.length>1?' · '+esc(vname(v)):''}</h2><div class="sub">${effU(v)} per full-tank fill-up · ${HINT('Hover or tap the line','Tap the line')}</div></div><button class="btn sm mb-share-btn" data-act="shareFuel" data-id="${esc(v.id)}" aria-label="Share a fuel economy image">${ic('share')}Share</button></div><div class="chart" data-chart="mpg" data-vid="${esc(v.id)}"></div></div>`).join('')}
   <div class="card"><div class="card-h"><div><h2>Fill-ups</h2><div class="sub">${plural(f.length,'fill-up')} · ${gal.toFixed(1)} ${single()?volU(single()):'units'} total</div></div></div>
   ${f.length?`<div class="tablewrap"><table><thead><tr><th>Date</th><th class="r">Odometer</th><th class="r hide-sm">Amount</th><th class="r hide-sm">Price</th><th class="r">Total</th><th class="r">Economy</th></tr></thead><tbody>
   ${f.slice(0,LIM.fuel).map(x=>{const v=veh(x.vid),e=mpgMaps[x.vid][x.id];return`<tr data-act="edit" data-k="fuel" data-id="${esc(x.id)}"><td style="white-space:nowrap">${fd(x.date)}${x.station||vtag(x.vid)?`<div class="m">${esc([x.station,vtag(x.vid)?vname(v):''].filter(Boolean).join(' · '))}</div>`:''}</td><td class="r num">${x.odo?mi(+x.odo):'—'}</td><td class="r num hide-sm">${(+x.gal||0).toFixed(2)} ${volU(v)}${x.full?'':'<div class="m">partial</div>'}</td><td class="r num hide-sm">${x.ppg?money(+x.ppg,3):'—'}</td><td class="r num">${money(fuelTotal(x),2)}</td><td class="r num">${e?e.toFixed(1)+' <span class="m">'+effU(v)+'</span>':'<span class="m">—</span>'}</td></tr>`}).join('')}
@@ -1820,11 +1926,11 @@ function vCosts(){
   <div class="card" style="margin-bottom:12px"><div class="card-h"><div><h2>Per mile</h2><div class="sub">Cash paid in this range ÷ ${miles?mi(miles)+' miles driven':'miles driven'}</div></div></div>
     <div class="dl2"><div><span>Fuel</span><b class="num">${pm(byG.Fuel)}</b></div><div><span>Maintenance</span><b class="num">${pm(byG.Maintenance)}</b></div><div><span>Repairs</span><b class="num">${pm(byG.Repairs)}</b></div><div><span>Insurance, loan & other</span><b class="num">${pm(fixed)}</b></div></div></div>
   <div class="grid g2">
-    <div class="card"><div class="card-h"><div><h2>Monthly spending</h2><div class="sub">by category</div></div></div>
+    <div class="card"><div class="card-h"><div><h2>Monthly spending</h2><div class="sub">by category</div></div>${HINT('Hover or tap a bar','Tap a bar')}</div>
       <div class="legend">${GROUPS.filter(g=>byG[g]>0).map(g=>`<span><i style="background:${GCOL[g]}"></i>${g}</span>`).join('')}</div>
       <div class="chart" data-chart="monthly"></div></div>
-    <div class="card"><div class="card-h"><div><h2>Where the money goes</h2><div class="sub">${money(tot,0)} cash paid</div></div></div>
-      <div style="padding:8px 0">${GROUPS.map(g=>`<div class="hbar"><div class="nm"><i style="background:${GCOL[g]}"></i>${g}</div><div class="trk"><span style="width:${byG[g]/maxG*100}%;background:${GCOL[g]}"></span></div><div class="v num">${money(byG[g],0)}</div><div class="p num">${tot?Math.round(byG[g]/tot*100)+'%':''}</div></div>`).join('')}</div>
+    <div class="card"><div class="card-h"><div><h2>Where the money goes</h2><div class="sub">${money(tot,0)} cash paid</div></div>${HINT('Hover or tap a bar','Tap a bar')}</div>
+      <div class="hbars" style="padding:8px 0">${GROUPS.map(g=>`<div class="hbar" tabindex="0" role="img" aria-label="${esc(g)}: ${money(byG[g],0)}${tot?', '+Math.round(byG[g]/tot*100)+'% of cash paid':''}" data-tip="${esc([money(byG[g],0),g+' · '+R.label.toLowerCase(),tot?Math.round(byG[g]/tot*100)+'% of the '+money(tot,0)+' cash paid':'Nothing logged in this range'].concat(miles?[pm(byG[g])+' per mile']:[]).join(';;'))}"><div class="nm"><i style="background:${GCOL[g]}"></i>${g}</div><div class="trk"><span style="width:${byG[g]/maxG*100}%;background:${GCOL[g]}"></span></div><div class="v num">${money(byG[g],0)}</div><div class="p num">${tot?Math.round(byG[g]/tot*100)+'%':''}</div></div>`).join('')}</div>
       ${dep.length&&rk==='all'?`<div style="border-top:1px solid var(--border);padding:12px 16px;font-size:13.5px">
         <div style="display:flex;justify-content:space-between"><span>Cash paid</span><b class="num">${money(tot,0)}</b></div>
         ${loanDup?`<div style="display:flex;justify-content:space-between;margin-top:4px"><span>Minus loan payments</span><b class="num">−${money(loanDup,0)}</b></div>`:''}
@@ -1898,32 +2004,54 @@ function vGarage(){
   <p class="fine">Recall lookups happen on NHTSA’s website (nhtsa.gov), a U.S. government site. auto.mcbflow.com doesn’t send your VIN anywhere; copy it and paste it there.</p>`;
 }
 
-/* ---- Settings ---- */
+/* ---- Settings (MB Suite v3.3 .mb-set: Appearance → Account & sync → Auto settings → Backup & data → Install → About) ---- */
+const setRow=(label,desc,ctrl,cls='')=>`<div class="mb-set-row${cls?' '+cls:''}"><div class="mb-set-l"><b>${label}</b>${desc?`<small>${desc}</small>`:''}</div><div class="mb-set-c">${ctrl}</div></div>`;
+const SUNI='<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',MOONI='<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/>';
+const sic=p=>`<svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${p}</svg>`;
 function vSettings(){
-  const c=k=>S[k].length;
-  return`<div class="head"><div><h1>Settings & help</h1><div class="sub">Your records live only in this browser. Save a backup to keep them safe.</div></div><button class="btn" data-act="view" data-v="dash">Back</button></div>
-  ${backupCard()}
-  <div class="grid g3 mt">
-  <div class="card pad stack"><h2>Appearance</h2><div class="seg">${[['light','Light'],['dark','Dark']].map(([k,l])=>`<button class="${S.settings.theme===k?'on':''}" aria-pressed="${S.settings.theme===k}" data-act="theme" data-v="${k}">${l}</button>`).join('')}</div></div>
-  <div class="card pad stack"><h2>Sample data</h2><div class="sub">Loads a sample car and motorcycle with past fill-ups, services and expenses. Replaces your current data.</div><div><button class="btn" data-act="sample">Load sample data</button></div></div>
-  <div class="card pad stack"><h2>Erase everything</h2><div class="sub">Deletes all vehicles and records. They stay in Recently deleted for 30 days unless you empty it.</div><div><button class="btn danger" data-act="wipe">${ic('trash')}Erase all data</button></div></div>
-  </div>${trashHTML()}${faqHTML()}${notesHTML()}
-  <div class="card pad mt" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2>Privacy & terms</h2><div class="sub">What auto.mcbflow.com stores, and the limits of its estimates.</div></div><div class="toolbar"><button class="btn" data-act="view" data-v="privacy">Privacy</button><button class="btn" data-act="view" data-v="terms">Terms of use</button></div></div>
-  ${installCard()}${aboutCard()}`;
+  const c=k=>S[k].length,th=S.settings.theme==='dark'?'dark':'light';
+  const seg=`<div class="mb-seg" role="group" aria-label="Theme">${[['light','Light',SUNI],['dark','Dark',MOONI]].map(([k,l,i])=>`<button type="button" data-act="theme" data-v="${k}" data-theme-set="${k}" aria-pressed="${th===k}">${sic(i)}${l}</button>`).join('')}</div>`;
+  const sec=(id,h,body)=>`<section class="mb-set-sec" aria-labelledby="${id}"><h2 class="mb-set-h" id="${id}">${h}</h2>${body}</section>`;
+  return`<div class="head"><div><h1>Settings</h1><div class="sub">Look, sync, backups and app info.</div></div></div>
+  <div class="mb-set">
+  ${sec('setA','Appearance',`<div class="mb-set-card">${setRow('Theme','Light or dark. Saved on this device.',seg)}</div>`)}
+  ${sec('setS','Account &amp; sync',`<div class="mb-set-card pad" id="syncCard">${SYNC?'':'<p class="sub" style="margin:0">Sync isn’t available because a file didn’t load. Reload the page to try again.</p>'}</div>`)}
+  ${sec('setApp','Auto settings',`<div class="mb-set-card">
+    ${setRow('Setup checklist on Home','Shows the “Finish setting up” steps (log a fill-up, a service and a bill) until they’re done.',`<label class="auto-tgw"><input type="checkbox" class="auto-tg" data-set="checklist" aria-label="Show the setup checklist on Home"${S.settings.checklistHidden?'':' checked'}></label>`)}
+    ${setRow('Vehicles',`${plural(c('vehicles'),'vehicle')}. Add, edit or delete them in Garage.`,S.vehicles.length?`<button type="button" class="btn" data-act="view" data-v="garage">${ic('car')}Open Garage</button>`:`<button type="button" class="btn" data-act="newVehicle">${ic('plus')}Add vehicle</button>`)}
+    ${setRow('Sample data','Loads a sample car and motorcycle with past fill-ups, services and expenses. Replaces your current data; a copy goes to Recently deleted first.',`<button type="button" class="btn" data-act="sample">Load sample data</button>`)}
+  </div>`)}
+  ${sec('setD','Backup &amp; data',`<div class="mb-set-card" id="setData" style="padding:8px 16px">${dataItems(false)}</div>
+    <p class="fine" style="margin:2px 2px 0">${c('vehicles')} vehicles · ${c('services')} service/repair records · ${c('fuel')} fill-ups · ${c('expenses')} expenses · ${c('reminders')} reminders.</p>${attachNote()}${storageNote()}${trashHTML()}`)}
+  ${sec('setI','Install',installCard())}
+  ${sec('setAb','About',aboutCard())}
+  </div>`;
 }
-function backupCard(){const c=k=>S[k].length;
-  return`<div class="card pad stack" id="bkcard"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h2>Backup</h2>${backupPill()}</div><div class="sub">${c('vehicles')} vehicles · ${c('services')} service/repair records · ${c('fuel')} fill-ups · ${c('expenses')} expenses · ${c('reminders')} reminders</div>
-    <div class="toolbar"><button class="btn pri" data-act="saveNow">${ic('save')}Save backup now</button><button class="btn" data-act="export">${ic('download')}Export All (JSON)…</button><button class="btn" data-act="import">${ic('upload')}Import Backup (JSON)…</button><button class="btn" data-act="csv">${ic('table')}Export All (CSV)…</button><button class="btn" data-act="importCsv">${ic('upload')}Import CSV…</button></div>${attachNote()}
-    <div class="loc">${locHTML()}</div>${storageNote()}</div>`}
+/* ---- Help: FAQ, release notes, privacy and terms ---- */
+function vHelp(){
+  return`<div class="head"><div><h1>Help</h1><div class="sub">How Auto works, what’s new, and the privacy and terms pages.</div></div></div>
+  ${faqHTML()}${notesHTML()}
+  <div class="card pad mt" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2>Privacy &amp; terms</h2><div class="sub">What auto.mcbflow.com stores, and the limits of its estimates.</div></div><div class="toolbar"><button class="btn" data-act="view" data-v="privacy">Privacy</button><button class="btn" data-act="view" data-v="terms">Terms of use</button></div></div>`;
+}
 /* ---- release notes ---- */
-const VERSION='1.4';
+const VERSION='1.5';
 const RELEASES=[
+ ['1.5','October 16, 2026',[
+  'New <b>Settings</b> page with the same layout as the other mcbflow.com apps: Appearance, Account &amp; sync, Auto settings, Backup &amp; data, Install and About. Help, the FAQ and these release notes moved to a <b>Help</b> page next to it.',
+  '<b>Account button</b> in the top bar: sign in, see your sync status, and pick a <b>profile picture and screen name</b> (Edit profile). The same picture and name show in every mcbflow.com app. <b>Keep me signed in on this device</b> can be turned off on a shared computer.',
+  'Home greets you (“Good morning, Matthew” when you’re signed in). <b>Overview is now called Home</b>, with a house icon, and Settings has a gear icon.',
+  'The same <b>welcome screen</b> as the other apps: a short tour, pick light or dark, then add your vehicle and its odometer. It also offers sign-in, importing a backup and sample data. The separate storage notice is folded into it. After skipping it, Home shows how to add your first vehicle.',
+  'Clearer <b>Data menu</b> with a short description on every item and a new <b>Export All (ZIP)</b>: your backup, spreadsheets and attached photos and PDFs in one file. Import Backup accepts that ZIP too. Clear all data still keeps a copy in Recently deleted for 30 days.',
+  '<b>Photos and PDFs open in the app</b> in a viewer (with Download there) instead of downloading. Attachments added on another device say so.',
+  '<b>Quieter backup reminders</b> while you’re signed in and syncing: the backup chip reads “Synced” and nothing turns amber.',
+  'Charts: hover, tap or tab to a month, a fill-up or a cost category to read its numbers; the others fade, and the fuel economy chart has a crosshair you can move with the arrow keys. The average line is dashed and labelled.',
+  'Every control in the top bar is the same height, and the name reads “Auto ∙ mcbflow.com”. Each page ends with a short footer (What’s new, Privacy, Terms).']],
  ['1.4','October 15, 2026',[
   'New: <b>optional sync across devices.</b> Data → Sync across devices signs in with a free mcbflow.com account; your vehicles and every fill-up, service, repair, expense, reminder, problem, document and checklist then match on every device you sign in on.',
   'Photos and PDFs stay on the device where you attached them. Elsewhere they show by name as “not on this device”. Export a backup there and import it here (Merge) to bring them over.',
   'Not signed in: nothing changes, and the app contacts no server. Erase all data warns when you’re signed in.']],
  ['1.3','October 14, 2026',[
-  'Moved to <b>auto.mcbflow.com</b>. Data saved at mbauto.online doesn’t carry over: export a backup there and import it here.',
+  'Moved to <b>auto.mcbflow.com</b>. Data saved at the old address doesn’t carry over: export a backup there and import it here.',
   'Storage names simplified.'
  ]],
  ['1.2','October 14, 2026',[
@@ -1965,7 +2093,7 @@ const RELEASES=[
   'The header logo keeps its slate background in dark mode instead of turning light blue-gray.']],
  ['Build 1.1','September 26, 2026',[
   '<b>Data menu</b> in the header with Save backup now, Export All (JSON)…, Import Backup (JSON)… and Export All (CSV)….',
-  '<b>Choose where backups go.</b> Pick the folder and file name once; mbauto.online remembers it and <b>Save backup now</b> (Ctrl/⌘+S) overwrites that file in one click.',
+  '<b>Choose where backups go.</b> Pick the folder and file name once; the app remembers it and <b>Save backup now</b> (Ctrl/⌘+S) overwrites that file in one click.',
   'Save backup now also refreshes your CSV file once you’ve exported one to a chosen location.',
   'Browsers that can’t pick a location (Firefox, Safari, phones) still download a dated copy to Downloads, and the menu says so.',
   '<b>Merge on import.</b> Restoring a backup can now add only what’s missing instead of replacing everything. Importing the same file twice never doubles your records.',
@@ -1987,17 +2115,18 @@ const RELEASES=[
 function notesHTML(){return`<div class="card mt faq" id="notes"><div class="card-h"><div><h2>Release notes</h2><div class="sub">You’re on version ${VERSION}</div></div></div>${RELEASES.map(([v,d,it],i)=>`<details${i===0?' open':''}><summary><span>${/^\d/.test(v)?'Version '+v:v}${d?` <span class="muted" style="font-weight:500">· ${d}</span>`:''}</span>${ic('chev')}</summary><div class="a"><ul class="rn-list">${it.map(x=>`<li>${x}</li>`).join('')}</ul></div></details>`).join('')}</div>`}
 function attachNote(){const ids=Object.keys(FMETA);if(!ids.length)return'';const b=ids.reduce((a,id)=>a+(FMETA[id].size||0),0);return`<div class="fine" style="margin:0">${plural(ids.length,'attachment')} (${fsize(b)}) stored on this device. Backups include them, so backup files get bigger.</div>`}
 function aboutCard(){
-  return`<div class="mb-about" role="group" aria-label="About this app">
+  return`<div class="mb-about" role="group" aria-label="About this app" style="margin-top:0">
   <svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></svg>
   <div>
     <b>auto.mcbflow.com™</b>
-    <p>Version 1.3 · Oct 14, 2026</p>
-    <p class="mb-about-links"><button type="button" data-act="notes">What's new</button><button type="button" data-act="view" data-v="privacy">Privacy</button><button type="button" data-act="view" data-v="terms">Terms</button><a href="https://mcbflow.com/">More free apps at mcbflow.com</a></p>
+    <p>Version ${VERSION} · Oct 16, 2026</p>
+    <p class="mb-about-links"><button type="button" data-act="notes">What’s new</button><button type="button" data-act="view" data-v="privacy">Privacy</button><button type="button" data-act="view" data-v="terms">Terms</button><button type="button" data-act="view" data-v="help">Help</button><a href="https://mcbflow.com/">More free apps at mcbflow.com</a></p>
     <p class="mb-about-copy">© 2026 Matthew Broyer. All rights reserved.</p>
   </div>
 </div>`}
 function installCard(){
-  return`<div class="mt" data-mb-install data-app-name="Auto" data-note="Opens in its own window with its own icon. Works offline after the first visit. Your records stay on this device either way." hidden></div>`}function trashHTML(){
+  return`<div data-mb-install data-app-name="Auto" data-note="Opens in its own window with its own icon. Works offline after the first visit. Your records stay on this device either way." hidden></div><p class="inst-fb">This browser hasn’t offered to install Auto yet. In Chrome or Edge, use the install icon in the address bar or the browser menu. On iPhone or iPad, open this page in Safari, tap Share, then Add to Home Screen.</p>`}
+function trashHTML(){
   return`<div class="card mt" id="trash"><div class="card-h"><div><h2>Recently deleted</h2><div class="sub">Kept on this device for ${TDAYS} days, then removed.</div></div>${TRASH.length?`<button class="btn sm danger" data-act="trashEmpty">${ic('trash')}Empty</button>`:''}</div>
   ${TRASH.length?TRASH.map(t=>{const left=Math.max(1,Math.ceil((t.at+TDAYS*864e5-Date.now())/864e5));return`<div class="trow"><div class="ic">${ic(t.full?'receipt':'trash')}</div><div class="main"><div class="t">${esc(t.label)}</div><div class="m">Deleted ${esc(new Date(t.at).toLocaleDateString(undefined,{month:'short',day:'numeric'}))} · ${plural(left,'day')} left</div></div><button class="btn sm" data-act="trashRestore" data-id="${esc(t.id)}">Restore</button></div>`}).join(''):`<div class="empty"><b>Nothing here</b>Deleted entries and vehicles show up here for ${TDAYS} days.</div>`}</div>`;
 }
@@ -2011,7 +2140,7 @@ function vPrivacy(){return`<div class="legal">${legalHead('Privacy')}<div class=
   <h2>What is stored on your device</h2>
   <ul><li>Vehicles: year, make, model, and anything optional you add (nickname, plate, VIN, purchase date and price, estimated value, notes).</li>
   <li>Fill-ups, services, repairs, expenses, odometer readings and reminders you enter.</li>
-  <li>Settings such as theme and the last screen you viewed, when you last backed up, and a note that you closed the storage notice.</li>
+  <li>Settings such as theme and the last screen you viewed, when you last backed up, and notes that you’ve seen the welcome screen.</li>
   <li>If your browser supports it, a reference to the backup file you chose (not its contents), so Save backup now can update that one file after you allow it. Clearing this site’s data forgets it.</li>
   <li>Items you delete, kept in Recently deleted for ${TDAYS} days so you can restore them.</li>
   <li>Photos and PDFs you attach, kept in this browser’s IndexedDB storage on your device. Large photos are resized before they’re saved.</li></ul>
@@ -2027,7 +2156,7 @@ function vPrivacy(){return`<div class="legal">${legalHead('Privacy')}<div class=
   <p>Passwords, Social Security numbers, bank or card numbers, or other highly sensitive information. Notes and attachments are stored unencrypted, and anyone using this browser profile can open the app and see your records. Before attaching a photo of a license or insurance card, consider who else uses this device.</p>
   <h2>Your controls</h2>
   <ul><li><b>Export:</b> Data menu → Save backup now, Export All (JSON) or Export All (CSV).</li><li><b>Delete one item:</b> open it and tap Delete.</li>
-  <li><b>Delete everything for good:</b> Settings → Erase all data, then empty Recently deleted. Clearing this site’s data in your browser settings also removes everything.</li>
+  <li><b>Delete everything for good:</b> Data → Clear all data… (it asks you to type ERASE), then empty Recently deleted in Settings. Clearing this site’s data in your browser settings also removes everything.</li>
   <li>Private or incognito windows discard your records when closed.</li></ul>
   <h2>Children</h2><p>auto.mcbflow.com is meant for vehicle owners and isn’t directed to children. It doesn’t collect information from anyone, because records stay on the device.</p>
   <h2>Changes</h2><p>If this policy changes, the new version will appear here with a new effective date.</p>${contactHTML()}
@@ -2187,9 +2316,14 @@ function printReport(vid,o){
   addEventListener('afterprint',done);setTimeout(()=>{try{window.print()}catch(e){done()}},50);
 }
 
-/* ================= charts ================= */
+/* ================= charts =================
+   MB Suite chart standard: round-number gridlines, 4px rounded bar tops, dashed labelled average line, and a label on every
+   mark on hover, tap or keyboard focus (bold value, then what/when, then context). The read mark stays, the others fade;
+   the line chart has a crosshair that follows the pointer and the arrow keys. Esc, scrolling or leaving hides the label. */
 function niceMax(v){if(v<=0)return 1;const p=10**Math.floor(Math.log10(v));const n=v/p;return(n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10)*p}
+function niceStep(range,n=3){if(range<=0)return 1;const raw=range/n,p=10**Math.floor(Math.log10(raw)),f=raw/p;return(f<=1?1:f<=2?2:f<=2.5?2.5:f<=5?5:10)*p}
 function topRound(x,y,w,h,r){r=Math.min(r,w/2,h);return`M${x},${y+h}V${y+r}Q${x},${y} ${x+r},${y}H${x+w-r}Q${x+w},${y} ${x+w},${y+r}V${y+h}Z`}
+const HINT=(m,t)=>`<span class="charthint" data-touch="${t}">${m}</span>`;
 function drawCharts(){
   document.querySelectorAll('[data-chart]').forEach(el=>{
     const W=Math.max(260,el.clientWidth-24);
@@ -2206,56 +2340,87 @@ function chartMonthly(W){
   const data=ms.map(m=>{const o={m,tot:0};for(const g of GROUPS)o[g]=0;return o});const idx={};data.forEach((o,i)=>idx[o.m]=i);
   for(const x of e){const i=idx[x.date.slice(0,7)];if(i!=null){data[i][x.g]+=x.amt;data[i].tot+=x.amt}}
   const H=230,L=46,Rr=6,T=10,B=24,pw=W-L-Rr,ph=H-T-B;
-  const mx=niceMax(Math.max(...data.map(o=>o.tot),1));
-  const band=pw/data.length,bw=Math.min(24,Math.max(4,band*0.62));
-  let s=`<svg viewBox="0 0 ${W} ${H}" height="${H}" role="img" aria-label="Monthly spending by category: ${esc(money(data.reduce((a,o)=>a+o.tot,0),0))} over ${data.length} months. Category totals are listed under Where the money goes.">`;
-  for(let k=0;k<=4;k++){const v=mx*k/4,y=T+ph-ph*k/4;s+=`<line x1="${L}" x2="${W-Rr}" y1="${y}" y2="${y}" stroke="var(--grid)" stroke-width="1"/><text class="axis" x="${L-8}" y="${y+3.5}" text-anchor="end">${moneyC(v)}</text>`}
+  const top=Math.max(...data.map(o=>o.tot),1),step=niceStep(top,3),mx=Math.ceil(top/step)*step;
+  const band=pw/data.length,bw=Math.min(28,Math.max(4,band*0.62));
+  const sum=data.reduce((a,o)=>a+o.tot,0),avg=sum/data.length;
+  let s=`<svg viewBox="0 0 ${W} ${H}" height="${H}" role="group" aria-label="Monthly spending by category: ${esc(money(sum,0))} over ${plural(data.length,'month')}, about ${esc(money(avg,0))} a month. Tab to a month to read it.">`;
+  for(let v=0;v<=mx+1e-9;v+=step){const y=T+ph-ph*v/mx;s+=`<line x1="${L}" x2="${W-Rr}" y1="${y}" y2="${y}" stroke="var(--${v?'grid':'border-2'})" stroke-width="1"/><text class="axis" x="${L-8}" y="${y+3.5}" text-anchor="end">${moneyC(v)}</text>`}
   const every=Math.ceil(data.length/(W<500?6:12));
   data.forEach((o,i)=>{
     const x=L+band*i+(band-bw)/2;let y=T+ph;
-    const segs=GROUPS.filter(g=>o[g]>0);s+=`<g class="col" style="animation-delay:${Math.min(i*4,60)}ms">`;
-    segs.forEach((g,j)=>{let h=o[g]/mx*ph;const top=j===segs.length-1;const gap=j>0?2:0;h=Math.max(0,h-gap);y-=h+gap;
-      s+=top?`<path d="${topRound(x,y,bw,h,2)}" fill="${GCOL[g]}"/>`:`<rect x="${x}" y="${y}" width="${bw}" height="${h}" fill="${GCOL[g]}"/>`;});
-    s+='</g>';
+    const segs=GROUPS.filter(g=>o[g]>0);const when=pd(o.m+'-01').toLocaleDateString(undefined,{month:'long',year:'numeric'});
+    const tip=[money(o.tot,0),when+(o.tot?'':' · nothing logged')].concat(segs.map(g=>g+'|'+money(o[g],0)+'|'+GCOL[g])).concat(o.tot&&data.length>1?[(o.tot>=avg?money(o.tot-avg,0)+' above':money(avg-o.tot,0)+' below')+' the '+money(avg,0)+' monthly average']:[]).join(';;');
+    const al=`${when}: ${money(o.tot,0)}${segs.length?'. '+segs.map(g=>g+' '+money(o[g],0)).join(', '):''}`;
+    s+=`<g class="col mk" tabindex="0" role="img" aria-label="${esc(al)}" data-tip="${esc(tip)}"><rect class="hit" x="${L+band*i+1}" y="${T}" width="${Math.max(1,band-2)}" height="${ph}" rx="3"/><g class="segs">`;
+    segs.forEach((g,j)=>{let h=o[g]/mx*ph;const last=j===segs.length-1;const gap=j>0?2:0;h=Math.max(0,h-gap);y-=h+gap;
+      s+=last?`<path d="${topRound(x,y,bw,h,4)}" fill="${GCOL[g]}"/>`:`<rect x="${x}" y="${y}" width="${bw}" height="${h}" fill="${GCOL[g]}"/>`;});
+    s+='</g></g>';
     if(i%every===0||i===data.length-1&&data.length<=12){const dd=pd(o.m+'-01');s+=`<text class="axis" x="${L+band*i+band/2}" y="${H-6}" text-anchor="middle">${dd.toLocaleDateString(undefined,{month:'short'})}${dd.getMonth()===0||i===0?" ’"+String(dd.getFullYear()).slice(2):''}</text>`}
-    const tip=[pd(o.m+'-01').toLocaleDateString(undefined,{month:'long',year:'numeric'})+'|'+money(o.tot,0)].concat(GROUPS.filter(g=>o[g]>0).map(g=>g+'|'+money(o[g],0)+'|'+GCOL[g])).join(';;');
-    s+=`<rect x="${L+band*i}" y="${T}" width="${band}" height="${ph}" fill="transparent" data-tip="${esc(tip)}"/>`;
   });
-  s+=`<line x1="${L}" x2="${W-Rr}" y1="${T+ph}" y2="${T+ph}" stroke="var(--border-2)" stroke-width="1"/></svg>`;
+  s+='</svg>';
   return s+(note?`<div class="m muted" style="font-size:12px;padding:4px 4px 0">${note}</div>`:'');
 }
 function chartMpg(W,vid){
-  const v=veh(vid);const p=mpgSeries(vid).sort((a,b)=>a.date.localeCompare(b.date)||a.odo-b.odo);
+  const v=veh(vid);const p=mpgSeries(vid).sort((a,b)=>a.date.localeCompare(b.date)||a.odo-b.odo);const u=effU(v);
   const H=210,L=40,Rr=64,T=14,B=24,pw=W-L-Rr,ph=H-T-B;
-  const vals=p.map(x=>x.mpg);let lo=Math.min(...vals),hi=Math.max(...vals);const padv=Math.max(1,(hi-lo)*0.15);lo=Math.max(0,Math.floor(lo-padv));hi=Math.ceil(hi+padv);
+  const vals=p.map(x=>x.mpg);const st=niceStep(Math.max(1,Math.max(...vals)-Math.min(...vals)),3);
+  let lo=Math.max(0,Math.floor((Math.min(...vals)-st*.4)/st)*st),hi=Math.ceil((Math.max(...vals)+st*.4)/st)*st;if(hi<=lo)hi=lo+st;
   const t0=pd(p[0].date).getTime(),t1=Math.max(pd(p[p.length-1].date).getTime(),t0+864e5);
   const X=x=>L+(pd(x.date).getTime()-t0)/(t1-t0)*pw,Y=m=>T+ph-(m-lo)/(hi-lo)*ph;
   const avg=p.reduce((a,b)=>a+b.miles,0)/p.reduce((a,b)=>a+b.gal,0);
-  let s=`<svg viewBox="0 0 ${W} ${H}" height="${H}" role="img" aria-label="${esc(effU(v))} over time: average ${avg.toFixed(1)}, latest ${p[p.length-1].mpg.toFixed(1)}, across ${p.length} fill-ups.">`;
-  const step=(hi-lo)/4;for(let k=0;k<=4;k++){const m=lo+step*k,y=Y(m);s+=`<line x1="${L}" x2="${L+pw}" y1="${y}" y2="${y}" stroke="var(--grid)"/><text class="axis" x="${L-8}" y="${y+3.5}" text-anchor="end">${m%1?m.toFixed(1):m}</text>`}
+  const gid='mg'+esc(vid);
+  const pts=p.map((x,i)=>{const prev=i?p[i-1].mpg:null;return{x:+X(x).toFixed(1),y:+Y(x.mpg).toFixed(1),
+    tip:[x.mpg.toFixed(1)+' '+u,'Full tank on '+fd(x.date),'Distance|'+mi(x.miles)+' mi','Fuel used|'+x.gal.toFixed(2)+' '+volU(v),(x.mpg>=avg?'+':'−')+Math.abs(x.mpg-avg).toFixed(1)+' vs your '+avg.toFixed(1)+' average'+(prev!=null?' · '+(x.mpg>=prev?'up':'down')+' from '+prev.toFixed(1):'')].join(';;')}});
+  let s=`<svg class="lc" viewBox="0 0 ${W} ${H}" height="${H}" tabindex="0" role="img" aria-label="${esc(u)} over time: average ${avg.toFixed(1)}, latest ${p[p.length-1].mpg.toFixed(1)}, across ${p.length} full tanks. Use the left and right arrow keys to read each fill-up." data-pts="${esc(JSON.stringify(pts))}">
+  <defs><linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--s1)" stop-opacity=".22"/><stop offset="1" stop-color="var(--s1)" stop-opacity="0"/></linearGradient></defs>`;
+  for(let m=lo;m<=hi+1e-9;m+=st){const y=Y(m);s+=`<line x1="${L}" x2="${L+pw}" y1="${y}" y2="${y}" stroke="var(--${m===lo?'border-2':'grid'})"/><text class="axis" x="${L-8}" y="${y+3.5}" text-anchor="end">${+m.toFixed(1)}</text>`}
   const ticks=W<500?4:6;for(let k=0;k<ticks;k++){const t=t0+(t1-t0)*k/(ticks-1);s+=`<text class="axis" x="${L+pw*k/(ticks-1)}" y="${H-6}" text-anchor="middle">${new Date(t).toLocaleDateString(undefined,{month:'short',year:'2-digit'})}</text>`}
-  const ay=Y(avg);s+=`<line x1="${L}" x2="${L+pw}" y1="${ay}" y2="${ay}" stroke="var(--muted)" stroke-width="1" opacity=".6"/><text class="axis" x="${L+pw+6}" y="${ay+3.5}">avg ${avg.toFixed(1)}</text>`;
-  s+=`<path d="M${L},${T+ph}${p.map(x=>`L${X(x)},${Y(x.mpg)}`).join('')}L${X(p[p.length-1])},${T+ph}Z" fill="var(--s1)" opacity=".08" class="area"/>`;
-  s+=`<path d="${p.map((x,i)=>(i?'L':'M')+X(x)+','+Y(x.mpg)).join('')}" class="line" pathLength="1" fill="none" stroke="var(--s1)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+  s+=`<path d="M${L},${T+ph}${p.map(x=>`L${X(x)},${Y(x.mpg)}`).join('')}L${X(p[p.length-1])},${T+ph}Z" fill="url(#${gid})" class="area"/>`;
+  const ay=Y(avg);s+=`<line class="tgt" x1="${L}" x2="${L+pw}" y1="${ay}" y2="${ay}"/><text class="axis" x="${L+pw+6}" y="${ay+3.5}">avg ${avg.toFixed(1)}</text>`;
+  s+=`<path d="${p.map((x,i)=>(i?'L':'M')+X(x)+','+Y(x.mpg)).join('')}" class="line" pathLength="1" fill="none" stroke="var(--s1)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+  p.forEach(x=>{s+=`<circle cx="${X(x)}" cy="${Y(x.mpg)}" r="2.5" fill="var(--s1)"/>`});
   const lp=p[p.length-1];s+=`<circle cx="${X(lp)}" cy="${Y(lp.mpg)}" r="5" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"/>`;
   if(Math.abs(Y(lp.mpg)-ay)>12)s+=`<text class="dlabel" x="${X(lp)+9}" y="${Y(lp.mpg)+4}">${lp.mpg.toFixed(1)}</text>`;
-  p.forEach(x=>{const tip=`${fd(x.date)}|${x.mpg.toFixed(1)} ${effU(v)};;Distance|${mi(x.miles)} mi;;Fuel used|${x.gal.toFixed(2)} ${volU(v)}`;
-    s+=`<circle cx="${X(x)}" cy="${Y(x.mpg)}" r="12" fill="transparent" data-tip="${esc(tip)}" data-dot="1"/>`});
+  s+=`<line class="xh" x1="0" x2="0" y1="${T}" y2="${T+ph}" style="display:none"/><circle class="xdot" r="5" cx="0" cy="0" style="display:none"/>`;
   return s+'</svg>';
 }
-/* tooltip */
-const tip=$('#tip');let tipDot=null;
-document.addEventListener('pointerover',e=>{
-  const t=e.target.closest&&e.target.closest('[data-tip]');if(!t){tip.style.display='none';if(tipDot){tipDot.remove();tipDot=null}return}
-  const rows=t.dataset.tip.split(';;').map(r=>r.split('|'));
-  tip.innerHTML=rows.map((r,i)=>i===0?`<div class="tl">${esc(r[0])} <span style="font-weight:500;color:var(--text-2)">· ${esc(r[1])}</span></div>`:`<div class="tr"><span>${r[2]?`<i style="background:${esc(r[2])}"></i>`:''}${esc(r[0])}</span><b>${esc(r[1])}</b></div>`).join('');
-  tip.style.display='block';
-  if(tipDot){tipDot.remove();tipDot=null}
-  if(t.dataset.dot){tipDot=document.createElementNS('http://www.w3.org/2000/svg','circle');tipDot.setAttribute('cx',t.getAttribute('cx'));tipDot.setAttribute('cy',t.getAttribute('cy'));tipDot.setAttribute('r','5');tipDot.setAttribute('fill','var(--s1)');tipDot.setAttribute('stroke','var(--surface)');tipDot.setAttribute('stroke-width','2');tipDot.style.pointerEvents='none';t.parentNode.appendChild(tipDot)}
-  else{t.setAttribute('fill','var(--text)');t.setAttribute('fill-opacity','.05');t.addEventListener('pointerleave',()=>{t.setAttribute('fill','transparent');t.removeAttribute('fill-opacity')},{once:true})}
-});
-document.addEventListener('pointermove',e=>{if(tip.style.display!=='block')return;const w=tip.offsetWidth,h=tip.offsetHeight;let x=e.clientX+14,y=e.clientY-h-12;if(x+w>innerWidth-8)x=e.clientX-w-14;if(y<8)y=e.clientY+16;tip.style.left=x+'px';tip.style.top=y+'px'});
-let rsz;addEventListener('resize',()=>{clearTimeout(rsz);rsz=setTimeout(drawCharts,120)});
+/* one label for every chart mark: data-tip="Value;;What / when;;Label|value|color;;context" */
+const tip=$('#tip');tip.setAttribute('role','status');tip.setAttribute('aria-live','polite');let tipOn=null,lcOn=null;
+function tipHTML(spec){return String(spec||'').split(';;').map((r,i)=>{const c=r.split('|');
+  if(i===0)return`<div class="tv num">${esc(c[0])}</div>`;
+  if(c.length>=2)return`<div class="tr"><span>${c[2]?`<i style="background:${esc(c[2])}"></i>`:''}${esc(c[0])}</span><b class="num">${esc(c[1])}</b></div>`;
+  return`<div class="tw">${esc(c[0])}</div>`}).join('')}
+function tipPlace(r){tip.style.display='block';const tw=tip.offsetWidth,th=tip.offsetHeight;
+  let left=r.left+r.width/2-tw/2;left=Math.max(8,Math.min(innerWidth-tw-8,left));let top=r.top-th-10;if(top<8)top=r.bottom+10;
+  tip.style.left=left+'px';tip.style.top=top+'px'}
+function tipShow(t){if(lcOn)lcHide();tipOn=t;tip.innerHTML=tipHTML(t.dataset.tip);
+  document.querySelectorAll('.tipon').forEach(x=>x.classList.remove('tipon'));document.querySelectorAll('.reading').forEach(x=>x.classList.remove('reading'));
+  t.classList.add('tipon');const box=t.closest('.chart,.hbars');if(box)box.classList.add('reading');
+  const seg=t.querySelector('.segs');let r=(seg&&seg.getBoundingClientRect().height>0?seg:t.querySelector('.trk span')||t).getBoundingClientRect();
+  if(seg&&r.height===0){const h=t.querySelector('.hit').getBoundingClientRect();r={left:h.left,width:h.width,top:h.bottom-4,bottom:h.bottom}}
+  tipPlace(r)}
+function lcShow(svg,i){if(tipOn&&tipOn!==svg){tipOn.classList.remove('tipon');const b=tipOn.closest('.reading');if(b)b.classList.remove('reading');tipOn=null}
+  const pts=svg._pts||(svg._pts=JSON.parse(svg.dataset.pts||'[]'));if(!pts.length)return;i=Math.max(0,Math.min(pts.length-1,i));svg._i=i;lcOn=svg;const p=pts[i];
+  const xh=svg.querySelector('.xh'),dot=svg.querySelector('.xdot');xh.setAttribute('x1',p.x);xh.setAttribute('x2',p.x);xh.style.display='';dot.setAttribute('cx',p.x);dot.setAttribute('cy',p.y);dot.style.display='';
+  tip.innerHTML=tipHTML(p.tip);tipPlace(dot.getBoundingClientRect())}
+function lcHide(){if(!lcOn)return;lcOn.querySelectorAll('.xh,.xdot').forEach(x=>x.style.display='none');lcOn=null;if(!tipOn)tip.style.display='none'}
+function tipHide(){tipOn=null;lcHide();tip.style.display='none';document.querySelectorAll('.tipon').forEach(x=>x.classList.remove('tipon'));document.querySelectorAll('.reading').forEach(x=>x.classList.remove('reading'))}
+function lcNear(svg,e){const r=svg.getBoundingClientRect(),vb=svg.viewBox.baseVal,sx=(e.clientX-r.left)*(vb.width/r.width);
+  const pts=svg._pts||(svg._pts=JSON.parse(svg.dataset.pts||'[]'));let bi=0,bd=1e9;pts.forEach((p,i)=>{const d=Math.abs(p.x-sx);if(d<bd){bd=d;bi=i}});return bi}
+document.addEventListener('pointerover',e=>{const t=e.target.closest&&e.target.closest('[data-tip]');if(t){if(t!==tipOn)tipShow(t)}
+  else if(tipOn&&e.pointerType!=='touch'&&document.activeElement!==tipOn)tipHide()});
+document.addEventListener('pointerdown',e=>{const t=e.target.closest&&e.target.closest('[data-tip]'),l=e.target.closest&&e.target.closest('svg.lc');
+  if(t)tipShow(t);else if(l)lcShow(l,lcNear(l,e));else if(tipOn||lcOn)tipHide()});
+document.addEventListener('pointermove',e=>{const l=e.target.closest&&e.target.closest('svg.lc');if(l)lcShow(l,lcNear(l,e));else if(lcOn&&e.pointerType!=='touch'&&document.activeElement!==lcOn)lcHide()});
+document.addEventListener('focusin',e=>{const t=e.target.closest&&e.target.closest('[data-tip]');if(t){tipShow(t);return}
+  if(e.target.matches&&e.target.matches('svg.lc')){lcShow(e.target,e.target._i??(JSON.parse(e.target.dataset.pts||'[]').length-1));return}if(tipOn||lcOn)tipHide()});
+document.addEventListener('focusout',e=>{if(e.target===tipOn||e.target===lcOn)setTimeout(()=>{if(!document.activeElement||(document.activeElement!==tipOn&&document.activeElement!==lcOn))tipHide()},0)});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&(tipOn||lcOn)){tipHide();return}
+  const l=e.target.matches&&e.target.matches('svg.lc')?e.target:null;if(!l)return;const n=JSON.parse(l.dataset.pts||'[]').length,i=l._i??n-1;
+  const k={ArrowLeft:i-1,ArrowRight:i+1,ArrowDown:i-1,ArrowUp:i+1,Home:0,End:n-1}[e.key];if(k==null)return;e.preventDefault();lcShow(l,k)});
+addEventListener('scroll',()=>{if(tipOn||lcOn)tipHide()},{passive:true});
+let rsz;addEventListener('resize',()=>{clearTimeout(rsz);rsz=setTimeout(()=>{tipHide();drawCharts()},120)});
 
 /* ================= forms ================= */
 const dlg=$('#dlg');
@@ -2278,10 +2443,10 @@ function moreHTML(fields,values){const m=fields.filter(f=>f.more);if(!m.length)r
   return`<details class="fmore"${open?' open':''}><summary>${ic('chev')}More details <span class="muted" style="font-weight:400">(optional)</span></summary><div class="dlg-b">${m.map(f=>fieldHTML(f,values[f.k])).join('')}</div></details>`}
 function wireFiles(form,start){const fz=form.querySelector('[data-files]');if(!fz)return;form._files=(start||[]).slice();
   const list=fz.querySelector('.flist'),inp=fz.querySelector('[data-fin]');
-  const paint=()=>{list.innerHTML=form._files.map((id,i)=>{const m=FMETA[id];return`<span class="fchip"><button type="button" data-open="${esc(id)}" title="Open">${ic(fileIcon(id))}<span>${m?esc(m.name):'Missing file'}</span>${m?`<small>${fsize(m.size)}</small>`:''}</button><button type="button" class="fx" data-rm="${i}" aria-label="Remove ${m?esc(m.name):'attachment'}">${ic('x')}</button></span>`}).join('')};
+  const paint=()=>{list.innerHTML=form._files.map((id,i)=>{const m=FMETA[id],o=!m&&FINFO[id];return`<span class="fchip"><button type="button" data-open="${esc(id)}" aria-label="View ${m?esc(m.name):o?esc(o.name)+' (not on this device)':'missing file'}" title="View">${ic(fileIcon(id))}<span>${m?esc(m.name):o?esc(o.name)+' (not on this device)':'Missing file'}</span>${m?`<small>${fsize(m.size)}</small>`:''}</button><button type="button" class="fx" data-rm="${i}" aria-label="Remove ${m?esc(m.name):'attachment'}">${ic('x')}</button></span>`}).join('')};
   fz.querySelector('[data-fadd]').onclick=()=>inp.click();
   inp.onchange=async()=>{const fl=[...inp.files];inp.value='';for(const f of fl){const id=await addFile(f);if(id){form._files.push(id);paint()}}};
-  list.onclick=e=>{const o=e.target.closest('[data-open]'),r=e.target.closest('[data-rm]');if(o)openFile(o.dataset.open);if(r){form._files.splice(+r.dataset.rm,1);paint()}};
+  list.onclick=e=>{const o=e.target.closest('[data-open]'),r=e.target.closest('[data-rm]');if(o)openFile(o.dataset.open,form._files);if(r){form._files.splice(+r.dataset.rm,1);paint()}};
   paint()}
 function openForm({title,fields,values,onSave,onDelete,onInput,saveLabel,noun,delMsg}){
   dlg.className='';dlg.setAttribute('aria-label',title);
@@ -2471,10 +2636,10 @@ function formVehicle(x){
     if(await confirmModal({title:`Delete ${vname(x)}?`,msg:`This permanently deletes <b>${esc(vname(x))}</b>${n?` and its ${plural(n,'record')} (services, repairs, fill-ups, expenses, reminders, documents and problems)`:''}. You can restore it from Recently deleted in Settings for 30 days.`,ok:'Delete vehicle'})){dlg.close();deleteWithUndo('Vehicle',()=>{for(const k of VCOLLS)S[k]=S[k].filter(r=>r.vid!==x.id);S.vehicles=S.vehicles.filter(v=>v.id!==x.id);S.settings.active='all'})}}}
 }
 function moreMenu(){
-  const it=[['repairs','repair','Repairs','Fixes, problems and quotes'],['history','history','History','Every record on one timeline'],['garage','car','Garage','Vehicles and glovebox'],['settings','gear','Settings','Backup, install, help']];
-  const cur=['privacy','terms'].includes(S.settings.view)?'settings':S.settings.view;
+  const it=[['settings','gear','Settings','Look, sync, backups, install'],['repairs','repair','Repairs','Fixes, problems and quotes'],['history','history','History','Every record on one timeline'],['garage','car','Garage','Vehicles and glovebox'],['help','help','Help','FAQ, what’s new, privacy']];
+  const cur=['privacy','terms'].includes(S.settings.view)?'help':S.settings.view;
   dlg.className='';dlg.setAttribute('aria-label','More');
-  dlg.innerHTML=`<div class="dlg-h"><h2>More</h2><button class="iconbtn" data-close aria-label="Close">${ic('x')}</button></div><div class="addgrid">${it.map(([k,i,t,d])=>`<button data-go="${k}"${cur===k?' aria-current="page"':''}><div class="ic">${ic(i)}</div><div><b>${t}</b><small>${d}</small></div></button>`).join('')}</div>`;
+  dlg.innerHTML=`<div class="dlg-h"><h2>More</h2><button class="iconbtn" data-close aria-label="Close">${ic('x')}</button></div><div class="addgrid">${it.map(([k,i,t,d])=>`<button data-go="${k}"${cur===k?' aria-current="page"':''}><div class="ic">${nic(i)}</div><div><b>${t}</b><small>${d}</small></div></button>`).join('')}</div>`;
   dlg.querySelector('[data-close]').onclick=()=>dlg.close();
   dlg.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{dlg.close();A.view({v:b.dataset.go})});
   dlg.showModal();
@@ -2523,9 +2688,9 @@ function shareFuel(vid){const v=veh(vid);if(!v)return;const s=mpgSeries(vid);if(
 const A={
   view:d=>{OB=null;PREV=S.settings.view;S.settings.view=d.v;save();render();scrollTo(0,0);$('#main').focus({preventScroll:true})},
   pick:d=>{S.settings.active=d.id;S.settings.view=S.settings.view==='garage'||S.settings.view==='costs'?'dash':S.settings.view;save();render();scrollTo(0,0)},
-  add:d=>openAdd(d.k,d.vid),
-  addmenu:()=>addMenu(),
-  home:()=>{if(OB)return;A.view({v:'dash'})},
+  add:d=>{if(!S.vehicles.length){A.newVehicle();return}openAdd(d.k,d.vid)},
+  addmenu:()=>{if(!S.vehicles.length){A.newVehicle();return}addMenu()},
+  home:()=>A.view({v:'dash'}),
   navMore:()=>moreMenu(),
   shareVeh:d=>shareVehicle(d.id),
   shareFuel:d=>shareFuel(d.id),
@@ -2566,16 +2731,18 @@ const A={
   csv:()=>exportAs('csv'),
   sample:async()=>{if(S.vehicles.length&&!await confirmModal({title:'Replace your data with sample data?',msg:'Your current vehicles and records will be replaced with examples. A copy goes to Recently deleted for 30 days.',ok:'Replace data'}))return;const tid=trashFull('Your data, before sample data');OB=null;S=sampleData();save();render();toast('Sample data loaded',tid?()=>trashRestore(tid):null)},
   wipe:async()=>{if(!await confirmModal({title:'Erase all data?',msg:'This deletes every vehicle and record. A copy stays in Recently deleted for 30 days so you can restore it. To remove it for good, empty Recently deleted afterward.'+(SYNC&&SYNC.status().signedIn?' You’re signed in to sync, so this also erases your synced records on your account and other devices. To erase only this device, sign out first (Data → Sync).':''),ok:'Erase everything',typed:'ERASE'}))return;const tid=trashFull('All data, before erase');const th=S.settings.theme;S=blank();S.settings.theme=th;S.settings.view='settings';save();render();toast('All data erased',tid?()=>trashRestore(tid):null)},
-  openFile:d=>openFile(d.id),
+  openFile:d=>openFile(d.id,(d.group||'').split(' ')),
   sync:()=>{closeDataMenu();if(SYNC)SYNC.open()},
   trashRestore:d=>trashRestore(d.id),
   trashEmpty:async()=>{if(!await confirmModal({title:'Empty Recently deleted?',msg:`This permanently removes ${plural(TRASH.length,'item')}. They can’t be restored after this.`,ok:'Empty permanently'}))return;TRASH=[];try{localStorage.removeItem(TKEY)}catch(e){}for(const id of Object.keys(FMETA))FMETA[id].at=0;fileGC().then(render);render();toast('Recently deleted emptied')},
-  notes:()=>{const n=$('#notes');if(!n)return;const d=n.querySelector('details');if(d)d.open=true;n.scrollIntoView({block:'start'})},
-  back:()=>A.view({v:['privacy','terms'].includes(PREV)||!PREV?'settings':PREV})
+  notes:()=>{if(S.settings.view!=='help')A.view({v:'help'});const n=$('#notes');if(!n)return;const d=n.querySelector('details');if(d)d.open=true;n.scrollIntoView({block:'start'});const sm=n.querySelector('summary');if(sm)sm.focus({preventScroll:true})},
+  zip:()=>zipExport(),
+  back:()=>A.view({v:['privacy','terms'].includes(PREV)||!PREV?'help':PREV})
 };
 document.addEventListener('click',e=>{const t=e.target.closest('[data-act]');if(!t||t.closest('dialog'))return;const f=A[t.dataset.act];if(f){e.preventDefault();if(t.closest('#dataMenu'))closeDataMenu();f(t.dataset)}});
 document.addEventListener('input',e=>{if(e.target.dataset.search==='maint'){vMaint.q=e.target.value;const pos=e.target.selectionStart;render();const s=document.querySelector('[data-search=maint]');s.focus();s.setSelectionRange(pos,pos)}});
 $('#vsel').addEventListener('change',e=>{S.settings.active=e.target.value;save();render()});
+document.addEventListener('change',e=>{if(e.target.dataset&&e.target.dataset.set==='checklist'){S.settings.checklistHidden=!e.target.checked;save();toast(e.target.checked?'The setup checklist shows on Home':'Setup checklist hidden')}});
 $('#themeBtn').addEventListener('click',()=>{S.settings.theme=S.settings.theme==='dark'?'light':'dark';save();render()});
 $('#importFile').addEventListener('change',e=>{const f=e.target.files[0];e.target.value='';if(f)readBackup(f)});
 function dl(name,text,type){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
@@ -2699,7 +2866,7 @@ function openSearch(){
   run();dlg.showModal();q.focus();
 }
 document.addEventListener('keydown',e=>{
-  if(document.querySelector('dialog[open]'))return;
+  if(document.querySelector('dialog[open]')||!$('#mbw').hidden)return;
   const tag=(e.target.tagName||'').toLowerCase();const typing=tag==='input'||tag==='textarea'||tag==='select'||e.target.isContentEditable;
   if((e.key==='/'&&!typing)||((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k')){e.preventDefault();openSearch()}
 });
@@ -2707,16 +2874,16 @@ document.addEventListener('keydown',e=>{
 /* ================= FAQ ================= */
 const FAQ=[
  ['Your data',[
-  ['Where is my data stored?','Only in this browser, on this device. There’s no account, and the app never sends your records anywhere.<ul><li>Clearing site data or using a private window erases them.</li><li>Save a backup from the <b>Data</b> menu to stay safe.</li></ul>See <b>Privacy</b> at the bottom of Settings for details.'],
-  ['Can I get back something I deleted?','Yes, for 30 days. Go to Settings → <b>Recently deleted</b> and tap Restore. A deleted vehicle comes back with all its records.'],
-  ['How do I move my records to another phone or computer?','On the old device, open <b>Data → Save backup now</b> (or Export All (JSON)…). On the new device, open <b>Data → Import Backup (JSON)…</b> and pick that file. If the new device already has records, choose <b>Merge</b> to add what’s missing or <b>Replace</b> for an exact copy.'],
+  ['Where is my data stored?','In this browser, on this device. No account is needed, and the app doesn’t send your records anywhere unless you sign in to sync (Data → Sync across devices).<ul><li>Clearing site data or using a private window erases them.</li><li>Save a backup from the <b>Data</b> menu to stay safe.</li></ul>See <b>Privacy</b> in the page footer or below for details.'],
+  ['Can I get back something I deleted?','Yes, for 30 days. Go to Settings → Backup &amp; data → <b>Recently deleted</b> and tap Restore. A deleted vehicle comes back with all its records.'],
+  ['How do I move my records to another phone or computer?','On the old device, open <b>Data → Save backup now</b> (or Export All (JSON)…). On the new device, open <b>Data → Import Backup…</b> and pick that file (a ZIP from Export All (ZIP)… works too). Or sign in to sync on both devices; photos and PDFs then still come over with a backup. If the new device already has records, choose <b>Merge</b> to add what’s missing or <b>Replace</b> for an exact copy.'],
   ['Where does Save backup now put the file?','The first time, your browser asks where to save it. After that, Save backup now (Ctrl/⌘+S) overwrites that same file in one click. Use <b>Change location…</b> in the Data menu to pick another. Browsers only tell the page the file name, not the full folder path. Firefox, Safari and phones can’t pick a location, so there each backup downloads to Downloads with the date in its name.'],
   ['Where are my receipts and photos kept?','In this browser’s IndexedDB storage on this device, next to your records. Big phone photos are shrunk to about 2000 pixels first. Backups include every attachment, so a restore on another device brings them along. Clearing site data removes them.'],
   ['Can I bring in records from a spreadsheet or another app?','Yes. Open <b>Data → Import CSV…</b>, choose whether the rows are fill-ups, services or expenses, and match the columns. A CSV exported from auto.mcbflow.com is recognized automatically. Rows that are already here are skipped, and the whole import can be undone.'],
   ['How do I show a buyer or mechanic the car’s history?','Open <b>History → Vehicle history report</b>, pick what to include, then choose <b>Save as PDF</b> in the print window. Leave out costs, the plate and notes if you’d rather not share them.'],
   ['Can I install it like an app?','Yes. In Chrome or Edge, use <b>Install</b> in Settings, or the install icon in the address bar. On iPhone or iPad, tap <b>Share</b>, then <b>Add to Home Screen</b>. It opens in its own window as <b>Auto</b> and works offline after the first visit.'],
   ['What goes into a Share image?','Only what the preview shows. The image is made on your device and nothing is uploaded. Your vehicle’s year, make and model and any money amounts stay off it unless you switch them on. The plate, VIN, nickname and notes are never included.'],
-  ['Does auto.mcbflow.com use cookies or tracking?','No cookies, analytics or ads. Your records sit in the browser’s local storage. After the page loads, the app makes no network requests.']]],
+  ['Does auto.mcbflow.com use cookies or tracking?','No cookies, analytics or ads. Your records sit in the browser’s local storage. After the page loads, the app makes no network requests unless you sign in to sync.']]],
  ['Fuel',[
   ['How is MPG calculated?','Between two fill-ups marked <b>Filled the tank completely</b>: the miles between those odometer readings divided by all the fuel added since the previous full tank (partial fills included). Partial fill-ups don’t show MPG on their own row.'],
   ['What if I forget to log a fill-up?','On the next one you log, tick <b>I missed logging the previous fill-up</b>. That restarts the calculation so one missing entry doesn’t produce an inflated MPG.']]],
@@ -2764,7 +2931,7 @@ function vOnboard(){
     b=`<div class="ob-done">${ic('check')}</div><h1>Your ${esc(vname(v))} is ready</h1>
     <p class="sub">${OB.n?plural(OB.n,'maintenance reminder')+' added. ':''}Tracking starts at ${mi(currentOdo(v.id))} mi.</p>
     <div class="ob-next"><b>Next step</b>Log your next fill-up. After two full tanks you’ll see your ${isEV(v)?'mi/kWh':'MPG'}.</div>
-    <div class="ob-acts"><button class="btn" data-act="obDone">Go to overview</button><button class="btn pri" data-act="obFuel">${ic('fuel')}Log a fill-up</button></div>`}
+    <div class="ob-acts"><button class="btn" data-act="obDone">Go to Home</button><button class="btn pri" data-act="obFuel">${ic('fuel')}Log a fill-up</button></div>`}
   return`<div class="card ob">${prog}${b}</div>`;
 }
 function obFocus(){const i=document.querySelector('#obForm input:not([type=checkbox])');if(i&&matchMedia('(pointer:fine)').matches)i.focus()}
@@ -2785,6 +2952,59 @@ function obNext(f){
 }
 document.addEventListener('submit',e=>{if(e.target.id==='obForm'){e.preventDefault();obNext(e.target)}});
 document.addEventListener('input',e=>{const f=e.target.closest&&e.target.closest('#obForm');if(f){const fl=e.target.closest('.fld');if(fl)fl.classList.remove('err');const er=f.querySelector('#obErr');if(er)er.textContent=''}});
+
+/* ================= welcome / first run (MB Suite v3.3 .mbw) =================
+   Step 1 welcome + privacy · 2 pick a look · 3 vehicle type, year, make, model · 4 odometer + schedule, "Moving from another device?".
+   Shown on the first visit when this browser has no records and no saved sign-in. Skip, Esc or finishing sets auto.welcomed. */
+const WKEY='auto.welcomed',WN=4;let wI=0,wType=0;
+const W_NEXT='<svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+function wShouldShow(){if(hasData())return false;let seen=false;try{seen=localStorage.getItem(WKEY)==='1'}catch(e){}if(seen)return false;return!(window.MBSync&&MBSync.hasSavedSignIn())}
+function wAcct(){const el=$('#mbwAcct');if(!el)return;if(!window.MBSync){el.innerHTML='';return}const s=SYNC?SYNC.status():null;
+  el.innerHTML=s&&s.signedIn?'<span class="mbw-signed">Signed in</span>':'<button class="mbw-link acc" type="button" data-mbw="sync">Sign in</button>'}
+function wTypes(){$('#mbwTypes').innerHTML=OBT.map(([t,f,l,i],k)=>`<button type="button" class="mbw-choice" data-wt="${k}" aria-pressed="${k===wType}">${ic(i)}<span>${l}</span></button>`).join('')}
+function wErr(n,el,msg){const e=$('#mbwErr'+n);e.textContent=msg||'';$('#mbw').querySelectorAll('.fld-err').forEach(x=>{x.classList.remove('fld-err');x.removeAttribute('aria-invalid')});
+  if(el){el.classList.add('fld-err');el.setAttribute('aria-invalid','true');el.setAttribute('aria-describedby','mbwErr'+n);el.focus()}}
+function wStep(i){const w=$('#mbw');wI=i;w.querySelectorAll('.mbw-body').forEach(b=>b.hidden=+b.dataset.step!==i);
+  w.querySelectorAll('.mbw-prog i').forEach((x,k)=>x.classList.toggle('on',k<=i));
+  $('#mbwStep').textContent=`Step ${i+1} of ${WN}`;$('#mbwBack').hidden=i===0;
+  $('#mbwNext').innerHTML=(i===WN-1?'Start tracking':'Next')+W_NEXT;
+  wAcct();const b=w.querySelector('.mbw-body:not([hidden])');if(b)b.scrollTop=0;
+  if(i===2)wTypes();
+  if(i===3){const[t,f]=OBT[wType];$('#mbwSchedTxt').textContent=(t==='Motorcycle'?'Oil, chain, tires, inspection and more.':f==='Electric'?'Tire rotations, brakes, inspection and more.':'Oil changes, tire rotations, inspection and more.')+' Edit it anytime.'}}
+function wOpen(){const w=$('#mbw');if(!$('#mbwLogo').firstChild)$('#mbwLogo').innerHTML=logoSVG();
+  if(!$('#mbw_makes').firstChild)$('#mbw_makes').innerHTML=MAKES.map(m=>`<option value="${m}">`).join('');
+  $('#mbw_year').max=new Date().getFullYear()+1;w.hidden=false;wStep(0);$('#mbwNext').focus()}
+function wClose(){const w=$('#mbw');if(!w||w.hidden)return;w.hidden=true;try{localStorage.setItem(WKEY,'1');localStorage.setItem(NOTICE_KEY,'1')}catch(e){}
+  const m=$('#main');if(m)m.focus({preventScroll:true})}
+function wNext(){
+  if(wI===2){const y=$('#mbw_year'),mk=$('#mbw_make'),md=$('#mbw_model'),cy=new Date().getFullYear(),yv=y.value.trim();
+    if(!yv||isNaN(+yv)||+yv<1900||+yv>cy+1)return wErr(2,y,`Enter a year between 1900 and ${cy+1}.`);
+    if(!mk.value.trim())return wErr(2,mk,'Enter the make, like Honda or Ford.');
+    if(!md.value.trim())return wErr(2,md,'Enter the model, like Civic or F-150.');wErr(2)}
+  if(wI<WN-1){wStep(wI+1);return}
+  const o=$('#mbw_odo'),ov=o.value.trim();if(ov===''||isNaN(+ov)||+ov<0)return wErr(3,o,'Enter the number on your odometer.');wErr(3);
+  const[type,fuelType]=OBT[wType],odo=Math.round(+ov);
+  const v={id:uid(),name:'',year:String(Math.round(+$('#mbw_year').value)),type,make:$('#mbw_make').value.trim(),model:$('#mbw_model').value.trim(),trim:'',fuelType,plate:'',vin:'',purchaseDate:'',purchasePrice:'',startOdo:odo,currentValue:'',notes:''};
+  S.vehicles.push(v);const n=$('#mbw_sched').checked?addDefaultSchedule(v):0;S.odo.push({id:uid(),vid:v.id,date:today(),odo});
+  S.settings.active=v.id;S.settings.view='dash';save();wClose();render();scrollTo(0,0);
+  toast(`Your ${vname(v)} is ready${n?` · ${plural(n,'reminder')} added`:''}. Next: log a fill-up.`);
+}
+(function(){const w=$('#mbw');
+  $('#mbwNext').addEventListener('click',wNext);
+  $('#mbwBack').addEventListener('click',()=>wStep(Math.max(0,wI-1)));
+  $('#mbwSkip').addEventListener('click',()=>{wClose();render()});
+  w.addEventListener('click',e=>{const t=e.target.closest('[data-wt]');if(t){wType=+t.dataset.wt;w.querySelectorAll('[data-wt]').forEach(b=>b.setAttribute('aria-pressed',String(b===t)));return}
+    const b=e.target.closest('[data-mbw]');if(!b)return;const k=b.dataset.mbw;
+    if(k==='sync'){if(SYNC)SYNC.open()}else if(k==='import')importBackup();else if(k==='sample')A.sample();
+    else if(k==='privacy'){wClose();A.view({v:'privacy'})}});
+  w.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){e.preventDefault();wClose();render();return}
+    if(e.key==='Enter'&&e.target.matches('input:not([type=checkbox])')){e.preventDefault();wNext();return}
+    if(e.key!=='Tab')return;const f=[...w.querySelectorAll('button,input,select,a[href],[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.getClientRects().length);
+    if(!f.length)return;const i=f.indexOf(document.activeElement);
+    if(e.shiftKey&&(i<=0)){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&i===f.length-1){e.preventDefault();f[0].focus()}});
+  w.addEventListener('input',e=>{if(e.target.classList.contains('fld-err')){e.target.classList.remove('fld-err');e.target.removeAttribute('aria-invalid');$('#mbwErr2').textContent='';$('#mbwErr3').textContent=''}});
+})();
 
 /* setup checklist: first step is already done, so progress starts above zero */
 function checklist(){
@@ -2807,14 +3027,9 @@ function onScroll(){const h=document.documentElement,max=h.scrollHeight-h.client
 addEventListener('scroll',onScroll,{passive:true});
 $('#totop').addEventListener('click',()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));
 
-/* ================= storage notice ================= */
+/* ================= storage notice =================
+   Folded into the welcome screen's privacy line in 1.5. The flag is kept (and set when the welcome closes) so the old pop-up never returns. */
 const NOTICE_KEY='auto.notice';
-function setNoticeH(){const n=$('#notice');document.documentElement.style.setProperty('--notice-h',n.hidden?'0px':(n.offsetHeight+10)+'px')}
-function hideNotice(){try{localStorage.setItem(NOTICE_KEY,'1')}catch(e){}$('#notice').hidden=true;setNoticeH()}
-(function(){let seen=false;try{seen=localStorage.getItem(NOTICE_KEY)==='1'}catch(e){}if(!seen){$('#notice').hidden=false;requestAnimationFrame(setNoticeH)}})();
-addEventListener('resize',setNoticeH);
-$('#noticeOk').addEventListener('click',hideNotice);
-$('#noticeMore').addEventListener('click',()=>{hideNotice();A.view({v:'privacy'})});
 
 /* ================= sample data ================= */
 function sampleData(){
@@ -2913,8 +3128,15 @@ function syncApply(m){
   S=normalize(d);try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
   if(!document.querySelector('dialog[open]:not(.mbs-dlg)'))render();
 }
-if(window.MBSync)SYNC=MBSync.create({app:'auto',label:'Auto',toRecords:syncRecords,fromRecords:syncApply,hasData:()=>S.vehicles.length>0,
-  onStatus:()=>{const m=$('#dataMenu');if(m&&!m.hidden)m.innerHTML=dataMenuHTML()}});
+if(window.MBSync){SYNC=MBSync.create({app:'auto',label:'Auto',what:'your vehicles and every fill-up, service, repair, expense, reminder, problem, document and checklist',note:'Photos and PDFs stay on each device.',
+  toRecords:syncRecords,fromRecords:syncApply,hasData:()=>S.vehicles.length>0,
+  onStatus:()=>{paintBackup();wAcct()}});
+  SYNC.button($('#acctBtn'));
+  /* backup reminders go quiet while signed in and syncing (chip, Data dot and status line re-checked on every change) */
+  addEventListener('mbsync:status',()=>paintBackup());
+}else $('#acctBtn').style.display='none';
+render();
+if(wShouldShow())wOpen();
 </script>
 </body>
 </html>
