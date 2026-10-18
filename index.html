@@ -41,7 +41,7 @@
   --accent:#256b8f; --accent-strong:#1b5370; --accent-soft:#e4eff5; --on-accent:#ffffff; --accent-line:rgba(37,107,143,.38);
   --ok:#1f7a3d; --ok-soft:#e3f2e8; --warn:#9a5c00; --warn-soft:#fbefd9; --bad:#b8322b; --bad-soft:#fbe5e3;
   /* chart series: steel-blue lead + validated companions (light surface) */
-  --s1:#256b8f; --s2:#c47d10; --s3:#1f9d93; --s4:#7b5cc4; --s5:#d9677b; --s6:#6f7f2a;
+  --s1:#256b8f; --s2:#6a9fbe; --s3:#c98a1b; --s4:#dfb562; --s5:#5d6b7a; --s6:#a3adb8;   /* accent, its tint, ochre, ochre tint, slate, light slate */
   --grid:#e8eaed; --shadow:0 1px 2px rgba(20,24,31,.06); --on-bad:#ffffff;
   --r:6px; --r-sm:4px; --ctl:38px; --ctl-sm:32px; --ease:120ms ease;
   --font:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -54,7 +54,7 @@
     --text:#e9ecf0; --text-2:#b4bbc5; --muted:#8e97a3;
     --accent:#7db6d4; --accent-strong:#a6cde3; --accent-soft:#1f323d; --on-accent:#08161e; --accent-line:rgba(125,182,212,.45);
     --ok:#56c585; --ok-soft:#173226; --warn:#e5a740; --warn-soft:#3a2b12; --bad:#f07a70; --bad-soft:#3d1c1a;
-    --s1:#5ba3c9; --s2:#bb7f14; --s3:#22a095; --s4:#8e7ae0; --s5:#d0637c; --s6:#6c8a2a;
+    --s1:#7db6d4; --s2:#40789a; --s3:#d9a03a; --s4:#94702f; --s5:#9aa5b2; --s6:#5f6a77;
     --grid:#2b3037; --shadow:0 1px 2px rgba(0,0,0,.3); --on-bad:#1c0c0b;
     --shadow-pop:0 10px 28px -6px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03); --hover-band:rgba(255,255,255,.05);
   }
@@ -65,7 +65,7 @@
   --text:#e9ecf0; --text-2:#b4bbc5; --muted:#8e97a3;
   --accent:#7db6d4; --accent-strong:#a6cde3; --accent-soft:#1f323d; --on-accent:#08161e; --accent-line:rgba(125,182,212,.45);
   --ok:#56c585; --ok-soft:#173226; --warn:#e5a740; --warn-soft:#3a2b12; --bad:#f07a70; --bad-soft:#3d1c1a;
-  --s1:#5ba3c9; --s2:#bb7f14; --s3:#22a095; --s4:#8e7ae0; --s5:#d0637c; --s6:#6c8a2a;
+  --s1:#7db6d4; --s2:#40789a; --s3:#d9a03a; --s4:#94702f; --s5:#9aa5b2; --s6:#5f6a77;
   --grid:#2b3037; --shadow:0 1px 2px rgba(0,0,0,.3); --on-bad:#1c0c0b;
   --shadow-pop:0 10px 28px -6px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03); --hover-band:rgba(255,255,255,.05);
 }
@@ -219,8 +219,6 @@ dialog::backdrop{background:rgba(10,14,18,.5)}
 .addgrid b{display:block;font-size:14.5px}
 .addgrid small{color:var(--text-2);font-size:12.5px}
 
-#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:14px;z-index:70;opacity:0;transition:opacity .2s;pointer-events:none}
-#toast.on{opacity:1}
 .faq .a ul{margin:6px 0 0;padding-left:18px}
 .muted{color:var(--muted)}
 .skip{position:fixed;left:12px;top:-60px;z-index:100;background:var(--surface);color:var(--text);padding:10px 14px;border-radius:9px;border:2px solid var(--accent);font-weight:600}
@@ -245,7 +243,7 @@ main:focus{outline:none}
 .totop.on{opacity:1;transform:none;pointer-events:auto}
 .totop:hover{background:var(--surface-2);color:var(--text);border-color:var(--muted)}
 /* hover + focus states */
-.btn,.iconbtn,.fab,.seg button,.addgrid button,.more,.sr,.vsel,.faq summary{transition:background .15s,color .15s,border-color .15s,transform .15s,box-shadow .15s}
+.btn,.iconbtn,.fab,.seg button,.addgrid button,.more,.vsel,.faq summary{transition:background .15s,color .15s,border-color .15s,transform .15s,box-shadow .15s}
 .btn:active,.iconbtn:active,.fab:active{transform:translateY(1px)}
 .btn.danger:hover{background:var(--bad-soft);border-color:var(--bad)}
 .btn.dangerfill{background:var(--bad);border-color:var(--bad);color:var(--on-bad)}
@@ -270,24 +268,13 @@ main.anim .chart path.line{stroke-dasharray:1;stroke-dashoffset:1;animation:draw
 main.anim .chart path.area{animation:fadein .3s ease .1s both}
 main.anim .meter span,main.anim .hbar .trk span{transform-origin:left;animation:growX .35s cubic-bezier(.2,.7,.2,1) .05s both}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
-/* search */
-dialog.sdlg{margin-top:8vh}
-.sbox{flex:1;display:flex;align-items:center;gap:8px;border:1px solid var(--border-2);border-radius:10px;padding:0 10px;background:var(--surface-2);color:var(--muted);min-width:0}
-.sbox:focus-within{outline:2px solid var(--accent);outline-offset:1px}
-.sbox input{flex:1;border:0;background:none;padding:10px 0;outline:none;min-width:0;color:var(--text)}
-.sres{max-height:min(62vh,540px);overflow:auto;padding:4px 0 10px}
-.sgrp{font-size:11.5px;font-weight:650;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:12px 18px 4px}
-.sr{display:flex;gap:12px;align-items:center;width:100%;border:0;background:none;text-align:left;padding:9px 18px;cursor:pointer}
-.sr:hover,.sr.on{background:var(--surface-2)}
-.sr .body{flex:1;min-width:0}
-.sr .t{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sr .m{font-size:12.5px;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.shint{padding:22px 18px;color:var(--text-2);font-size:14px;text-align:center}
-.smore{padding:4px 18px 6px 64px;font-size:12.5px;color:var(--muted)}
-mark{background:var(--warn-soft);color:inherit;border-radius:3px;padding:0 1px}
 /* FAQ */
-.faq-sec{font-size:11.5px;font-weight:650;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:16px 16px 6px}
 .faq details{border-top:1px solid var(--border)}
+.mb-set-card.faq{padding:0;overflow:hidden}
+.mb-set-card.faq details:first-child{border-top:0}
+.help-steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.5;color:var(--text-2)}
+.help-steps li::marker{color:var(--accent);font-weight:650}
+.help-links{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:12px 16px 14px;border-top:1px solid var(--border)}
 .faq summary{list-style:none;cursor:pointer;padding:13px 16px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:12px}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary:hover{background:var(--surface-2)}
@@ -302,8 +289,6 @@ mark{background:var(--warn-soft);color:inherit;border-radius:3px;padding:0 1px}
 .cfm-ic.bad{background:var(--bad-soft);color:var(--bad)}
 .cfm-b h2{margin-bottom:6px}
 .cfm-b p{margin:0;color:var(--text-2);font-size:14px}
-.cfm-b input{margin-top:12px;width:100%;padding:9px 11px;border:1px solid var(--border-2);border-radius:9px;background:var(--surface);letter-spacing:.06em}
-.cfm-b input:focus{outline:2px solid var(--accent);outline-offset:1px}
 
 /* onboarding */
 .btn{min-height:38px}.btn.sm{min-height:32px}
@@ -366,8 +351,6 @@ mark{background:var(--warn-soft);color:inherit;border-radius:3px;padding:0 1px}
 .fmore[open]>summary .i{transform:rotate(180deg)}
 .fmore>.dlg-b{padding:4px 0 0}
 .hint.warn{color:var(--warn);font-weight:600}
-#toast.act{pointer-events:auto}
-#toast button{margin-left:14px;border:0;background:none;color:var(--bg);font-weight:700;text-decoration:underline;cursor:pointer;padding:6px 4px;min-height:36px}
 
 @media (max-width:860px){
   .tiles{grid-template-columns:1fr 1fr}
@@ -400,7 +383,6 @@ mark{background:var(--warn-soft);color:inherit;border-radius:3px;padding:0 1px}
   td .m{font-size:12px}
   .search{width:100%}
   .addgrid{grid-template-columns:1fr}
-  #toast{bottom:150px}
 }
 
 /* =====================================================================
@@ -419,12 +401,11 @@ h2{font-size:14.5px}
 main.anim>*,main.anim .chart g.col,main.anim .chart path.line,main.anim .chart path.area,
 main.anim .meter span,main.anim .hbar .trk span,.faq details[open] .a,.ob-done{animation:none}
 main.anim .chart path.line{stroke-dasharray:none;stroke-dashoffset:0}
-.btn,.iconbtn,.fab,.seg button,.addgrid button,.more,.sr,.vsel,.faq summary,.obtiles button,
+.btn,.iconbtn,.fab,.seg button,.addgrid button,.more,.vsel,.faq summary,.obtiles button,
 .row.click,.cl-row,input,select,textarea{transition:background-color var(--ease),border-color var(--ease),color var(--ease),box-shadow var(--ease)}
 .btn:active,.iconbtn:active,.fab:active,.obtiles button:active{transform:none}
 .faq summary .i,.fmore>summary .i{transition:transform var(--ease)}
 .ob-bar span{transition:width .2s ease}
-#toast{transition:opacity var(--ease)}
 .totop{transform:none;transition:opacity var(--ease),background-color var(--ease),color var(--ease)}
 
 .vsel{min-height:var(--ctl-sm);padding:4px 30px 4px 10px;border-radius:var(--r-sm);border-color:var(--border-2);background-color:var(--surface);font-size:13.5px}
@@ -466,7 +447,6 @@ main{padding-top:20px}
 .meter span,.ob-bar span{border-radius:2px}
 .hbar .trk span{border-radius:0 2px 2px 0}
 .legend i,.hbar .nm i{border-radius:2px}
-mark{border-radius:2px}
 
 /* buttons */
 .btn{border-radius:var(--r-sm);min-height:var(--ctl);padding:0 14px;font-size:13.5px;justify-content:center}
@@ -497,10 +477,10 @@ button:focus-visible,summary:focus-visible,[data-act]:focus-visible,a:focus-visi
 /* forms */
 .fld{gap:4px}
 .fld label,.fld .glabel{font-size:12.5px;font-weight:600}
-.fld input[type=text],.fld input[type=number],.fld input[type=date],.fld select,.fld textarea,.search,.cfm-b input{border-radius:var(--r-sm);border-color:var(--border-2);padding:6px 9px;font-size:14px}
-.fld input[type=text],.fld input[type=number],.fld input[type=date],.fld select,.search,.cfm-b input{min-height:var(--ctl)}
+.fld input[type=text],.fld input[type=number],.fld input[type=date],.fld select,.fld textarea,.search{border-radius:var(--r-sm);border-color:var(--border-2);padding:6px 9px;font-size:14px}
+.fld input[type=text],.fld input[type=number],.fld input[type=date],.fld select,.search{min-height:var(--ctl)}
 .fld input:hover:not(:focus),.fld select:hover:not(:focus),.fld textarea:hover:not(:focus),.search:hover:not(:focus){border-color:color-mix(in srgb,var(--text) 35%,var(--border-2))}
-.fld input:focus,.fld select:focus,.fld textarea:focus,.search:focus,.vsel:focus,.cfm-b input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.fld input:focus,.fld select:focus,.fld textarea:focus,.search:focus,.vsel:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
 .fld.err input,.fld.err select{box-shadow:0 0 0 1px var(--bad)}
 input::placeholder,textarea::placeholder{color:var(--muted);opacity:.85}
 .tasks{border-radius:var(--r-sm)}
@@ -534,13 +514,7 @@ dialog::backdrop{background:rgba(10,12,16,.45)}
 .addgrid{gap:8px}
 .addgrid button{border-radius:var(--r);padding:12px}
 .addgrid button:hover{border-color:var(--accent)}
-.sbox{border-radius:var(--r-sm);background:var(--surface);min-height:var(--ctl)}
-.sbox:focus-within{outline:none;border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
-.sr{border-radius:0}
-.sr.on{box-shadow:inset 2px 0 0 var(--accent)}
-.sgrp,.faq-sec{font-size:11.5px;letter-spacing:.06em}
 .cfm-ic{width:36px;height:36px;border-radius:var(--r)}
-#toast{border-radius:var(--r);box-shadow:var(--shadow-pop)}
 .skip{border-radius:var(--r-sm)}
 
 /* floating actions: squared, not pills */
@@ -587,8 +561,6 @@ dialog::backdrop{background:rgba(10,12,16,.45)}
 .loc{font-size:12.5px;color:var(--text-2)}
 .loc b{color:var(--text);font-weight:600;word-break:break-all}
 .cfm-alt{margin-right:auto}
-.rn-list{margin:6px 0 0;padding-left:18px}
-.rn-list li{margin:3px 0}
 
 /* ===== v1.2: attachments, timeline, glovebox, problems, quotes, tools ===== */
 .fchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
@@ -949,10 +921,9 @@ dialog.mb-share::backdrop{background:var(--scrim)}
 @media (min-width:1024px){.mb-side .brand b{font-size:15px}}
 @media (max-width:1023px){.side-nav .tl{display:none}.side-nav .ts{display:inline}.page-bar .vsel{max-width:170px}}
 @media (max-width:767px){
-  .fab{display:flex!important;bottom:calc(72px + env(safe-area-inset-bottom) + var(--notice-h,0px));right:16px}
-  .fab[style*="none"]{display:none!important}
-  .addtop{display:none!important}
-  .totop{bottom:calc(140px + env(safe-area-inset-bottom) + var(--notice-h,0px))}
+  .addtop{display:none!important}   /* phones: Add entry is the center button of the bottom bar (v1.6; the floating + is gone) */
+  .totop{bottom:calc(76px + env(safe-area-inset-bottom) + var(--notice-h,0px))}
+  .bnav{grid-auto-flow:row;grid-template-columns:repeat(5,minmax(0,1fr))}
   .mb-main>.wrap{padding-bottom:calc(150px + var(--notice-h,0px))}
 }
 @media print{.mb-main>.wrap{padding:0}.vsel-row{display:none}}
@@ -964,8 +935,8 @@ dialog.mb-share::backdrop{background:var(--scrim)}
 @media (min-width:768px){.vsel-row .vsel{max-width:320px;height:36px;min-height:36px}}
 @media (min-width:1024px) and (max-width:1279px){.page-bar .actions .addtop{width:var(--tb-h);padding:0}.page-bar .actions .addtop .tb-lbl{display:none}}
 .page-bar .page-title{min-width:0;flex:0 1 auto}
-.inst-fb{display:none;margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);font-size:13px;line-height:1.45;color:var(--ink-2)}
-[data-mb-install][hidden]~.inst-fb{display:block}
+.inst-line{margin:0;font-size:14px;line-height:1.45;color:var(--text)}
+.mb-info .i{width:15px;height:15px}
 .mb-set-sec>.fine{margin:2px 2px 0}
 .mb-set-sec>#trash{margin-top:4px}
 .auto-tgw{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;cursor:pointer}
@@ -985,11 +956,9 @@ input.auto-tg{width:20px;height:20px;margin:0;accent-color:var(--accent);cursor:
 .mbw-sub .mbw-link{min-height:32px;padding:0 4px}
 @media (max-width:600px){.auto-ymm{grid-template-columns:1fr}.mbw-choices.auto-types{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* Home before the first vehicle */
-.auto-start{display:flex;gap:16px;align-items:flex-start;padding:20px}
-.auto-start h2{font-size:17px;margin:2px 0 4px}
-.auto-start p{margin:0;color:var(--text-2);font-size:14px;max-width:60ch}
-.auto-start .toolbar{margin-top:14px}
-@media (max-width:600px){.auto-start{flex-direction:column;padding:16px}.auto-start .toolbar .btn{flex:1 1 100%}}
+.auto-start{padding:4px 16px 20px}   /* Home before the first vehicle: the shared empty block, then the two other ways to start */
+.auto-start .start-alt{justify-content:center;margin-top:0}
+@media (max-width:600px){.auto-start .start-alt .btn{flex:1 1 100%}}
 /* charts: hover / tap / focus labels, the read mark highlighted and the others faded, crosshair on the line chart */
 .charthint{font-size:11.5px;font-weight:500;color:var(--muted);white-space:nowrap}
 @media (hover:none){.charthint{font-size:0}.charthint::after{content:attr(data-touch);font-size:11.5px}}
@@ -1013,23 +982,28 @@ input.auto-tg{width:20px;height:20px;margin:0;accent-color:var(--accent);cursor:
 #tip .tv{font-size:14.5px;font-weight:700;color:var(--text);line-height:1.25}
 #tip .tw{color:var(--muted)}
 #tip .tr{gap:14px}
+/* ===== v1.6: very long vehicle names, notes and shop names wrap instead of widening the page on phones ===== */
+.vcards{grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr))}
+.vcard .top>.main,.vcard>div>span:not(.pill),.card-h>div,.row .main>*,.row .t{min-width:0}
+.vcard>div>.pill{flex:none}
+.vcard .t,.vcard .m,.vcard .vtitle,.vcard .sub,.vcard .kv,.vcard>div>span:not(.pill),.card-h>div,.row .t,.row .main{overflow-wrap:anywhere}
 </style>
 <link rel="stylesheet" href="mb-suite-topbar.css">
 </head>
 <body class="mb-shell">
 <a class="skip" href="#main">Skip to content</a>
 <aside class="mb-side" aria-label="App">
-  <a class="brand" href="./" data-act="home" aria-label="Auto (auto.mcbflow.com): go to Home"><span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="abg1" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#44809f"/><stop offset=".55" stop-color="#256B8F"/><stop offset="1" stop-color="#1e5672"/></linearGradient><clipPath id="abc1"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#abc1)"><rect width="64" height="64" fill="url(#abg1)"/><ellipse cx="14" cy="6" rx="40" ry="26" fill="#fff" opacity=".14"/><path d="m 16.5,43.990999 a 17,17 0 1 1 31,0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="m 32,37.990999 10,-11" fill="none" stroke="#F2B640" stroke-width="5.5" stroke-linecap="round"/><circle cx="32" cy="37.990997" r="5" fill="#fff"/></g><rect x=".5" y=".5" width="63" height="63" rx="17.5" fill="none" stroke="#fff" stroke-opacity=".24"/></svg></span><span class="bt"><b>Auto<i class="tld"><span class="sep" aria-hidden="true">∙</span>mcbflow.com</i></b><span>Official Web App · v1.5</span></span></a>
+  <a class="brand" href="./" data-act="home" aria-label="Auto (auto.mcbflow.com): go to Home"><span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="abg1" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#44809f"/><stop offset=".55" stop-color="#256B8F"/><stop offset="1" stop-color="#1e5672"/></linearGradient><clipPath id="abc1"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#abc1)"><rect width="64" height="64" fill="url(#abg1)"/><ellipse cx="14" cy="6" rx="40" ry="26" fill="#fff" opacity=".14"/><path d="m 16.5,43.990999 a 17,17 0 1 1 31,0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="m 32,37.990999 10,-11" fill="none" stroke="#F2B640" stroke-width="5.5" stroke-linecap="round"/><circle cx="32" cy="37.990997" r="5" fill="#fff"/></g><rect x=".5" y=".5" width="63" height="63" rx="17.5" fill="none" stroke="#fff" stroke-opacity=".24"/></svg></span><span class="bt"><b>Auto<i class="tld"><span class="sep" aria-hidden="true">∙</span>mcbflow.com</i></b><span>Official Web App · v1.7</span></span></a>
   <nav class="side-nav" id="sideNav" aria-label="Sections"></nav>
   <nav class="side-nav side-end" id="sideEnd" aria-label="More"></nav>
 </aside>
 <div class="mb-main">
   <header class="page-bar">
-    <a class="brand phone-brand" href="./" data-act="home" aria-label="Auto (auto.mcbflow.com): go to Home"><span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="abg2" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#44809f"/><stop offset=".55" stop-color="#256B8F"/><stop offset="1" stop-color="#1e5672"/></linearGradient><clipPath id="abc2"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#abc2)"><rect width="64" height="64" fill="url(#abg2)"/><ellipse cx="14" cy="6" rx="40" ry="26" fill="#fff" opacity=".14"/><path d="m 16.5,43.990999 a 17,17 0 1 1 31,0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="m 32,37.990999 10,-11" fill="none" stroke="#F2B640" stroke-width="5.5" stroke-linecap="round"/><circle cx="32" cy="37.990997" r="5" fill="#fff"/></g><rect x=".5" y=".5" width="63" height="63" rx="17.5" fill="none" stroke="#fff" stroke-opacity=".24"/></svg></span><span class="bt"><b>Auto<i class="tld"><span class="sep" aria-hidden="true">∙</span>mcbflow.com</i></b><span>Official Web App · v1.5</span></span></a>
+    <a class="brand phone-brand" href="./" data-act="home" aria-label="Auto (auto.mcbflow.com): go to Home"><span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="abg2" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#44809f"/><stop offset=".55" stop-color="#256B8F"/><stop offset="1" stop-color="#1e5672"/></linearGradient><clipPath id="abc2"><rect width="64" height="64" rx="18"/></clipPath></defs><g clip-path="url(#abc2)"><rect width="64" height="64" fill="url(#abg2)"/><ellipse cx="14" cy="6" rx="40" ry="26" fill="#fff" opacity=".14"/><path d="m 16.5,43.990999 a 17,17 0 1 1 31,0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="m 32,37.990999 10,-11" fill="none" stroke="#F2B640" stroke-width="5.5" stroke-linecap="round"/><circle cx="32" cy="37.990997" r="5" fill="#fff"/></g><rect x=".5" y=".5" width="63" height="63" rx="17.5" fill="none" stroke="#fff" stroke-opacity=".24"/></svg></span><span class="bt"><b>Auto<i class="tld"><span class="sep" aria-hidden="true">∙</span>mcbflow.com</i></b><span>Official Web App · v1.7</span></span></a>
     <div class="page-title" id="pageTitle" aria-hidden="true">Home</div>
     <select class="vsel" id="vsel" aria-label="Vehicle"></select>
     <div class="actions">
-    <button type="button" class="tb tb-search" id="searchBtn" data-act="search" title="Search (/)" aria-label="Search all records" aria-keyshortcuts="/"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="tb-lbl">Search…</span><kbd>/</kbd></button>
+    <button type="button" class="tb tb-search" id="searchBtn" data-act="search" title="Search (/ or Ctrl+K)" aria-label="Search records" aria-keyshortcuts="/ Control+K"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="tb-lbl">Search…</span><kbd>/</kbd></button>
     <button type="button" class="tb-chip" id="bkChip" data-act="saveNow" hidden></button>
     <div class="dwrap" id="dataWrap">
       <button type="button" class="tb dbtn" id="dataBtn" data-act="datamenu" aria-haspopup="menu" aria-expanded="false" aria-controls="dataMenu" aria-label="Data: back up, sync, export or import" title="Backup, sync, import &amp; export"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13"/><path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg><span class="tb-lbl">Data</span><svg class="tb-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg><i class="tb-dot" aria-hidden="true" hidden></i></button>
@@ -1081,7 +1055,7 @@ input.auto-tg{width:20px;height:20px;margin:0;accent-color:var(--accent);cursor:
         <label class="mbw-field"><span>Model</span><input id="mbw_model" type="text" autocomplete="off" placeholder="e.g. Civic"></label>
       </div>
       <p class="ob-err" id="mbwErr2" role="alert"></p>
-      <p class="mbw-sub">Just looking around? <button type="button" class="mbw-link acc" data-mbw="sample">Explore with sample data</button></p>
+      <p class="mbw-sub">Just looking around? <button type="button" class="mbw-link acc" data-mbw="sample">Start with sample data</button> or <button type="button" class="mbw-link acc" data-mbw="empty">Start empty</button></p>
     </div>
     <div class="mbw-body" data-step="3" hidden>
       <h2>What does the odometer say?</h2><p class="mbw-lead">Check the dash. A close guess works.</p>
@@ -1100,7 +1074,6 @@ input.auto-tg{width:20px;height:20px;margin:0;accent-color:var(--accent);cursor:
 <div id="report" aria-hidden="true"></div>
 <input type="file" id="csvFile" accept=".csv,text/csv" hidden>
 <div id="tip"></div>
-<div id="toast" role="status" aria-live="polite"></div>
 <input type="file" id="importFile" accept="application/json,.json,application/zip,.zip" hidden>
 <template id="artBanner"><svg class="cu-art" viewBox="0 0 640 136" preserveAspectRatio="xMaxYMax slice" aria-hidden="true" focusable="false"><circle class="b" cx="560" cy="46" r="26"/><path class="s" d="M210 150 C315 80 525 80 630 150Z"/><path class="m" d="M410 150 C485 66 635 66 710 150Z"/><path class="d" d="M530 150 C585 90 695 90 750 150Z"/><path class="n" transform="translate(470 98) rotate(-64) scale(0.5)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="d" transform="translate(480 98) rotate(-116) scale(0.4)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="r" cx="360" cy="44" r="6"/></svg></template>
 <template id="artStrip"><svg class="cu-art at-bottom cu-p-soft" viewBox="0 0 1200 80" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><path class="s" transform="translate(60 60) rotate(-8)" d="M-36.8 2.6 C-36.8 -18.3 20.2 -19.1 36.8 -1.7 C37.5 16.5 -20.2 19.1 -36.8 2.6Z"/><path class="m" transform="translate(150 63) rotate(-7)" d="M-24.2 2 C-24.2 -13.7 13.3 -14.4 24.2 -1.3 C24.6 12.4 -13.3 14.4 -24.2 2Z"/><path class="d" transform="translate(230 66) rotate(-6)" d="M-29.4 2.4 C-29.4 -16.7 16.2 -17.5 29.4 -1.6 C30 15.2 -16.2 17.5 -29.4 2.4Z"/><path class="s" transform="translate(330 60) rotate(-5)" d="M-42 2.8 C-42 -19.8 23.1 -20.7 42 -1.9 C42.8 17.9 -23.1 20.7 -42 2.8Z"/><path class="n" transform="translate(430 63) rotate(-4)" d="M-21 1.7 C-21 -12.2 11.6 -12.8 21 -1.2 C21.4 11 -11.6 12.8 -21 1.7Z"/><path class="m" transform="translate(510 66) rotate(-3)" d="M-33.6 2.4 C-33.6 -16.7 18.5 -17.5 33.6 -1.6 C34.3 15.2 -18.5 17.5 -33.6 2.4Z"/><path class="s" transform="translate(610 60) rotate(-2)" d="M-26.2 2.2 C-26.2 -15.2 14.4 -16 26.2 -1.5 C26.8 13.8 -14.4 16 -26.2 2.2Z"/><path class="d" transform="translate(700 63) rotate(-1)" d="M-37.8 2.6 C-37.8 -18.3 20.8 -19.1 37.8 -1.7 C38.6 16.5 -20.8 19.1 -37.8 2.6Z"/><path class="s" transform="translate(800 66)" d="M-23.1 1.7 C-23.1 -12.2 12.7 -12.8 23.1 -1.2 C23.6 11 -12.7 12.8 -23.1 1.7Z"/><path class="m" transform="translate(880 60) rotate(1)" d="M-31.5 2.4 C-31.5 -16.7 17.3 -17.5 31.5 -1.6 C32.1 15.2 -17.3 17.5 -31.5 2.4Z"/><path class="s" transform="translate(980 63) rotate(2)" d="M-39.9 2.8 C-39.9 -19.8 21.9 -20.7 39.9 -1.9 C40.7 17.9 -21.9 20.7 -39.9 2.8Z"/><path class="d" transform="translate(1080 66) rotate(3)" d="M-26.2 2.2 C-26.2 -15.2 14.4 -16 26.2 -1.5 C26.8 13.8 -14.4 16 -26.2 2.2Z"/><path class="m" transform="translate(1160 60) rotate(4)" d="M-21 1.7 C-21 -12.2 11.6 -12.8 21 -1.2 C21.4 11 -11.6 12.8 -21 1.7Z"/><path class="sd" d="M372 44 C369.6 33 373.8 23.3 372 16.4"/><path class="d" transform="translate(372 16.4) rotate(-38) scale(0.3)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="m" transform="translate(372 22.5) rotate(-150) scale(0.2)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="sd" d="M940 46 C938 36.8 941.5 28.8 940 23"/><path class="m" transform="translate(940 23) rotate(-38) scale(0.2)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><path class="d" transform="translate(940 28.1) rotate(-150) scale(0.2)" d="M0 0 C 20 -34 66 -40 96 -6 C 70 28 22 34 0 0Z"/><circle class="b" cx="1110" cy="16" r="8"/></svg></template>
@@ -1109,6 +1082,7 @@ input.auto-tg{width:20px;height:20px;margin:0;accent-color:var(--accent);cursor:
 <script src="mb-share.js"></script>
 <script src="mb-sync.js"></script>
 <script src="mb-files.js"></script>
+<script src="mb-ui.js"></script>
 
 <script>
 'use strict';
@@ -1118,6 +1092,7 @@ const P={
   gear:'<path d="M19.00 10.32 L21.51 10.72 L21.51 13.28 L19.00 13.68 L18.14 15.76 L19.63 17.82 L17.82 19.63 L15.76 18.14 L13.68 19.00 L13.28 21.51 L10.72 21.51 L10.32 19.00 L8.24 18.14 L6.18 19.63 L4.37 17.82 L5.86 15.76 L5.00 13.68 L2.49 13.28 L2.49 10.72 L5.00 10.32 L5.86 8.24 L4.37 6.18 L6.18 4.37 L8.24 5.86 L10.32 5.00 L10.72 2.49 L13.28 2.49 L13.68 5.00 L15.76 5.86 L17.82 4.37 L19.63 6.18 L18.14 8.24Z"/><circle cx="12" cy="12" r="3"/>',
   home:'<path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/>',
   help:'<circle cx="12" cy="12" r="9"/><path d="M9.3 9.3a2.8 2.8 0 1 1 3.9 2.6c-.7.3-1.2 1-1.2 1.8v.6"/><path d="M12 17.3h.01"/>',
+  news:'<path d="M12 3.5l1.9 5.1 5.1 1.9-5.1 1.9-1.9 5.1-1.9-5.1L5 10.5l5.1-1.9z"/><path d="M18.5 15.5v5M16 18h5"/>',
   more:'<circle cx="5.5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18.5" cy="12" r="1.7"/>',
   share:'<path d="M12 15V3M7.5 7.5L12 3l4.5 4.5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/>',
   dash:'<path d="M3 13a9 9 0 0 1 18 0"/><path d="M12 13l4-4"/><circle cx="12" cy="13" r="1.3"/><path d="M5 19h14"/>',
@@ -1242,7 +1217,8 @@ const money=(v,dec)=>{v=+v||0;const d=dec??(Math.abs(v)<1000&&v%1!==0?2:0);retur
 const moneyC=v=>{v=+v||0;if(Math.abs(v)>=10000)return '$'+(v/1000).toLocaleString(undefined,{maximumFractionDigits:1})+'K';return money(v,0)};
 const mi=v=>v==null?'—':Math.round(v).toLocaleString();
 const plural=(n,w)=>`${n.toLocaleString()} ${n===1?w:/[^aeiou]y$/.test(w)?w.slice(0,-1)+'ies':w+'s'}`;
-function toast(m,undo){const t=$('#toast');t.innerHTML=esc(m)+(undo?'<button type="button">Undo</button>':'');t.classList.toggle('act',!!undo);t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on','act'),undo?6000:2200);if(undo)t.querySelector('button').onclick=()=>{undo();toast('Restored')}}
+/* every transient message goes through the shared MBUI.toast (mb-ui.js): one look in every app; undo = optional Undo action */
+function toast(m,undo){if(!window.MBUI)return;MBUI.toast(String(m),undo?{action:{label:'Undo',fn:()=>{undo();toast('Restored')}}}:{})}
 /* Recently deleted: everything you delete is kept on this device for 30 days so it can be restored. */
 const TKEY='auto.trash',TDAYS=30;
 function loadTrash(){try{const t=JSON.parse(localStorage.getItem(TKEY)||'[]');const cut=Date.now()-TDAYS*864e5;return Array.isArray(t)?t.filter(x=>isObj(x)&&typeof x.at==='number'&&x.at>cut&&isObj(x.data)&&SAFEID.test(String(x.id))):[]}catch(e){return[]}}
@@ -1359,7 +1335,7 @@ function markBackup(){try{localStorage.setItem(BKEY,String(Date.now()))}catch(e)
    Returns {name} when written to a chosen file, {dl:true} when downloaded, or null when cancelled/failed. */
 async function writeOut(k,pick){
   const text=k==='json'?await backupText():csvText();
-  if(!FS_OK){dl(k==='json'?`auto-backup-${today()}.json`:`auto-records-${today()}.csv`,text,FKIND[k].mime);if(k==='json')markBackup();paintBackup();return{dl:true}}
+  if(!FS_OK){const name=k==='json'?MBUI.fileName('auto','backup','json'):MBUI.fileName('auto','records','csv');dl(name,text,FKIND[k].mime);if(k==='json')markBackup();paintBackup();return{dl:true,name}}
   let h=pick?null:FH[k];
   if(h&&!await canWrite(h)){toast(`Permission to update ${h.name} wasn’t given. Choose where to save it.`);h=null}
   if(!h){try{h=await pickSave(k)}catch(e){toast('Couldn’t open the save dialog. Try again.');return null}if(!h)return null}
@@ -1367,15 +1343,15 @@ async function writeOut(k,pick){
   catch(e){if(FH[k]&&FH[k]===h){FH[k]=null;hDel(k)}paintBackup();toast(`Couldn’t write ${h.name}. Choose the location again.`);return null}
   FH[k]=h;hPut(k,h);if(k==='json')markBackup();paintBackup();return{name:h.name};
 }
+/* an empty backup saves like any other, no question asked (2026-10-17b §7); the message names the file */
 async function saveNow(){
-  if(!hasData()&&!await confirmModal({title:'Save an empty backup?',msg:`There are no vehicles or records in this browser. Saving now would ${FH.json?`overwrite <b>${esc(FH.json.name)}</b> with`:'create'} an empty backup.`,ok:'Save anyway',danger:false}))return;
   const r=await writeOut('json',false);if(!r)return;
-  if(r.dl){toast('Backup downloaded to your Downloads folder');return}
+  if(r.dl){toast('Backup downloaded · '+r.name);return}
   let extra='';if(FH.csv){const c=await writeOut('csv',false);extra=c&&c.name?` and ${c.name}`:' (CSV not updated)'}
-  toast(`Backup saved to ${r.name}${extra}`);
+  toast(`Backup saved · ${r.name}${extra}`);
 }
 async function exportAs(k){const r=await writeOut(k,true);if(!r)return;
-  toast(r.dl?(k==='json'?'Backup downloaded to your Downloads folder':'CSV downloaded to your Downloads folder'):`Saved ${r.name}`)}
+  toast((k==='json'?'Backup':'CSV')+(r.dl?' downloaded · ':' saved · ')+r.name)}
 async function importBackup(){
   if(!FS_OK){$('#importFile').click();return}
   let fh;const o={types:FKIND.open.types,multiple:false};if(FH.json)o.startIn=FH.json;
@@ -1440,10 +1416,10 @@ async function zipExport(){
     'auto-*.csv         Vehicles, reminders, odometer readings, problems, documents, checklists and repair quotes, one file each.',
     'files/             Your attached photos and PDFs ('+nf+'), named <id>-<file name>.','',
     'Spreadsheet files are for reading and totals. To restore your data, import the ZIP or auto-backup.json.'].join('\r\n')});
-  const blob=await MBFiles.zip(entries);const name=`auto-backup-${today()}.zip`;
+  const blob=await MBFiles.zip(entries);const name=MBUI.fileName('auto','backup','zip');
   if(FS_OK){let h;try{h=await showSaveFilePicker({suggestedName:name,types:FKIND.zip.types,startIn:FH.json||'documents'})}catch(e){if(e&&e.name==='AbortError')return;h=null}
-    if(h){try{const w=await h.createWritable();await w.write(blob);await w.close();toast(`Saved ${h.name}`);return}catch(e){toast(`Couldn’t write ${h.name}.`);return}}}
-  dlBlob(name,blob);toast('ZIP downloaded to your Downloads folder');
+    if(h){try{const w=await h.createWritable();await w.write(blob);await w.close();toast('Backup saved · '+h.name);return}catch(e){toast(`Couldn’t write ${h.name}.`);return}}}
+  dlBlob(name,blob);toast('Backup downloaded · '+name);
 }
 /* header chip + data menu (MB Suite v3.3 .mb-dm: same items, wording and order in every app) */
 const quiet=()=>!!(SYNC&&SYNC.status().quietBackups);   // signed in and syncing fine: no backup nags
@@ -1636,7 +1612,7 @@ function rangeBounds(k){
 /* ================= rendering ================= */
 let OB=null; // onboarding wizard state
 let PREV=null;
-const BNAV=['dash','maint','fuel','costs'];
+const BNAV=['dash','fuel','maint'];   // phone bottom bar: Home · Fuel · [Add entry] · Service · More (Costs and the rest are in More)
 const TITLES={dash:'Home',maint:'Maintenance',fuel:'Fuel',repairs:'Repairs',costs:'Costs',history:'History',garage:'Garage',settings:'Settings',help:'Help',privacy:'Privacy',terms:'Terms'};
 const VIEWS=[['dash','Home','home','Home'],['maint','Maintenance','wrench','Service'],['fuel','Fuel','fuel','Fuel'],['repairs','Repairs','repair','Repairs'],['costs','Costs','cost','Costs'],['history','History','history','History'],['garage','Garage','car','Garage']];
 const FREEV=['settings','help','privacy','terms'];   // views that work before the first vehicle is added
@@ -1655,10 +1631,11 @@ function renderChrome(){
   $('#sideEnd').innerHTML=nb('settings','Settings','gear','Settings')+nb('help','Help','help','Help');
   const inMore=!!cur&&!BNAV.includes(cur);
   const bn=(k,l,i)=>`<button type="button"${cur===k?' aria-current="page"':''} data-act="view" data-v="${k}">${nic(i)}<span>${l}</span></button>`;
-  $('#bnav').innerHTML=has?VIEWS.filter(v=>BNAV.includes(v[0])).map(([k,l,i,sh])=>bn(k,sh,i)).join('')+`<button type="button"${inMore?' aria-current="page"':''} data-act="navMore" aria-haspopup="dialog" aria-label="More: Settings, Repairs, History, Garage, Help">${nic('more')}<span>More</span></button>`
+  const bv=k=>{const v=VIEWS.find(x=>x[0]===k);return bn(k,v[3],v[2])};
+  const bnAdd=`<button type="button" class="bn-add" data-act="addmenu" aria-label="Add entry" title="Add entry"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></button>`;
+  $('#bnav').innerHTML=has?bv('dash')+bv('fuel')+bnAdd+bv('maint')+`<button type="button"${inMore?' aria-current="page"':''} data-act="navMore" aria-haspopup="dialog" aria-label="More: Settings, Repairs, Costs, History, Garage, Help, What’s new">${nic('more')}<span>More</span></button>`
     :bn('dash','Home','home')+bn('help','Help','help')+bn('settings','Settings','gear');
   $('#fab').style.display=on?'':'none';$('#addTop').style.display=on?'':'none';
-  $('#searchBtn').style.display=on?'':'none';
   const th=S.settings.theme==='dark'?'dark':'light';document.documentElement.dataset.theme=th;
   $('#themeBtn').setAttribute('aria-checked',String(th==='dark'));
   document.querySelectorAll('[data-theme-set]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.themeSet===th)));
@@ -1679,10 +1656,12 @@ function render(){
   if(OB){m.innerHTML=vOnboard();animateIfNew('ob'+OB.step);onScroll();obFocus();return}
   const f={dash:vDash,maint:vMaint,fuel:vFuel,repairs:vRepairs,costs:vCosts,history:vHistory,garage:vGarage,settings:vSettings,help:vHelp,privacy:vPrivacy,terms:vTerms}[view]||vDash;
   m.innerHTML=f()+(view==='settings'?'':footHTML());
+  paintEmpties();
+  const sn=document.getElementById('sampleNote');if(sn&&window.MBUI)MBUI.sample(sn,{onRemove:removeSample});
   m.querySelectorAll('[data-act]:not(button):not(a)').forEach(el=>{el.tabIndex=0;if(el.tagName!=='TR')el.setAttribute('role','button')});
   drawCharts();
   const g=document.getElementById('greet');if(g){if(SYNC)SYNC.greet(g,{name:''});else g.hidden=true}
-  if(view==='settings'){const c=document.getElementById('syncCard');if(c&&SYNC)SYNC.card(c);MBInstall.render()}
+  if(view==='settings'){const c=document.getElementById('syncCard');if(c&&SYNC)SYNC.card(c)}
   animateIfNew(view+'|'+S.settings.active);
   onScroll();
   const w=document.getElementById('mbw');if(w&&!w.hidden&&hasData())wClose();   // data arrived (sync, import, sample): the welcome is done
@@ -1699,18 +1678,34 @@ function footHTML(){return`<footer class="mb-foot">
   <nav class="mb-foot-links" aria-label="About Auto"><button type="button" data-act="notes">What’s new</button><button type="button" data-act="view" data-v="privacy">Privacy</button><button type="button" data-act="view" data-v="terms">Terms</button><a href="https://mcbflow.com/">More free apps</a></nav>
   <p class="mb-foot-copy">© 2026 Matthew Broyer</p></footer>`}
 /* Home before the first vehicle: what's empty, why it matters, what to do next */
-function startCard(){return`<div class="card auto-start"><div class="vbadge">${ic('car')}</div><div>
-  <h2>Add your first vehicle</h2>
-  <p>Log fill-ups, services and repairs, and Auto works out your cost per mile, your fuel economy and what’s due next.</p>
-  <div class="toolbar"><button class="btn pri" data-act="newVehicle">${ic('plus')}Add your vehicle</button><button class="btn" data-act="sample">Explore with sample data</button><button class="btn" data-act="import">${ic('upload')}Import a backup</button></div></div></div>`}
+function startCard(){return`<div class="card auto-start">${emptyBox({title:'No vehicles yet',text:'Add your car, truck or motorcycle, and Auto works out your cost per mile, your fuel economy and what’s due next.',action:{label:'Add vehicle',fn:()=>A.newVehicle()}})}
+  <div class="toolbar start-alt"><button class="btn" data-act="sample">Start with sample data</button><button class="btn" data-act="import">${ic('upload')}Import a backup</button></div></div>`}
 
 const scopeLabel=()=>{const s=single();return s?vname(s):'All vehicles'};
 const vtag=vid=>S.vehicles.length>1&&!single()?` · ${esc(vname(veh(vid)))}`:'';
 
 /* ---- Home ---- */
-const dashBanner=sub=>`<section class="cu-banner">${artTpl('artBanner')}<div class="cu-txt"><p class="mb-greet" id="greet"></p><h1 class="cu-t">Home</h1><p class="cu-s">${esc(sub)}</p></div></section>`;
+/* banner (2026-10-17b §9): greeting · "Your vehicles" · the date and one short detail; the sample-data notice sits above it */
+const dashBanner=sub=>`${hasSample()?'<div id="sampleNote"></div>':''}<section class="cu-banner">${artTpl('artBanner')}<div class="cu-txt"><p class="mb-greet" id="greet"></p><h1 class="cu-t">Your vehicles</h1><p class="cu-s">${esc(MBUI.dateLine()+' · '+sub)}</p></div></section>`;
+/* Sample data (2026-10-17b §5): the sample loader's vehicles carry the plates SAMPLE1 and SAMPLE2. Removing it takes those
+   vehicles and their records away (kept in Recently deleted) and offers Undo. */
+const isSampleVeh=v=>!!v&&/^SAMPLE[12]$/.test(String(v.plate||''));
+const hasSample=()=>S.vehicles.some(isSampleVeh);
+function removeSample(){
+  const ids=new Set(S.vehicles.filter(isSampleVeh).map(v=>v.id));if(!ids.size)return;
+  const before={};for(const k of COLLS)before[k]=S[k].slice();
+  for(const k of VCOLLS)S[k]=S[k].filter(r=>!ids.has(r.vid));S.vehicles=S.vehicles.filter(v=>!ids.has(v.id));
+  if(S.settings.active!=='all'&&!veh(S.settings.active))S.settings.active='all';
+  const d={};for(const k of COLLS){const now=new Set(S[k].map(x=>x.id));const gone=before[k].filter(x=>!now.has(x.id));if(gone.length)d[k]=clone(gone)}
+  save();render();const id=trashPut('Sample data',d,false);
+  toast('Sample data removed',id?()=>trashRestore(id):null);
+}
+/* empty screens (2026-10-17b §11): views write a placeholder, render() fills it with the shared MBUI.empty block */
+const EMPTY={};let emptyN=0;
+function emptyBox(o){const id='e'+(++emptyN);EMPTY[id]=o;return`<div class="emptybox" data-empty="${id}"></div>`}
+function paintEmpties(){document.querySelectorAll('[data-empty]').forEach(el=>{const o=EMPTY[el.dataset.empty];if(o&&window.MBUI)MBUI.empty(el,o)});for(const k in EMPTY)delete EMPTY[k]}
 function vDash(){
-  if(!S.vehicles.length)return dashBanner(fd(today())+' · no vehicles yet')+startCard();
+  if(!S.vehicles.length)return dashBanner('No vehicles yet')+startCard();
   const vs=scope(),ids=vs.map(v=>v.id),t=today();
   const yr=rangeBounds('year'),all=rangeBounds('all');
   const ytd=costEntries(ids,yr.from,yr.to).reduce((a,b)=>a+b.amt,0);
@@ -1748,7 +1743,7 @@ function vDash(){
   const recent=activity(ids).slice(0,7);
   const rec=`<div class="card"><div class="card-h"><h2>Recent activity</h2></div>
     ${recent.length?`<div class="rows">${recent.map(actRow).join('')}</div>`:`<div class="empty"><b>Nothing logged yet</b>Tap “Add entry” to log your first fill-up or service.</div>`}</div>`;
-  const bsub=[fd(t),scopeLabel(),allMiles?mi(allMiles)+' mi tracked':''].filter(Boolean).join(' · ');
+  const bsub=s?vname(s):plural(vs.length,'vehicle');
   return`${dashBanner(bsub)}${checklist()}${alertBar(rems)}${hero}${tiles}<div class="grid g2">${upcoming}${rec}</div>`;
 }
 function remRow(r,s,compact){
@@ -1786,12 +1781,12 @@ function vMaint(){
     <div class="toolbar"><button class="btn" data-act="add" data-k="rem">${ic('bell')}Add reminder</button><button class="btn pri" data-act="add" data-k="service">${ic('plus')}Log service</button></div></div>
   <div class="card"><div class="card-h"><div><h2>Schedule</h2><div class="sub">Generic intervals, not your manufacturer’s schedule. Check your owner’s manual.</div></div>
     ${s?`<button class="btn sm" data-act="defaults" data-id="${esc(s.id)}">Add default schedule</button>`:''}</div>
-    ${rems.length?`<div class="rows">${rems.map(({r,s})=>remRow(r,s,false)).join('')}</div>`:`<div class="empty"><b>No reminders yet</b>${s?'Add the default schedule for this vehicle, or create your own.':'Pick a vehicle at the top to add its default schedule.'}</div>`}</div>
+    ${rems.length?`<div class="rows">${rems.map(({r,s})=>remRow(r,s,false)).join('')}</div>`:emptyBox({title:'No reminders yet',text:s?'Add the default schedule for this vehicle, or create your own.':'Pick a vehicle at the top to add its default schedule.',action:s?{label:'Add default schedule',fn:()=>A.defaults({id:s.id})}:null})}</div>
   ${forecastCard(ids)}${checksCard(ids)}
   <div class="card mt"><div class="card-h"><div><h2>Service log</h2><div class="sub">${plural(svc.length,'entry')} · ${money(total,0)}</div></div><input class="search" placeholder="Search work, shop…" value="${esc(vMaint.q||'')}" data-search="maint"></div>
     ${svc.length?`<div class="tablewrap"><table><thead><tr><th>Date</th><th>Work done</th><th class="r hide-sm">Odometer</th><th class="hide-sm">Shop</th><th class="r">Cost</th></tr></thead><tbody>
     ${svc.slice(0,LIM.maint).map(x=>`<tr data-act="edit" data-k="service" data-id="${esc(x.id)}"><td class="num" style="white-space:nowrap">${fd(x.date)}</td><td>${esc(workText(x)||'Service')}${x.notes?`<div class="m">${esc(x.notes)}</div>`:''}${vtag(x.vid)?`<div class="m">${esc(vname(veh(x.vid)))}</div>`:''}</td><td class="r num hide-sm">${x.odo?mi(+x.odo):'—'}</td><td class="hide-sm">${esc(x.shop||(x.diy?'DIY':''))}</td><td class="r num">${money(+x.cost||0)}</td></tr>`).join('')}
-    </tbody></table></div>${more('maint',svc.length)}`:`<div class="empty"><b>${q?'No matches':'No services logged'}</b>${q?'':'Tap “Log service” after your next oil change or rotation.'}</div>`}</div>`;
+    </tbody></table></div>${more('maint',svc.length)}`:(q?`<div class="empty"><b>No matches</b></div>`:emptyBox({title:'No services yet',text:'Log your next oil change or tire rotation to start the service history.',action:{label:'Log service',fn:()=>A.add({k:'service'})}}))}</div>`;
 }
 
 /* ---- Fuel ---- */
@@ -1819,7 +1814,7 @@ function vFuel(){
   <div class="card"><div class="card-h"><div><h2>Fill-ups</h2><div class="sub">${plural(f.length,'fill-up')} · ${gal.toFixed(1)} ${single()?volU(single()):'units'} total</div></div></div>
   ${f.length?`<div class="tablewrap"><table><thead><tr><th>Date</th><th class="r">Odometer</th><th class="r hide-sm">Amount</th><th class="r hide-sm">Price</th><th class="r">Total</th><th class="r">Economy</th></tr></thead><tbody>
   ${f.slice(0,LIM.fuel).map(x=>{const v=veh(x.vid),e=mpgMaps[x.vid][x.id];return`<tr data-act="edit" data-k="fuel" data-id="${esc(x.id)}"><td style="white-space:nowrap">${fd(x.date)}${x.station||vtag(x.vid)?`<div class="m">${esc([x.station,vtag(x.vid)?vname(v):''].filter(Boolean).join(' · '))}</div>`:''}</td><td class="r num">${x.odo?mi(+x.odo):'—'}</td><td class="r num hide-sm">${(+x.gal||0).toFixed(2)} ${volU(v)}${x.full?'':'<div class="m">partial</div>'}</td><td class="r num hide-sm">${x.ppg?money(+x.ppg,3):'—'}</td><td class="r num">${money(fuelTotal(x),2)}</td><td class="r num">${e?e.toFixed(1)+' <span class="m">'+effU(v)+'</span>':'<span class="m">—</span>'}</td></tr>`}).join('')}
-  </tbody></table></div>${more('fuel',f.length)}`:`<div class="empty"><b>No fill-ups yet</b>Log the odometer each time you fill the tank to get ${eu}.</div>`}</div>`;
+  </tbody></table></div>${more('fuel',f.length)}`:emptyBox({title:'No fill-ups yet',text:`Log the odometer each time you fill the tank to get ${eu}.`,action:{label:'Log fill-up',fn:()=>A.add({k:'fuel'})}})}</div>`;
 }
 
 /* ---- Repairs (repairs, problems log, repeat repairs, quotes) ---- */
@@ -1891,7 +1886,7 @@ function vRepairs(){
     <div class="m">${fd(x.date)}${x.odo?' · '+mi(+x.odo)+' mi':''}${x.shop?' · '+esc(x.shop):''}${vtag(x.vid)}${clip(x.files)}</div>
     ${x.symptom?`<div style="font-size:13.5px;margin-top:5px;color:var(--text-2);white-space:normal">${esc(x.symptom)}</div>`:''}
     ${(n0(x.parts)!=null||n0(x.labor)!=null)?`<div class="m" style="margin-top:3px">Parts ${money(+x.parts||0)} · Labor ${money(+x.labor||0)}</div>`:''}</div>
-    <div class="amt num">${money(+x.cost||0)}</div></div>`}).join('')}</div>`:`<div class="empty"><b>No repairs logged</b>When something breaks, log the problem, the fix and the cost.</div>`}</div>
+    <div class="amt num">${money(+x.cost||0)}</div></div>`}).join('')}</div>`:emptyBox({title:'No repairs yet',text:'When something breaks, log the problem, the fix and the cost.',action:{label:'Log repair',fn:()=>A.add({k:'repair'})}})}</div>
   ${quotesHTML(ids)}`;
 }
 
@@ -1942,7 +1937,7 @@ function vCosts(){
   ${perVeh.length?`<div class="card mt"><div class="card-h"><h2>By vehicle</h2></div><div class="tablewrap"><table><thead><tr><th>Vehicle</th><th class="r">Spent</th><th class="r">Miles</th><th class="r">Per mile</th></tr></thead><tbody>${perVeh.map(p=>`<tr data-act="pick" data-id="${esc(p.v.id)}"><td>${esc(vname(p.v))}</td><td class="r num">${money(p.t,0)}</td><td class="r num">${mi(p.m)}</td><td class="r num">${p.m?money(p.t/p.m,2):'—'}</td></tr>`).join('')}</tbody></table></div></div>`:''}
   <div class="card pad mt" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2>Keep, repair or replace?</h2><div class="sub">Compare a big repair against replacing the vehicle over the next few years.</div></div><button class="btn" data-act="keepCalc">${ic('scale')}Open calculator</button></div>
   <div class="card mt"><div class="card-h"><div><h2>Other expenses</h2><div class="sub">Insurance, registration, loan payments, tolls…</div></div></div>
-  ${exps.length?`<div class="tablewrap"><table><thead><tr><th>Category</th><th>Starts</th><th class="hide-sm">Repeats</th><th class="r">Amount</th></tr></thead><tbody>${exps.map(x=>`<tr data-act="edit" data-k="expense" data-id="${esc(x.id)}"><td>${esc(x.category)}${clip(x.files)}${x.notes||vtag(x.vid)?`<div class="m">${esc([x.notes,vtag(x.vid)?vname(veh(x.vid)):''].filter(Boolean).join(' · '))}</div>`:''}</td><td class="num" style="white-space:nowrap">${fd(x.date)}</td><td class="hide-sm">${x.repeat&&x.repeat!=='none'?REPEATS[x.repeat]+(x.until?`<div class="m">until ${fd(x.until)}</div>`:''):'<span class="m">One-time</span>'}</td><td class="r num">${money(+x.amount||0)}</td></tr>`).join('')}</tbody></table></div>`:`<div class="empty"><b>No other expenses</b>Add insurance, registration or a loan payment once. Set it to repeat and auto.mcbflow.com counts every payment.</div>`}</div>
+  ${exps.length?`<div class="tablewrap"><table><thead><tr><th>Category</th><th>Starts</th><th class="hide-sm">Repeats</th><th class="r">Amount</th></tr></thead><tbody>${exps.map(x=>`<tr data-act="edit" data-k="expense" data-id="${esc(x.id)}"><td>${esc(x.category)}${clip(x.files)}${x.notes||vtag(x.vid)?`<div class="m">${esc([x.notes,vtag(x.vid)?vname(veh(x.vid)):''].filter(Boolean).join(' · '))}</div>`:''}</td><td class="num" style="white-space:nowrap">${fd(x.date)}</td><td class="hide-sm">${x.repeat&&x.repeat!=='none'?REPEATS[x.repeat]+(x.until?`<div class="m">until ${fd(x.until)}</div>`:''):'<span class="m">One-time</span>'}</td><td class="r num">${money(+x.amount||0)}</td></tr>`).join('')}</tbody></table></div>`:emptyBox({title:'No expenses yet',text:'Add insurance, registration or a loan payment once. Set it to repeat and Auto counts every payment.',action:{label:'Add expense',fn:()=>A.add({k:'expense'})}})}</div>
   <p class="fine">Figures are estimates based on what you log. They aren’t tax or financial advice. Services and repairs marked “before I owned it” aren’t counted. <button class="linkbtn" style="padding:0;margin:0;min-height:0;font-size:inherit" data-act="view" data-v="terms">Terms</button></p>`;
 }
 
@@ -1972,7 +1967,7 @@ function vHistory(){
   return`<div class="head"><div><h1>History</h1><div class="sub">${esc(scopeLabel())} · every record, newest first</div></div><button class="btn pri" data-act="report">${ic('print')}Vehicle history report</button></div>
   <div class="card" style="margin-bottom:12px"><div class="dl2"><div><span>Records</span><b class="num">${all.length.toLocaleString()}</b></div><div><span>First record</span><b>${first?fd(first):'—'}</b></div><div><span>Miles tracked</span><b class="num">${mi(tracked)}</b></div><div><span>Attachments</span><b class="num">${nfiles}</b></div></div></div>
   <div class="chipbar" role="group" aria-label="Show" style="margin-bottom:12px">${HFILT.map(([k,l])=>`<button class="${f===k?'on':''}" aria-pressed="${f===k}" data-act="hist" data-v="${k}">${l}</button>`).join('')}</div>
-  <div class="card">${list.length?`<div class="rows">${html}</div>${list.length>LIM.hist?`<button class="more" data-act="more" data-k="hist">Show more (${(list.length-LIM.hist).toLocaleString()} older)</button>`:''}`:`<div class="empty"><b>Nothing here yet</b>Records you log show up on this timeline.</div>`}</div>
+  <div class="card">${list.length?`<div class="rows">${html}</div>${list.length>LIM.hist?`<button class="more" data-act="more" data-k="hist">Show more (${(list.length-LIM.hist).toLocaleString()} older)</button>`:''}`:(all.length?`<div class="empty"><b>Nothing here yet</b>Records of this kind show up here once you log one.</div>`:emptyBox({title:'No records yet',text:'Everything you log for this vehicle shows up on this timeline.',action:{label:'Add entry',fn:()=>A.addmenu()}}))}</div>
   <p class="fine">The report is built from what you enter and isn’t verified by anyone else. Choose what to include before you share it.</p>`;
 }
 
@@ -2012,7 +2007,7 @@ function vSettings(){
   const c=k=>S[k].length,th=S.settings.theme==='dark'?'dark':'light';
   const seg=`<div class="mb-seg" role="group" aria-label="Theme">${[['light','Light',SUNI],['dark','Dark',MOONI]].map(([k,l,i])=>`<button type="button" data-act="theme" data-v="${k}" data-theme-set="${k}" aria-pressed="${th===k}">${sic(i)}${l}</button>`).join('')}</div>`;
   const sec=(id,h,body)=>`<section class="mb-set-sec" aria-labelledby="${id}"><h2 class="mb-set-h" id="${id}">${h}</h2>${body}</section>`;
-  return`<div class="head"><div><h1>Settings</h1><div class="sub">Look, sync, backups and app info.</div></div></div>
+  return`<div class="head"><div><h1>Settings</h1><div class="sub">Changes save as you make them.</div></div></div>
   <div class="mb-set">
   ${sec('setA','Appearance',`<div class="mb-set-card">${setRow('Theme','Light or dark. Saved on this device.',seg)}</div>`)}
   ${sec('setS','Account &amp; sync',`<div class="mb-set-card pad" id="syncCard">${SYNC?'':'<p class="sub" style="margin:0">Sync isn’t available because a file didn’t load. Reload the page to try again.</p>'}</div>`)}
@@ -2028,14 +2023,32 @@ function vSettings(){
   </div>`;
 }
 /* ---- Help: FAQ, release notes, privacy and terms ---- */
+/* ---- Help (2026-10-17b §3): intro · Getting started · questions by topic, ending with Install and Your data & privacy.
+   Release notes are in What's new; the legal text is on the Privacy and Terms pages. ---- */
 function vHelp(){
-  return`<div class="head"><div><h1>Help</h1><div class="sub">How Auto works, what’s new, and the privacy and terms pages.</div></div></div>
-  ${faqHTML()}${notesHTML()}
-  <div class="card pad mt" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2>Privacy &amp; terms</h2><div class="sub">What auto.mcbflow.com stores, and the limits of its estimates.</div></div><div class="toolbar"><button class="btn" data-act="view" data-v="privacy">Privacy</button><button class="btn" data-act="view" data-v="terms">Terms of use</button></div></div>`;
+  return`<div class="head"><div><h1>Help</h1><div class="sub">How Auto works, in short answers.</div></div><button class="btn sm ghost" data-act="faqAll">Expand all</button></div>
+  <div class="mb-set help-faq">${faqHTML()}</div>`;
 }
 /* ---- release notes ---- */
-const VERSION='1.5';
+const VERSION='1.7';
 const RELEASES=[
+ ['1.7','October 17, 2026',[
+  '<b>Search</b> button in the top bar, also before your first vehicle. It works the same in every mcbflow.com app: the button, / or Ctrl+K finds fill-ups, services, repairs, expenses, reminders, vehicles and pages, and opens the one you pick.',
+  '<b>Help</b> starts with a few getting-started steps, then short answers grouped by topic, ending with Install and Your data &amp; privacy. Release notes moved to <b>What’s new</b>, which opens in one window from the page footer, Settings › About and More.',
+  'The <b>More</b> menu on phones is the same in every app: Settings, Repairs, Costs, History, Garage, Help and What’s new.',
+  '<b>Sample data</b>: “Start with sample data” or “Start empty” on the welcome screen. While it’s loaded, Home says so, with one button to remove it (and Undo).',
+  'Deleting a vehicle no longer asks first. It goes to Recently deleted, and Undo is in the message.',
+  'Backup files are named the same way in every app, like auto-backup-2026-10-17.json and auto-records-2026-10-17.csv. Saving a backup with nothing in it just works.',
+  'Charts use Auto’s blue, its lighter tint, a warm ochre and slate gray instead of six different colors. Month labels read like “Apr ’25”.',
+  'Home’s banner reads “Your vehicles” with the date and one detail. Empty lists say what goes there, with one button to add the first one.',
+  'Settings says “Changes save as you make them.” at the top, and the Install section uses the same words in every app.',
+  'Messages at the bottom of the screen look the same in every app.']],
+ ['1.6','October 17, 2026',[
+  'Phone bottom bar: <b>Home, Fuel, a big Add entry button in the middle, Service and More</b>. Costs moved into More, next to Settings, Repairs, History, Garage and Help. The floating + button is gone on phones, since Add entry is now in the bar.',
+  '<b>Clear all data</b> now asks you to type DELETE, the same in every mcbflow.com app. It still keeps a copy in Recently deleted for 30 days, offers to save a backup first, and still deletes your synced copy too when you’re signed in.',
+  'Account pop-up spacing fixed.',
+  'Welcome banner art is no longer cut off on phones.',
+  'Very long vehicle names and notes wrap instead of pushing the page sideways on phones.']],
  ['1.5','October 16, 2026',[
   'New <b>Settings</b> page with the same layout as the other mcbflow.com apps: Appearance, Account &amp; sync, Auto settings, Backup &amp; data, Install and About. Help, the FAQ and these release notes moved to a <b>Help</b> page next to it.',
   '<b>Account button</b> in the top bar: sign in, see your sync status, and pick a <b>profile picture and screen name</b> (Edit profile). The same picture and name show in every mcbflow.com app. <b>Keep me signed in on this device</b> can be turned off on a shared computer.',
@@ -2112,20 +2125,26 @@ const RELEASES=[
   'Garage for multiple vehicles, search across every record (/ or Ctrl+K), and Recently deleted for 30 days.',
   'JSON backup, CSV export, sample data. Everything stays in this browser.']]
 ];
-function notesHTML(){return`<div class="card mt faq" id="notes"><div class="card-h"><div><h2>Release notes</h2><div class="sub">You’re on version ${VERSION}</div></div></div>${RELEASES.map(([v,d,it],i)=>`<details${i===0?' open':''}><summary><span>${/^\d/.test(v)?'Version '+v:v}${d?` <span class="muted" style="font-weight:500">· ${d}</span>`:''}</span>${ic('chev')}</summary><div class="a"><ul class="rn-list">${it.map(x=>`<li>${x}</li>`).join('')}</ul></div></details>`).join('')}</div>`}
 function attachNote(){const ids=Object.keys(FMETA);if(!ids.length)return'';const b=ids.reduce((a,id)=>a+(FMETA[id].size||0),0);return`<div class="fine" style="margin:0">${plural(ids.length,'attachment')} (${fsize(b)}) stored on this device. Backups include them, so backup files get bigger.</div>`}
 function aboutCard(){
   return`<div class="mb-about" role="group" aria-label="About this app" style="margin-top:0">
   <svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></svg>
   <div>
     <b>auto.mcbflow.com™</b>
-    <p>Version ${VERSION} · Oct 16, 2026</p>
+    <p>Version ${VERSION} · Oct 17, 2026</p>
     <p class="mb-about-links"><button type="button" data-act="notes">What’s new</button><button type="button" data-act="view" data-v="privacy">Privacy</button><button type="button" data-act="view" data-v="terms">Terms</button><button type="button" data-act="view" data-v="help">Help</button><a href="https://mcbflow.com/">More free apps at mcbflow.com</a></p>
     <p class="mb-about-copy">© 2026 Matthew Broyer. All rights reserved.</p>
   </div>
 </div>`}
+/* Settings › Install (2026-10-17b §10): the same words in every app. Install button only when the browser offers it. */
 function installCard(){
-  return`<div data-mb-install data-app-name="Auto" data-note="Opens in its own window with its own icon. Works offline after the first visit. Your records stay on this device either way." hidden></div><p class="inst-fb">This browser hasn’t offered to install Auto yet. In Chrome or Edge, use the install icon in the address bar or the browser menu. On iPhone or iPad, open this page in Safari, tap Share, then Add to Home Screen.</p>`}
+  const done=MBInstall.isInstalled(),can=!done&&MBInstall.canInstall();
+  const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  const how=done||can?'':ios?'iPhone/iPad: tap Share, then Add to Home Screen.':"Use your browser's menu: Install app / Add to Home screen.";
+  return`<div class="mb-set-card" id="instCard"><div class="mb-set-row"><div class="mb-set-l"><p class="inst-line">Add Auto to your home screen or dock. It opens in its own window and works offline.</p>${how?`<small>${how}</small>`:''}</div>${done?`<div class="mb-set-c"><span class="mb-info" role="status">${ic('check')}Installed</span></div>`:can?'<div class="mb-set-c"><button type="button" class="btn pri" data-act="install">Install</button></div>':''}</div></div>`}
+function paintInstall(){const c=document.getElementById('instCard');if(c)c.outerHTML=installCard()}
+addEventListener('beforeinstallprompt',()=>setTimeout(paintInstall,0));
+addEventListener('appinstalled',()=>setTimeout(paintInstall,0));
 function trashHTML(){
   return`<div class="card mt" id="trash"><div class="card-h"><div><h2>Recently deleted</h2><div class="sub">Kept on this device for ${TDAYS} days, then removed.</div></div>${TRASH.length?`<button class="btn sm danger" data-act="trashEmpty">${ic('trash')}Empty</button>`:''}</div>
   ${TRASH.length?TRASH.map(t=>{const left=Math.max(1,Math.ceil((t.at+TDAYS*864e5-Date.now())/864e5));return`<div class="trow"><div class="ic">${ic(t.full?'receipt':'trash')}</div><div class="main"><div class="t">${esc(t.label)}</div><div class="m">Deleted ${esc(new Date(t.at).toLocaleDateString(undefined,{month:'short',day:'numeric'}))} · ${plural(left,'day')} left</div></div><button class="btn sm" data-act="trashRestore" data-id="${esc(t.id)}">Restore</button></div>`}).join(''):`<div class="empty"><b>Nothing here</b>Deleted entries and vehicles show up here for ${TDAYS} days.</div>`}</div>`;
@@ -2156,7 +2175,7 @@ function vPrivacy(){return`<div class="legal">${legalHead('Privacy')}<div class=
   <p>Passwords, Social Security numbers, bank or card numbers, or other highly sensitive information. Notes and attachments are stored unencrypted, and anyone using this browser profile can open the app and see your records. Before attaching a photo of a license or insurance card, consider who else uses this device.</p>
   <h2>Your controls</h2>
   <ul><li><b>Export:</b> Data menu → Save backup now, Export All (JSON) or Export All (CSV).</li><li><b>Delete one item:</b> open it and tap Delete.</li>
-  <li><b>Delete everything for good:</b> Data → Clear all data… (it asks you to type ERASE), then empty Recently deleted in Settings. Clearing this site’s data in your browser settings also removes everything.</li>
+  <li><b>Delete everything for good:</b> Data → Clear all data… (it asks you to type DELETE), then empty Recently deleted in Settings. Clearing this site’s data in your browser settings also removes everything.</li>
   <li>Private or incognito windows discard your records when closed.</li></ul>
   <h2>Children</h2><p>auto.mcbflow.com is meant for vehicle owners and isn’t directed to children. It doesn’t collect information from anyone, because records stay on the device.</p>
   <h2>Changes</h2><p>If this policy changes, the new version will appear here with a new effective date.</p>${contactHTML()}
@@ -2324,6 +2343,7 @@ function niceMax(v){if(v<=0)return 1;const p=10**Math.floor(Math.log10(v));const
 function niceStep(range,n=3){if(range<=0)return 1;const raw=range/n,p=10**Math.floor(Math.log10(raw)),f=raw/p;return(f<=1?1:f<=2?2:f<=2.5?2.5:f<=5?5:10)*p}
 function topRound(x,y,w,h,r){r=Math.min(r,w/2,h);return`M${x},${y+h}V${y+r}Q${x},${y} ${x+r},${y}H${x+w-r}Q${x+w},${y} ${x+w},${y+r}V${y+h}Z`}
 const HINT=(m,t)=>`<span class="charthint" data-touch="${t}">${m}</span>`;
+const monLbl=d=>d.toLocaleDateString(undefined,{month:'short'})+" '"+String(d.getFullYear()).slice(2);   /* month axis labels: "Apr '25" in every app */
 function drawCharts(){
   document.querySelectorAll('[data-chart]').forEach(el=>{
     const W=Math.max(260,el.clientWidth-24);
@@ -2355,7 +2375,7 @@ function chartMonthly(W){
     segs.forEach((g,j)=>{let h=o[g]/mx*ph;const last=j===segs.length-1;const gap=j>0?2:0;h=Math.max(0,h-gap);y-=h+gap;
       s+=last?`<path d="${topRound(x,y,bw,h,4)}" fill="${GCOL[g]}"/>`:`<rect x="${x}" y="${y}" width="${bw}" height="${h}" fill="${GCOL[g]}"/>`;});
     s+='</g></g>';
-    if(i%every===0||i===data.length-1&&data.length<=12){const dd=pd(o.m+'-01');s+=`<text class="axis" x="${L+band*i+band/2}" y="${H-6}" text-anchor="middle">${dd.toLocaleDateString(undefined,{month:'short'})}${dd.getMonth()===0||i===0?" ’"+String(dd.getFullYear()).slice(2):''}</text>`}
+    if(i%every===0||i===data.length-1&&data.length<=12&&i%every>=every*.75){s+=`<text class="axis" x="${L+band*i+band/2}" y="${H-6}" text-anchor="middle">${monLbl(pd(o.m+'-01'))}</text>`}
   });
   s+='</svg>';
   return s+(note?`<div class="m muted" style="font-size:12px;padding:4px 4px 0">${note}</div>`:'');
@@ -2374,7 +2394,7 @@ function chartMpg(W,vid){
   let s=`<svg class="lc" viewBox="0 0 ${W} ${H}" height="${H}" tabindex="0" role="img" aria-label="${esc(u)} over time: average ${avg.toFixed(1)}, latest ${p[p.length-1].mpg.toFixed(1)}, across ${p.length} full tanks. Use the left and right arrow keys to read each fill-up." data-pts="${esc(JSON.stringify(pts))}">
   <defs><linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--s1)" stop-opacity=".22"/><stop offset="1" stop-color="var(--s1)" stop-opacity="0"/></linearGradient></defs>`;
   for(let m=lo;m<=hi+1e-9;m+=st){const y=Y(m);s+=`<line x1="${L}" x2="${L+pw}" y1="${y}" y2="${y}" stroke="var(--${m===lo?'border-2':'grid'})"/><text class="axis" x="${L-8}" y="${y+3.5}" text-anchor="end">${+m.toFixed(1)}</text>`}
-  const ticks=W<500?4:6;for(let k=0;k<ticks;k++){const t=t0+(t1-t0)*k/(ticks-1);s+=`<text class="axis" x="${L+pw*k/(ticks-1)}" y="${H-6}" text-anchor="middle">${new Date(t).toLocaleDateString(undefined,{month:'short',year:'2-digit'})}</text>`}
+  const ticks=W<500?4:6;let lastLbl='';for(let k=0;k<ticks;k++){const t=t0+(t1-t0)*k/(ticks-1),lb=monLbl(new Date(t));if(lb===lastLbl)continue;lastLbl=lb;s+=`<text class="axis" x="${L+pw*k/(ticks-1)}" y="${H-6}" text-anchor="${k===0?'start':k===ticks-1?'end':'middle'}">${lb}</text>`}
   s+=`<path d="M${L},${T+ph}${p.map(x=>`L${X(x)},${Y(x.mpg)}`).join('')}L${X(p[p.length-1])},${T+ph}Z" fill="url(#${gid})" class="area"/>`;
   const ay=Y(avg);s+=`<line class="tgt" x1="${L}" x2="${L+pw}" y1="${ay}" y2="${ay}"/><text class="axis" x="${L+pw+6}" y="${ay+3.5}">avg ${avg.toFixed(1)}</text>`;
   s+=`<path d="${p.map((x,i)=>(i?'L':'M')+X(x)+','+Y(x.mpg)).join('')}" class="line" pathLength="1" fill="none" stroke="var(--s1)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
@@ -2490,10 +2510,10 @@ async function odoGuard(vid,odo,date,selfId){const o=n0(odo);if(o==null)return t
   return confirmModal({title:'Odometer looks low',msg:`${mi(o)} mi is lower than an earlier reading of ${mi(Math.max(...hi.map(r=>r.odo)))} mi. Check for a typo, or save it anyway.`,ok:'Save anyway',danger:false});
 }
 async function dupGuard(hit,noun){if(!hit)return true;return confirmModal({title:'Looks like a duplicate',msg:`There’s already a ${noun} for this vehicle on ${fd(hit.date)} with the same details. Save another one anyway?`,ok:'Save anyway',danger:false})}
-function confirmModal({title,msg,ok='Delete',danger=true,typed,alt}){return new Promise(res=>{
+function confirmModal({title,msg,ok='Delete',danger=true,alt}){return new Promise(res=>{
   const c=$('#cfm');c.setAttribute('aria-label',title);
-  c.innerHTML=`<form novalidate><div class="cfm-b"><div class="cfm-ic ${danger?'bad':''}">${ic(danger?'trash':'alert')}</div><div style="flex:1;min-width:0"><h2>${esc(title)}</h2><p>${msg}</p>${typed?`<input id="cfmIn" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Type ${typed} to confirm" aria-label="Type ${typed} to confirm">`:''}</div></div>
-    <div class="dlg-f">${alt?`<button type="button" class="btn danger cfm-alt" data-alt>${esc(alt)}</button>`:''}<button type="button" class="btn" data-no>Cancel</button><button type="submit" class="btn ${danger?'dangerfill':'pri'}" data-yes ${typed?'disabled':''}>${esc(ok)}</button></div></form>`;
+  c.innerHTML=`<form novalidate><div class="cfm-b"><div class="cfm-ic ${danger?'bad':''}">${ic(danger?'trash':'alert')}</div><div style="flex:1;min-width:0"><h2>${esc(title)}</h2><p>${msg}</p></div></div>
+    <div class="dlg-f">${alt?`<button type="button" class="btn danger cfm-alt" data-alt>${esc(alt)}</button>`:''}<button type="button" class="btn" data-no>Cancel</button><button type="submit" class="btn ${danger?'dangerfill':'pri'}" data-yes>${esc(ok)}</button></div></form>`;
   let done=false;const fin=v=>{if(done)return;done=true;c.close();res(v)};
   const yes=c.querySelector('[data-yes]');
   c.querySelector('[data-no]').onclick=()=>fin(false);
@@ -2501,8 +2521,7 @@ function confirmModal({title,msg,ok='Delete',danger=true,typed,alt}){return new 
   c.querySelector('form').onsubmit=e=>{e.preventDefault();if(!yes.disabled)fin(true)};
   c.oncancel=e=>{e.preventDefault();fin(false)};
   c.onclick=e=>{if(e.target===c)fin(false)};
-  const inp=c.querySelector('#cfmIn');if(inp)inp.oninput=()=>{yes.disabled=inp.value.trim().toUpperCase()!==typed};
-  c.showModal();(inp||c.querySelector(danger?'[data-no]':'[data-yes]')).focus();
+  c.showModal();c.querySelector(danger?'[data-no]':'[data-yes]').focus();
 })}
 
 function formFuel(x){
@@ -2631,19 +2650,20 @@ function formVehicle(x){
     onSave:async o=>{const rec={name:o.name,year:o.year,type:o.type,make:o.make,model:o.model,trim:o.trim,fuelType:o.fuelType,plate:o.plate,vin:o.vin.toUpperCase(),purchaseDate:o.purchaseDate,purchasePrice:o.purchasePrice,startOdo:+o.startOdo,currentValue:o.currentValue,notes:o.notes};
       if(x){Object.assign(x,rec);return'Vehicle updated'}
       const v=Object.assign({id:uid()},rec);S.vehicles.push(v);if(o.addSchedule)addDefaultSchedule(v);S.settings.active=v.id;S.settings.view='dash';return'Vehicle added'},
+    noun:'vehicle',   /* deletes at once with its records; Undo in the message, and it stays in Recently deleted for 30 days */
     onDelete:x?()=>{for(const k of VCOLLS)S[k]=S[k].filter(r=>r.vid!==x.id);S.vehicles=S.vehicles.filter(v=>v.id!==x.id);S.settings.active='all'}:null});
-  if(x){const d=dlg.querySelector('[data-del]');d.onclick=async()=>{const n=VCOLLS.reduce((a,k)=>a+S[k].filter(r=>r.vid===x.id).length,0);
-    if(await confirmModal({title:`Delete ${vname(x)}?`,msg:`This permanently deletes <b>${esc(vname(x))}</b>${n?` and its ${plural(n,'record')} (services, repairs, fill-ups, expenses, reminders, documents and problems)`:''}. You can restore it from Recently deleted in Settings for 30 days.`,ok:'Delete vehicle'})){dlg.close();deleteWithUndo('Vehicle',()=>{for(const k of VCOLLS)S[k]=S[k].filter(r=>r.vid!==x.id);S.vehicles=S.vehicles.filter(v=>v.id!==x.id);S.settings.active='all'})}}}
 }
+/* phone More (2026-10-17b §1): the shared sheet. Settings, the views that aren't in the bar (sidebar order), Help, What's new */
 function moreMenu(){
-  const it=[['settings','gear','Settings','Look, sync, backups, install'],['repairs','repair','Repairs','Fixes, problems and quotes'],['history','history','History','Every record on one timeline'],['garage','car','Garage','Vehicles and glovebox'],['help','help','Help','FAQ, what’s new, privacy']];
+  if(!window.MBUI)return;
   const cur=['privacy','terms'].includes(S.settings.view)?'help':S.settings.view;
-  dlg.className='';dlg.setAttribute('aria-label','More');
-  dlg.innerHTML=`<div class="dlg-h"><h2>More</h2><button class="iconbtn" data-close aria-label="Close">${ic('x')}</button></div><div class="addgrid">${it.map(([k,i,t,d])=>`<button data-go="${k}"${cur===k?' aria-current="page"':''}><div class="ic">${nic(i)}</div><div><b>${t}</b><small>${d}</small></div></button>`).join('')}</div>`;
-  dlg.querySelector('[data-close]').onclick=()=>dlg.close();
-  dlg.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{dlg.close();A.view({v:b.dataset.go})});
-  dlg.showModal();
+  const it=[['settings','gear','Settings'],['repairs','repair','Repairs'],['costs','cost','Costs'],['history','history','History'],['garage','car','Garage'],['help','help','Help']];
+  MBUI.sheet({title:'More',opener:document.querySelector('#bnav [data-act=navMore]'),items:it.map(([k,i,l])=>({label:l,icon:nic(i),current:cur===k,onClick:()=>A.view({v:k})}))
+    .concat([{label:'What’s new',sub:'Version '+VERSION,icon:nic('news'),onClick:()=>A.notes()}])});
 }
+/* What's new: one dialog from the footer, About, More and Help, built from RELEASES (plain text) */
+const plainText=h=>{const t=document.createElement('template');t.innerHTML=h;return t.content.textContent};
+function whatsNew(){if(!window.MBUI)return;MBUI.whatsNew({app:'Auto',releases:RELEASES.map(([v,d,it])=>({version:/^\d/.test(v)?v:v.replace(/^Build\s*/,'')+' (earlier numbering)',date:d,items:it.map(plainText)}))})}
 function addMenu(){
   const it=[['fuel','fuel','Fill-up','Gas, diesel or charging'],['service','wrench','Service','Oil change, rotation…'],['odo','gauge','Odometer','Update the mileage'],['repair','repair','Repair','Something broke & got fixed'],['expense','receipt','Expense','Insurance, registration, tolls'],['rem','bell','Reminder','A new maintenance interval'],['issue','flag','Problem','Warning light, code or noise'],['doc','doc','Document','Insurance card, registration…'],['check','list','Checklist','Winter prep, pre-trip check'],['quote','receipt','Repair quote','Compare shop estimates']];
   dlg.className='';dlg.setAttribute('aria-label','Add entry');
@@ -2668,7 +2688,7 @@ function shareVehicle(vid){const v=veh(vid);if(!v)return;
   const nRec=S.fuel.filter(x=>x.vid===vid).length+S.services.filter(x=>x.vid===vid).length+S.expenses.filter(x=>x.vid===vid).length;
   const cost=costEntries([vid],all.from,all.to).reduce((a,b)=>a+b.amt,0);const since=firstDate(vid);
   const head=odo!=null?mi(odo)+' miles on the clock':plural(nRec,'record')+' logged';
-  MBShare.open({title:'Share your vehicle log',kicker:'Vehicle log',fileName:'auto-vehicle-log.png',date:new Date().toLocaleDateString(undefined,{month:'short',year:'numeric'}),art:shareArt(),
+  MBShare.open({title:'Share your vehicle log',kicker:'Vehicle log',fileName:MBUI.fileName('auto','vehicle-log','png'),date:new Date().toLocaleDateString(undefined,{month:'short',year:'numeric'}),art:shareArt(),
     options:[{id:'veh',label:'Show year, make and model',value:false},{id:'money',label:'Show cost per mile',value:false}],
     build:o=>{const stats=[{label:'Miles tracked',value:miles?mi(miles):'—'}];
       if(avg)stats.push({label:'Average '+effU(v),value:avg.toFixed(1)});
@@ -2678,7 +2698,7 @@ function shareVehicle(vid){const v=veh(vid);if(!v)return;
 function shareFuel(vid){const v=veh(vid);if(!v)return;const s=mpgSeries(vid);if(s.length<2)return;
   const m=s.reduce((a,b)=>a+b.miles,0),g=s.reduce((a,b)=>a+b.gal,0),best=Math.max(...s.map(x=>x.mpg)),u=effU(v);
   const f=S.fuel.filter(x=>x.vid===vid),spend=f.reduce((a,x)=>a+fuelTotal(x),0),gal=f.reduce((a,x)=>a+(+x.gal||0),0);
-  MBShare.open({title:'Share your fuel economy',kicker:isEV(v)?'Efficiency':'Fuel economy',fileName:'auto-fuel-economy.png',date:new Date().toLocaleDateString(undefined,{month:'short',year:'numeric'}),art:shareArt(),
+  MBShare.open({title:'Share your fuel economy',kicker:isEV(v)?'Efficiency':'Fuel economy',fileName:MBUI.fileName('auto','fuel-economy','png'),date:new Date().toLocaleDateString(undefined,{month:'short',year:'numeric'}),art:shareArt(),
     options:[{id:'veh',label:'Show year, make and model',value:false},{id:'money',label:'Show average price',value:false}],
     build:o=>({headline:'Averaging '+(m/g).toFixed(1)+' '+u,sub:(o.veh?vmodel(v):'My '+vkind(v))+' · '+plural(s.length,'full tank')+' since '+monYr(s[0].date),
       stats:[{label:'Best tank',value:best.toFixed(1)+' '+u},{label:'Fill-ups logged',value:String(f.length)},o.money&&gal?{label:'Average price',value:money(spend/gal,2)+'/'+volU(v)}:{label:'Miles on full tanks',value:mi(m)}]})});
@@ -2694,8 +2714,8 @@ const A={
   navMore:()=>moreMenu(),
   shareVeh:d=>shareVehicle(d.id),
   shareFuel:d=>shareFuel(d.id),
-  search:()=>openSearch(),
-  faqAll:()=>{const ds=[...document.querySelectorAll('#faq details')];const open=!ds.every(x=>x.open);ds.forEach(x=>x.open=open);const b=document.querySelector('[data-act=faqAll]');if(b)b.textContent=open?'Collapse all':'Expand all'},
+  search:()=>MBUI.search.open('',$('#searchBtn')),
+  faqAll:()=>{const ds=[...document.querySelectorAll('.help-faq details')];const open=!ds.every(x=>x.open);ds.forEach(x=>x.open=open);const b=document.querySelector('[data-act=faqAll]');if(b)b.textContent=open?'Collapse all':'Expand all'},
   more:d=>{LIM[d.k]+=50;render()},
   edit:d=>{const k=d.k;const x=S[coll[k]].find(r=>r.id===d.id);if(!x)return;({fuel:formFuel,service:formService,repair:formRepair,expense:formExpense})[k](x)},
   editRem:d=>formRem(S.reminders.find(r=>r.id===d.id)),
@@ -2730,12 +2750,14 @@ const A={
   importCsv:()=>$('#csvFile').click(),
   csv:()=>exportAs('csv'),
   sample:async()=>{if(S.vehicles.length&&!await confirmModal({title:'Replace your data with sample data?',msg:'Your current vehicles and records will be replaced with examples. A copy goes to Recently deleted for 30 days.',ok:'Replace data'}))return;const tid=trashFull('Your data, before sample data');OB=null;S=sampleData();save();render();toast('Sample data loaded',tid?()=>trashRestore(tid):null)},
-  wipe:async()=>{if(!await confirmModal({title:'Erase all data?',msg:'This deletes every vehicle and record. A copy stays in Recently deleted for 30 days so you can restore it. To remove it for good, empty Recently deleted afterward.'+(SYNC&&SYNC.status().signedIn?' You’re signed in to sync, so this also erases your synced records on your account and other devices. To erase only this device, sign out first (Data → Sync).':''),ok:'Erase everything',typed:'ERASE'}))return;const tid=trashFull('All data, before erase');const th=S.settings.theme;S=blank();S.settings.theme=th;S.settings.view='settings';save();render();toast('All data erased',tid?()=>trashRestore(tid):null)},
+  wipe:async()=>{const inn=!!(SYNC&&SYNC.status().signedIn);if(!await MBFiles.confirmClear({what:'your vehicles, every fill-up, service, repair, expense, reminder and document, and your Auto settings',synced:inn?'You’re signed in, so the synced copy on your account is deleted too.':'',recoverable:'A copy stays in Recently deleted on this device for 30 days (Settings → Backup & data), so you can still restore it.',note:'Empty Recently deleted afterward to remove it for good.',onBackup:async()=>{const t=localStorage.getItem(BKEY);await saveNow();return localStorage.getItem(BKEY)!==t/* false = not saved, e.g. picker cancelled */}}))return;const tid=trashFull('All data, before erase');const th=S.settings.theme;S=blank();S.settings.theme=th;S.settings.view='settings';save();render();toast('All data erased',tid?()=>trashRestore(tid):null)},
   openFile:d=>openFile(d.id,(d.group||'').split(' ')),
   sync:()=>{closeDataMenu();if(SYNC)SYNC.open()},
   trashRestore:d=>trashRestore(d.id),
   trashEmpty:async()=>{if(!await confirmModal({title:'Empty Recently deleted?',msg:`This permanently removes ${plural(TRASH.length,'item')}. They can’t be restored after this.`,ok:'Empty permanently'}))return;TRASH=[];try{localStorage.removeItem(TKEY)}catch(e){}for(const id of Object.keys(FMETA))FMETA[id].at=0;fileGC().then(render);render();toast('Recently deleted emptied')},
-  notes:()=>{if(S.settings.view!=='help')A.view({v:'help'});const n=$('#notes');if(!n)return;const d=n.querySelector('details');if(d)d.open=true;n.scrollIntoView({block:'start'});const sm=n.querySelector('summary');if(sm)sm.focus({preventScroll:true})},
+  notes:()=>whatsNew(),
+  install:()=>MBInstall.install().then(paintInstall),
+  sampleEmpty:()=>{wClose();render()},
   zip:()=>zipExport(),
   back:()=>A.view({v:['privacy','terms'].includes(PREV)||!PREV?'help':PREV})
 };
@@ -2826,7 +2848,7 @@ function csvDialog(rows){
 $('#csvFile').addEventListener('change',e=>{const f=e.target.files[0];e.target.value='';if(f)csvImportFile(f)});
 
 /* ================= search ================= */
-const SGROUPS=[['vehicle','Vehicles'],['rem','Reminders'],['service','Services'],['repair','Repairs'],['fuel','Fill-ups'],['expense','Expenses']];
+const SGROUPS=[['vehicle','Vehicles'],['rem','Reminders'],['service','Services'],['repair','Repairs'],['fuel','Fill-ups'],['expense','Expenses']];   /* result order */
 function searchItems(){
   const it=[],V=id=>vname(veh(id));
   for(const v of S.vehicles)it.push({k:'vehicle',id:v.id,icon:vIcon(v),t:vname(v),m:[vfull(v),v.plate,v.vin].filter(Boolean).join(' · '),x:[v.notes,v.type,v.fuelType].join(' ')});
@@ -2836,54 +2858,22 @@ function searchItems(){
   for(const e of S.expenses)it.push({k:'expense',id:e.id,icon:'receipt',date:e.date,t:e.category+(e.notes?' · '+e.notes:''),m:[fd(e.date),e.repeat&&e.repeat!=='none'?REPEATS[e.repeat]:'One-time',money(+e.amount||0),V(e.vid)].join(' · '),x:e.date});
   return it;
 }
-function hl(s,toks){s=String(s??'');const low=s.toLowerCase(),mk=new Array(s.length).fill(false);
-  for(const t of toks){let i=0;while(t&&(i=low.indexOf(t,i))>=0){for(let j=i;j<i+t.length;j++)mk[j]=true;i+=t.length}}
-  let out='',on=false;for(let i=0;i<s.length;i++){if(mk[i]!==on){out+=mk[i]?'<mark>':'</mark>';on=mk[i]}out+=esc(s[i])}return out+(on?'</mark>':'')}
-function openSearch(){
-  if(!S.vehicles.length)return;
-  dlg.className='sdlg';dlg.setAttribute('aria-label','Search records');
-  dlg.innerHTML=`<div class="dlg-h" style="gap:10px"><label class="sbox">${ic('search')}<input id="gq" type="search" placeholder="Search services, repairs, fill-ups, expenses…" autocomplete="off" aria-label="Search all records"></label><button class="iconbtn" data-close aria-label="Close">${ic('x')}</button></div><div class="sres" id="gres" role="listbox"></div>`;
-  const q=dlg.querySelector('#gq'),box=dlg.querySelector('#gres'),items=searchItems();let act=0;
-  const paint=()=>{const btns=[...box.querySelectorAll('.sr')];btns.forEach((b,i)=>b.classList.toggle('on',i===act));if(btns[act])btns[act].scrollIntoView({block:'nearest'})};
-  const run=()=>{
-    const toks=q.value.toLowerCase().split(/\s+/).filter(Boolean);act=0;
-    if(!toks.length){box.innerHTML=`<div class="shint">Try <b>oil</b>, <b>brake</b>, a shop name, a year like <b>2025</b>, or an amount.</div>`;return}
-    const hits=items.filter(x=>{const h=(x.t+' '+x.m+' '+x.x).toLowerCase();return toks.every(t=>h.includes(t))});
-    if(!hits.length){box.innerHTML=`<div class="shint">No results for “${esc(q.value.trim())}”.</div>`;return}
-    let html='';
-    for(const[k,label]of SGROUPS){const g=hits.filter(x=>x.k===k).sort((a,b)=>(b.date||'').localeCompare(a.date||''));if(!g.length)continue;
-      html+=`<div class="sgrp">${label} · ${g.length}</div>`+g.slice(0,10).map(x=>`<button class="sr" role="option" data-k="${x.k}" data-id="${esc(x.id)}"><div class="ic">${ic(x.icon)}</div><div class="body"><div class="t">${hl(x.t,toks)}</div><div class="m">${hl(x.m,toks)}</div></div></button>`).join('')+(g.length>10?`<div class="smore">+${g.length-10} more. Add a word to narrow it down.</div>`:'')}
-    box.innerHTML=html;paint();
-  };
-  const open=b=>{const k=b.dataset.k,id=b.dataset.id;dlg.close();if(k==='vehicle')A.pick({id});else if(k==='rem')formRem(S.reminders.find(r=>r.id===id));else A.edit({k,id})};
-  q.addEventListener('input',run);
-  q.addEventListener('keydown',e=>{const btns=box.querySelectorAll('.sr');
-    if(e.key==='ArrowDown'&&btns.length){e.preventDefault();act=Math.min(act+1,btns.length-1);paint()}
-    else if(e.key==='ArrowUp'&&btns.length){e.preventDefault();act=Math.max(act-1,0);paint()}
-    else if(e.key==='Enter'&&btns[act]){e.preventDefault();open(btns[act])}});
-  box.addEventListener('click',e=>{const b=e.target.closest('.sr');if(b)open(b)});
-  dlg.querySelector('[data-close]').onclick=()=>dlg.close();
-  run();dlg.showModal();q.focus();
-}
-document.addEventListener('keydown',e=>{
-  if(document.querySelector('dialog[open]')||!$('#mbw').hidden)return;
-  const tag=(e.target.tagName||'').toLowerCase();const typing=tag==='input'||tag==='textarea'||tag==='select'||e.target.isContentEditable;
-  if((e.key==='/'&&!typing)||((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k')){e.preventDefault();openSearch()}
-});
+/* the shared search (2026-10-17b §4): records first (newest first in each kind), then pages. "/" and Ctrl/Cmd+K open it (mb-ui.js) */
+const KTAG={vehicle:'Vehicle',rem:'Reminder',service:'Service',repair:'Repair',fuel:'Fill-up',expense:'Expense'};
+const SPAGES=[['dash','Home','overview cost per mile'],['maint','Maintenance','service schedule reminders oil'],['fuel','Fuel','mpg fill-ups economy gas charging'],['repairs','Repairs','problems codes quotes warranty'],['costs','Costs','spending expenses insurance loan depreciation'],['history','History','timeline report pdf'],['garage','Garage','vehicles documents glovebox insurance card registration'],['settings','Settings','theme dark light sync backup export import install sample clear'],['help','Help','faq questions how shortcuts']];
+function openHit(x){if(x.k==='vehicle')A.pick({id:x.id});else if(x.k==='rem')formRem(S.reminders.find(r=>r.id===x.id));else A.edit({k:x.k,id:x.id})}
+const later=fn=>()=>setTimeout(fn,0);   /* run after the search window has closed and handed focus back */
+MBUI.search.setup({placeholder:'Search records…',run:q=>{
+  const toks=q.toLowerCase().split(/\s+/).filter(Boolean),out=[];
+  const hits=searchItems().filter(x=>{const h=(x.t+' '+x.m+' '+x.x).toLowerCase();return toks.every(t=>h.includes(t))});
+  for(const[k]of SGROUPS)for(const x of hits.filter(x=>x.k===k).sort((a,b)=>(b.date||'').localeCompare(a.date||'')).slice(0,10))out.push({title:x.t,sub:x.m,tag:KTAG[k],onSelect:later(()=>openHit(x))});
+  const has=S.vehicles.length>0;
+  for(const[v,l,kw]of SPAGES)if((has||v==='dash'||FREEV.includes(v))&&toks.every(t=>(l+' '+kw).toLowerCase().includes(t)))out.push({title:l,sub:'Go to '+l,tag:'Page',onSelect:later(()=>A.view({v}))});
+  if(toks.every(t=>'what’s new whats new release notes version changes'.includes(t)))out.push({title:'What’s new',sub:'Release notes',tag:'Page',onSelect:later(whatsNew)});
+  return out}});
 
 /* ================= FAQ ================= */
 const FAQ=[
- ['Your data',[
-  ['Where is my data stored?','In this browser, on this device. No account is needed, and the app doesn’t send your records anywhere unless you sign in to sync (Data → Sync across devices).<ul><li>Clearing site data or using a private window erases them.</li><li>Save a backup from the <b>Data</b> menu to stay safe.</li></ul>See <b>Privacy</b> in the page footer or below for details.'],
-  ['Can I get back something I deleted?','Yes, for 30 days. Go to Settings → Backup &amp; data → <b>Recently deleted</b> and tap Restore. A deleted vehicle comes back with all its records.'],
-  ['How do I move my records to another phone or computer?','On the old device, open <b>Data → Save backup now</b> (or Export All (JSON)…). On the new device, open <b>Data → Import Backup…</b> and pick that file (a ZIP from Export All (ZIP)… works too). Or sign in to sync on both devices; photos and PDFs then still come over with a backup. If the new device already has records, choose <b>Merge</b> to add what’s missing or <b>Replace</b> for an exact copy.'],
-  ['Where does Save backup now put the file?','The first time, your browser asks where to save it. After that, Save backup now (Ctrl/⌘+S) overwrites that same file in one click. Use <b>Change location…</b> in the Data menu to pick another. Browsers only tell the page the file name, not the full folder path. Firefox, Safari and phones can’t pick a location, so there each backup downloads to Downloads with the date in its name.'],
-  ['Where are my receipts and photos kept?','In this browser’s IndexedDB storage on this device, next to your records. Big phone photos are shrunk to about 2000 pixels first. Backups include every attachment, so a restore on another device brings them along. Clearing site data removes them.'],
-  ['Can I bring in records from a spreadsheet or another app?','Yes. Open <b>Data → Import CSV…</b>, choose whether the rows are fill-ups, services or expenses, and match the columns. A CSV exported from auto.mcbflow.com is recognized automatically. Rows that are already here are skipped, and the whole import can be undone.'],
-  ['How do I show a buyer or mechanic the car’s history?','Open <b>History → Vehicle history report</b>, pick what to include, then choose <b>Save as PDF</b> in the print window. Leave out costs, the plate and notes if you’d rather not share them.'],
-  ['Can I install it like an app?','Yes. In Chrome or Edge, use <b>Install</b> in Settings, or the install icon in the address bar. On iPhone or iPad, tap <b>Share</b>, then <b>Add to Home Screen</b>. It opens in its own window as <b>Auto</b> and works offline after the first visit.'],
-  ['What goes into a Share image?','Only what the preview shows. The image is made on your device and nothing is uploaded. Your vehicle’s year, make and model and any money amounts stay off it unless you switch them on. The plate, VIN, nickname and notes are never included.'],
-  ['Does auto.mcbflow.com use cookies or tracking?','No cookies, analytics or ads. Your records sit in the browser’s local storage. After the page loads, the app makes no network requests unless you sign in to sync.']]],
  ['Fuel',[
   ['How is MPG calculated?','Between two fill-ups marked <b>Filled the tank completely</b>: the miles between those odometer readings divided by all the fuel added since the previous full tank (partial fills included). Partial fill-ups don’t show MPG on their own row.'],
   ['What if I forget to log a fill-up?','On the next one you log, tick <b>I missed logging the previous fill-up</b>. That restarts the calculation so one missing entry doesn’t produce an inflated MPG.']]],
@@ -2899,9 +2889,29 @@ const FAQ=[
   ['What counts toward cost of ownership?','Fuel, services, repairs (except ones marked covered by warranty or insurance, or done before you owned it) and expenses. The purchase price isn’t counted as spending; if you add an estimated current value in Garage, depreciation is shown separately under <b>All time</b>.'],
   ['How is cost per mile worked out?','Total spent in the selected range divided by miles driven in that range. Miles come from every odometer reading you log: fill-ups, services, repairs and odometer updates. The more you log, the more accurate it gets.'],
   ['Why is “Ownership cost” different from cash paid?','Cash paid is what left your pocket. Ownership cost (shown under All time when you’ve entered a purchase price and current value) adds depreciation, the value the vehicle has lost. Loan payments are taken out of that figure because they pay off the same purchase price; counting both would double it. Loan interest is left out too.'],
-  ['How do repeating expenses work?','Enter the first payment date and how often it repeats. Each occurrence counts on its date, up to today or the “Repeat until” date. If the amount changes, set a “Repeat until” date on the old one and add a new expense. Editing the amount changes past payments too.']]]
+  ['How do repeating expenses work?','Enter the first payment date and how often it repeats. Each occurrence counts on its date, up to today or the “Repeat until” date. If the amount changes, set a “Repeat until” date on the old one and add a new expense. Editing the amount changes past payments too.']]],
+ ['Records & reports',[
+  ['Can I bring in records from a spreadsheet or another app?','Yes. Open <b>Data → Import CSV…</b>, choose whether the rows are fill-ups, services or expenses, and match the columns. A CSV exported from auto.mcbflow.com is recognized automatically. Rows that are already here are skipped, and the whole import can be undone.'],
+  ['How do I show a buyer or mechanic the car’s history?','Open <b>History → Vehicle history report</b>, pick what to include, then choose <b>Save as PDF</b> in the print window. Leave out costs, the plate and notes if you’d rather not share them.'],
+  ['What goes into a Share image?','Only what the preview shows. The image is made on your device and nothing is uploaded. Your vehicle’s year, make and model and any money amounts stay off it unless you switch them on. The plate, VIN, nickname and notes are never included.']]],
+ ['Search & shortcuts',[
+  ['How do I find a record?','Press <b>Search</b> in the top bar, or <b>/</b> or <b>Ctrl+K</b>. Type a word (oil, brake, a shop name), a year like 2025 or an amount. It finds vehicles, reminders, services, repairs, fill-ups and expenses, plus the pages of the app. Pick one to open it.'],
+  ['Keyboard shortcuts','<b>/</b> or <b>Ctrl+K</b> searches · <b>Ctrl+S</b> saves a backup · <b>Esc</b> closes a window · <b>Enter</b> opens the row that has focus · the arrow keys move along the fuel economy chart. On a Mac, use ⌘ instead of Ctrl.']]],
+ ['Backups & moving',[
+  ['How do I move my records to another phone or computer?','On the old device, open <b>Data → Save backup now</b> (or Export All (JSON)…). On the new device, open <b>Data → Import Backup…</b> and pick that file (a ZIP from Export All (ZIP)… works too). Or sign in to sync on both devices; photos and PDFs then still come over with a backup. If the new device already has records, choose <b>Merge</b> to add what’s missing or <b>Replace</b> for an exact copy.'],
+  ['Where does Save backup now put the file?','The first time, your browser asks where to save it. After that, Save backup now (Ctrl/⌘+S) overwrites that same file in one click. Use <b>Change location…</b> in the Data menu to pick another. Browsers only tell the page the file name, not the full folder path. Firefox, Safari and phones can’t pick a location, so there each backup downloads to Downloads with the date in its name.']]],
+ ['Install the app',[
+  ['Can I install it like an app?','Yes. In Chrome or Edge, use <b>Install</b> in Settings, or the install icon in the address bar. On iPhone or iPad, tap <b>Share</b>, then <b>Add to Home Screen</b>. It opens in its own window as <b>Auto</b> and works offline after the first visit.'],
+  ['Does it work offline?','Yes, after the first visit. Your records are saved on this device, so you can log fill-ups and services without a connection.']]],
+ ['Your data & privacy',[
+  ['Where is my data stored?','In this browser, on this device. No account is needed, and the app doesn’t send your records anywhere unless you sign in to sync (Data → Sync across devices).<ul><li>Clearing site data or using a private window erases them.</li><li>Save a backup from the <b>Data</b> menu to stay safe.</li></ul>The Privacy page has the details.'],
+  ['Where are my receipts and photos kept?','In this browser’s IndexedDB storage on this device, next to your records. Big phone photos are shrunk to about 2000 pixels first. Backups include every attachment, so a restore on another device brings them along. Clearing site data removes them.'],
+  ['Can I get back something I deleted?','Yes, for 30 days. Go to Settings → Backup &amp; data → <b>Recently deleted</b> and tap Restore. A deleted vehicle comes back with all its records.'],
+  ['Does auto.mcbflow.com use cookies or tracking?','No cookies, analytics or ads. Your records sit in the browser’s local storage. After the page loads, the app makes no network requests unless you sign in to sync.']]]
 ];
-function faqHTML(){return`<div class="card mt faq" id="faq"><div class="card-h"><div><h2>Help & FAQ</h2><div class="sub">How auto.mcbflow.com works</div></div><button class="btn sm ghost" data-act="faqAll">Expand all</button></div>${FAQ.map(([sec,qs])=>`<div class="faq-sec">${esc(sec)}</div>${qs.map(([q,a])=>`<details><summary>${esc(q)}${ic('chev')}</summary><div class="a">${a}</div></details>`).join('')}`).join('')}</div>`}
+const HELP_STEPS=['Add your vehicle: its type, year, make, model and what the odometer says. Auto can add a standard maintenance schedule for it.','Each time you fill up, tap <b>Add entry → Fill-up</b> and log the odometer and the amount. Two full tanks give you your fuel economy.','After a service or repair, log it and tick the reminders it covers. Their countdowns start again from that day and mileage.','Add insurance, registration and loan payments once under <b>Costs</b>, set them to repeat, and see your real cost per mile.','Save a backup from the <b>Data</b> menu now and then, or sign in to sync your devices.'];
+function faqHTML(){return`<section class="mb-set-sec" aria-labelledby="hS"><h2 class="mb-set-h" id="hS">Getting started</h2><div class="mb-set-card pad"><ol class="help-steps">${HELP_STEPS.map(t=>`<li>${t}</li>`).join('')}</ol></div></section>
+  ${FAQ.map(([sec,qs],i)=>`<section class="mb-set-sec" aria-labelledby="hG${i}"><h2 class="mb-set-h" id="hG${i}">${esc(sec)}</h2><div class="mb-set-card faq">${qs.map(([q,a])=>`<details><summary>${esc(q)}${ic('chev')}</summary><div class="a">${a}</div></details>`).join('')}${i===FAQ.length-1?`<p class="help-links"><button class="btn sm" data-act="view" data-v="privacy">Privacy</button><button class="btn sm" data-act="view" data-v="terms">Terms of use</button></p>`:''}</div></section>`).join('')}`}
 
 /* ================= onboarding ================= */
 const OBT=[['Car','Gasoline','Car','car'],['SUV','Gasoline','SUV','car'],['Truck','Gasoline','Truck','truck'],['Motorcycle','Gasoline','Motorcycle','bike'],['Car','Electric','Electric car','car'],['Van','Gasoline','Van','truck']];
@@ -2995,7 +3005,7 @@ function wNext(){
   $('#mbwSkip').addEventListener('click',()=>{wClose();render()});
   w.addEventListener('click',e=>{const t=e.target.closest('[data-wt]');if(t){wType=+t.dataset.wt;w.querySelectorAll('[data-wt]').forEach(b=>b.setAttribute('aria-pressed',String(b===t)));return}
     const b=e.target.closest('[data-mbw]');if(!b)return;const k=b.dataset.mbw;
-    if(k==='sync'){if(SYNC)SYNC.open()}else if(k==='import')importBackup();else if(k==='sample')A.sample();
+    if(k==='sync'){if(SYNC)SYNC.open()}else if(k==='import')importBackup();else if(k==='sample')A.sample();else if(k==='empty')A.sampleEmpty();
     else if(k==='privacy'){wClose();A.view({v:'privacy'})}});
   w.addEventListener('keydown',e=>{
     if(e.key==='Escape'){e.preventDefault();wClose();render();return}

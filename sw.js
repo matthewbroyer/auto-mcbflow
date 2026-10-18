@@ -2,8 +2,8 @@
    Network-first for the app's own files, cache as the offline fallback. Never touches user data
    (localStorage / IndexedDB are not involved), never intercepts non-GET or cross-origin requests.
    BUMP VERSION ON EVERY RELEASE so old cached files are dropped. */
-const VERSION = 'auto-20261016-v1.5';
-const SHELL = ['./', 'index.html', 'manifest.json', 'apple-touch-icon.png', 'favicon.svg', 'favicon.ico', 'mb-title.js', 'mb-install.js', 'mb-share.js', 'mb-sync.js', 'mb-files.js', 'vendor/supabase.js', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png', 'mb-suite-topbar.css'];
+const VERSION = 'auto-20261017-v1.7-ui101';
+const SHELL = ['./', 'index.html', 'manifest.json', 'apple-touch-icon.png', 'favicon.svg', 'favicon.ico', 'mb-title.js', 'mb-install.js', 'mb-share.js', 'mb-sync.js', 'mb-files.js', 'mb-ui.js', 'vendor/supabase.js', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png', 'mb-suite-topbar.css'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));

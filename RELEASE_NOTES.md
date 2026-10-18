@@ -1,6 +1,25 @@
 # Release notes · Auto (auto.mcbflow.com)
 
-Newest first. One entry per release, in plain words a user would understand. The full history is also in the app under Help → Release notes (or What’s new in any page footer).
+Newest first. One entry per release, in plain words a user would understand. The full history is also in the app under What’s new (page footer, Settings › About, or More on phones).
+
+## 1.7 · 2026-10-17
+- **Search** button in the top bar, also before your first vehicle. It works the same in every mcbflow.com app: the button, `/` or Ctrl+K finds fill-ups, services, repairs, expenses, reminders, vehicles and pages, and opens the one you pick.
+- **Help** starts with a few getting-started steps, then short answers grouped by topic, ending with Install and Your data & privacy. Release notes moved to **What's new**, which opens in one window from the page footer, Settings › About and More.
+- The **More** menu on phones is the same in every app: Settings, Repairs, Costs, History, Garage, Help and What's new.
+- **Sample data**: "Start with sample data" or "Start empty" on the welcome screen. While it's loaded, Home says so, with one button to remove it (and Undo).
+- Deleting a vehicle no longer asks first. It goes to Recently deleted, and **Undo** is in the message.
+- Backup files are named the same way in every app, like `auto-backup-2026-10-17.json` and `auto-records-2026-10-17.csv`. Saving a backup with nothing in it just works.
+- Charts use Auto's blue, its lighter tint, a warm ochre and slate gray instead of six different colors. Month labels read like "Apr '25".
+- Home's banner reads "Your vehicles" with the date and one detail. Empty lists say what goes there, with one button to add the first one.
+- Settings says "Changes save as you make them." at the top, and the Install section uses the same words in every app.
+- Messages at the bottom of the screen look the same in every app.
+
+## 1.6 · 2026-10-17
+- Phone bottom bar: Home, Fuel, a big **Add entry** button in the middle, Service and More. Costs moved into More, next to Settings, Repairs, History, Garage and Help. The floating + button is gone on phones, since Add entry is now in the bar. Computers and tablets are unchanged.
+- Clear all data now asks you to type DELETE, the same in every mcbflow.com app (it used to ask for ERASE). It still keeps a copy in Recently deleted for 30 days, offers to save a backup first, and still deletes your synced copy too when you're signed in.
+- Account pop-up spacing fixed.
+- Welcome banner art is no longer cut off on phones.
+- Very long vehicle names and notes wrap instead of pushing the page sideways on phones.
 
 ## 1.5 · 2026-10-16
 - New Settings page, laid out like every other mcbflow.com app: Appearance, Account & sync, Auto settings, Backup & data (with Recently deleted), Install and About. The FAQ, release notes, Privacy and Terms moved to a new Help page next to it (sidebar on computers, More on phones).
